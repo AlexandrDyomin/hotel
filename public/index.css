@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body {
+	margin:0;
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-style: normal;
+	src: local(Montserrat),
+		url("../src/fonts/Montserrat-Regular.woff2") format("woff2"),
+		url("../src/fonts/Montserrat-Regular.woff") format("woff"),
+		url("../src/fonts/Montserrat-Regular.svg") format("svg"),
+		url("../src/fonts/Montserrat-Regular.ttf") format("ttf"),
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-weight: 700;
+	font-style: normal;
+	src: local(Montserrat),
+		url("../src/fonts/Montserrat-Bold.woff2") format("woff2"),
+		url("../src/fonts/Montserrat-Bold.woff") format("woff"),
+		url("../src/fonts/Montserrat-Bold.svg") format("svg"),
+		url("../src/fonts/Montserrat-Bold.ttf") format("ttf"),
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-weight: 700;
+	font-style: normal;
+	src: local(Quicksand),
+		url("../src/fonts/Montserrat-Bold.woff2") format("woff2"),
+		url("../src/fonts/Montserrat-Bold.woff") format("woff"),
+		url("../src/fonts/Montserrat-Bold.svg") format("svg"),
+		url("../src/fonts/Montserrat-Bold.ttf") format("ttf"),
+}
