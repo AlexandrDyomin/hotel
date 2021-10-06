@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+		min-width: 320px;
+		max-width: 1920px;
+		padding: 25px 140px;
+		margin: 0 auto;
+		font-family: Montserrat, Arial, Helvetica, sans-serif;
+		font-size: 19px;
+		font-weight: 400;
+		line-height: 28px;
+		color:#1F2041;
+}
