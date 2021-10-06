@@ -1,0 +1,65 @@
+doctype html
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta( http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+		style
+			include ./index.css
+			include ../src/blocks/header/header.css
+			include ../src/blocks/container/container.css
+			include ../src/blocks/font/font.css
+			include ../src/blocks/color-card/color-card.css
+
+		include ../src/blocks/color-card/color-card.pug
+		include ../src/blocks/logo/logo.pug
+		include ../src/blocks/font/font.pug
+
+		script(src="../src/index.js")
+
+		title UI Kit
+	body
+		header.header
+			.header__container
+				+logo
+		main.main
+			.container
+				section.colors
+					+color-card( { code: "#1F2041", name: "Dark Shade 100%" } )
+					+color-card( { code: "#1F2041", name: "Dark Shade 75%", modifiers: "color-card__square_dark-shade-75" } )
+					+color-card( { code: "#1F2041", name: "Dark Shade 50%", modifiers: "color-card__square_dark-shade-50" } )
+					+color-card( { code: "#1F2041", name: "Dark Shade 25%", modifiers: "color-card__square_dark-shade-25" } )
+					+color-card( { code: "#1F2041", name: "Dark Shade 5%", modifiers: "color-card__square_dark-shade-5" } )
+					+color-card( { code: "#1F2041", name: "Purple", modifier: "color-card__square_purple" } )
+					+color-card( { code: "#1F2041", name: "Green", modifier: "color-card__square_green" } )
+				section.fonts
+					+font( 
+						{ allocation: "h1", 
+						example: "This one is the sub-section orwidget title", 
+						font_modifiers: "font_text-size_xl" 
+						})
+					+font( 
+						{ allocation: "h2", 
+						example: "Next one is the item title inside widgets", 
+						font_modifiers: "font_text-size_lg" 
+						})
+					+font( 
+						{ allocation: "h3", 
+						example: "This is a label or CTA text", 
+						font_modifiers: "font_text-size_md" 
+						})
+					+font( 
+						{ allocation: "body", 
+						example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", 
+						font_modifiers: "font_text-size_sm",
+						font__allocation_modifiers: "font__allocation_uppercase_disabled" 
+						})
+					
+
+
+		
+
+
+
+
