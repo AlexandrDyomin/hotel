@@ -1,0 +1,6 @@
+.header__container  {
+	min-width: 320px;
+	max-width: 1920px;
+	padding: 30px;
+	margin: 0 auto;
+}
