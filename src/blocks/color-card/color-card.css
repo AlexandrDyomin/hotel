@@ -1,30 +1,30 @@
 .color-card {
-    display: flex;
-    align-items: center;
+		display: flex;
+		align-items: center;
 	padding: 10px;
 }
 
 .color-card__square {
-    background: #1F2041;
-    height: 70px;
-    width: 70px;
-    border-radius: 6px; 
-    margin-right: 40px;
+		background: #1F2041;
+		height: 70px;
+		width: 70px;
+		border-radius: 6px; 
+		margin-right: 40px;   	
 }
 
-.color-card__square_dark-shade-75{
+.color-card__square_dark-shade_75{
 	background: #1F2041BF;
 }
 
-.color-card__square_dark-shade-50{
+.color-card__square_dark-shade_50{
 	background: #1F204180;
 }
 
-.color-card__square_dark-shade-25{
+.color-card__square_dark-shade_25{
 	background: #1F204140;
 }
 
-.color-card__square_dark-shade-5{
+.color-card__square_dark-shade_5{
 	background: #1F20410A;
 }
 
