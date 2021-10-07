@@ -1,29 +1,37 @@
 .font_text-size_xl {
-	font-size: 24px;
-	line-height: 29px;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .font_text-size_lg {
-	font-size: 19px;
-	line-height: 23px;
+  font-size: 19px;
+  line-height: 23px;
 }
 
 .font_text-size_md {
-	font-size: 12px;
-	line-height: 15px;
-	text-transform: uppercase;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
 }
 
 .font_text-size_sm {
-	font-size: 14px;
-	line-height: 24px;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .font__allocation {
-	text-transform: uppercase;
-	color:#1F204140;
+  text-transform: uppercase;
+  color:#1F204140;
 }
 
 .font__allocation_uppercase_disabled {
-	text-transform: none;
+  text-transform: none;
+}
+
+.font__example_dark-shade_75 {
+  color: #1F2041BF;
+}
+
+.font__example_bold {
+  font-weight: 700;
 }
