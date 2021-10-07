@@ -1,3 +1,23 @@
+.font {
+  padding: 10px;
+  padding-bottom: 41px;
+}
+
+.font__allocation {
+  display: inline-block;
+  width: 37px;
+  text-transform: uppercase;
+  color:#1F204140;
+  vertical-align: top;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.font__example {
+  display: inline-block;
+}
+
+/* Модификаторы размера текста */
 .font_text-size_xl {
   font-size: 24px;
   line-height: 29px;
@@ -19,19 +39,34 @@
   line-height: 24px;
 }
 
-.font__allocation {
-  text-transform: uppercase;
-  color:#1F204140;
-}
-
+/* Модификатор регистра */
 .font__allocation_uppercase_disabled {
   text-transform: none;
 }
 
+/* Модификатор цвета текста */
 .font__example_dark-shade_75 {
   color: #1F2041BF;
 }
 
+/* Модификатор жирности текста */
 .font__example_bold {
   font-weight: 700;
+}
+
+/* Модификаторы размеров контейнеров с текстом*/
+.font__example_container-size_xl {
+  max-width: 369px;
+}
+
+.font__example_container-size_lg {
+  max-width: 312px;
+}
+
+.font__example_container-size_md {
+  max-width: 301px;
+}
+
+.font__example_container-size_sm {
+  max-width: 186px;
 }
