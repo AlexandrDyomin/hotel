@@ -1,42 +1,41 @@
 .font {
   padding: 10px;
   padding-bottom: 41px;
-}
-
-.font__allocation {
-  display: inline-block;
-  width: 37px;
-  text-transform: uppercase;
-  color:#1F204140;
-  vertical-align: top;
-  text-align: right;
-  margin-right: 30px;
-}
-
-.font__example {
-  display: inline-block;
+  &__allocation {
+    display: inline-block;
+    width: 37px;
+    text-transform: uppercase;
+    color:#1F204140;
+    vertical-align: top;
+    text-align: right;
+    margin-right: 30px;
+  }
+  &__example {
+    display: inline-block;
+  }
 }
 
 /* Модификаторы размера текста */
+@mixin text-size( $font-size, $line-height, $text-transform: none ) {
+  font-size: $font-size;
+  line-height: $line-height;
+  text-transform: $text-transform;
+}
+
 .font_text-size_xl {
-  font-size: 24px;
-  line-height: 29px;
+  @include text-size( 24px, 29px );
 }
 
 .font_text-size_lg {
-  font-size: 19px;
-  line-height: 23px;
+  @include text-size( 19px, 23px )
 }
 
 .font_text-size_md {
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
+  @include text-size( 12px, 15px, uppercase )
 }
 
 .font_text-size_sm {
-  font-size: 14px;
-  line-height: 24px;
+  @include text-size( 14px, 24px )
 }
 
 /* Модификатор регистра */
@@ -54,7 +53,7 @@
   font-weight: 700;
 }
 
-/* Модификаторы размеров контейнеров с текстом*/
+/* Модификаторы размеров контейнера с текстом*/
 .font__example_container-size_xl {
   max-width: 369px;
 }
