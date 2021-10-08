@@ -8,6 +8,7 @@ html(lang="ru")
     include ../src/blocks/color-card/color-card.pug
     include ../src/blocks/logo/logo.pug
     include ../src/blocks/font/font.pug
+    include ../src/blocks/text-field/text-field.pug
 
     script(src="../src/index.js")
 
@@ -53,3 +54,14 @@ html(lang="ru")
             font__example_modifiers: "font__example_dark-shade_75" ,
             font__example_modifiers: "font__example_container-size_md"
             })
+
+          label.label
+            span.label__text text field
+            +text-field(
+              { type: "email",
+                name: "email",
+                placeholder: "email"
+              }
+            )
+
+

@@ -2,6 +2,7 @@
   display: flex;
 	align-items: center;
 	padding: 10px;
+
 	&__square {
 		background: #1F2041;
 		height: 70px;
@@ -9,6 +10,7 @@
 		border-radius: 6px; 
 		margin-right: 40px;   	
 	}	
+	
 	&__name {
 		font-weight: 700;	
 	}
