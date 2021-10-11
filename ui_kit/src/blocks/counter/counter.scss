@@ -1,0 +1,34 @@
+.counter {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  
+  text-transform: uppercase;
+}
+
+.container__inner {
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter__container-left {
+  display:flex;
+  align-items: center;
+}
+
+.counter__button-minus, .counter__button-plus  {
+  color: #1F204180;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #1F204140;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.counter__display {
+  margin: 0 10px;
+}

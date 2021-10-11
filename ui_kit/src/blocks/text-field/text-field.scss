@@ -19,3 +19,12 @@
   border-color: #1F204180;
   outline: none;
 }
+
+.text-field_border-bottom-radius_disabled {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.text-field_cursor_pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+
+mixin counter( options )  
+  .counter
+    .container__inner
+      .counter__container-right 
+        span.counter__categoty=options.category
+      .counter__container-left   
+        button.counter__button-minus -
+        span.counter__display 1
+        button.counter__button-plus +

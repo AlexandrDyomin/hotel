@@ -1,0 +1,28 @@
+include ../counter/counter.pug
+
+mixin dropdown-list(options)
+  .dropdown-list 
+    +text-field(options)
+    .dropdown__hidden-fields
+      +text-field( { type: "text", name: "number-adults" } )
+      br
+      +text-field( { type: "text", name: "number-children" } )
+      br
+      +text-field( { type: "text", name: "number-babies" } )
+    .dropdown-list__bottom
+      +counter( { category: "Взрослые" } )
+      +counter( { category: "Дети" } )
+      +counter( { category: "Младенцы" } )
+      .dropdown-list__buttons
+        button.dropdown-list__clear Очистить
+        button.dropdown-list__apply Применить
+        
+
+
+
+
+
+
+      
+   
+      
