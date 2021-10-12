@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin:0;
-}
-
 @font-face {
   font-family: Montserrat;
   font-weight: 400;
@@ -17,9 +13,9 @@ body {
     url("../src/fonts/Montserrat-Regular.woff2") format("woff2"),
     url("../src/fonts/Montserrat-Regular.woff") format("woff"),
     url("../src/fonts/Montserrat-Regular.svg") format("svg"),
-    url("../src/fonts/Montserrat-Regular.ttf") format("ttf"),
+    url("../src/fonts/Montserrat-Regular.ttf") format("ttf");
 }
-
+  
 @font-face {
   font-family: Montserrat;
   font-weight: 700;
@@ -29,7 +25,7 @@ body {
     url("../src/fonts/Montserrat-Bold.woff2") format("woff2"),
     url("../src/fonts/Montserrat-Bold.woff") format("woff"),
     url("../src/fonts/Montserrat-Bold.svg") format("svg"),
-    url("../src/fonts/Montserrat-Bold.ttf") format("ttf"),
+    url("../src/fonts/Montserrat-Bold.ttf") format("ttf");
 }
 
 @font-face {
@@ -37,9 +33,20 @@ body {
   font-weight: 700;
   font-style: normal;
   src: 
-    local(Quicksand),
+  local(Quicksand),
     url("../src/fonts/Montserrat-Bold.woff2") format("woff2"),
     url("../src/fonts/Montserrat-Bold.woff") format("woff"),
     url("../src/fonts/Montserrat-Bold.svg") format("svg"),
-    url("../src/fonts/Montserrat-Bold.ttf") format("ttf"),
+    url("../src/fonts/Montserrat-Bold.ttf") format("ttf");
 }
+
+@import 
+  "../src/blocks//body/body.scss",
+  "../src/blocks/color-card/color-card.scss",
+  "../src/blocks/font/font.scss",
+  "../src/blocks/header/header.scss",
+  "../src/blocks/container/container.scss",
+  "../src/blocks/text-field/text-field.scss",
+  "../src/blocks/label/label.scss",
+  "../src/blocks/dropdown/dropdown.scss",
+  "../src/blocks/counter/counter.scss";

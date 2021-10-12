@@ -11,10 +11,13 @@ html(lang="ru")
     include ../src/blocks/text-field/text-field.pug
     include ../src/blocks/dropdown/dropdown.pug
 
-    script(src="../src/index.js")
+    link(rel="stylesheet" href="./index.scss")
+
+    script
+      include ../src/blocks/body/body.js
 
     title UI Kit
-  body
+  body.body(onload="loadPage()")
     header.header
       .header__container
         +logo
@@ -71,3 +74,4 @@ html(lang="ru")
             readonly: "readonly" 
           } )
 
+    
