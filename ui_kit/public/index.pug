@@ -13,9 +13,6 @@ html(lang="ru")
 
     link(rel="stylesheet" href="./index.scss")
 
-    script
-      include ../src/blocks/body/body.js
-
     title UI Kit
   body.body(onload="loadPage()")
     header.header
@@ -59,19 +56,33 @@ html(lang="ru")
             font__example_modifiers: "font__example_container-size_md"
             })
 
-      label.label
-        span.label__text text field
-        +text-field( { type: "email", name: "email", placeholder: "email" } )
+          label.label
+            span.label__text text field
+          +text-field( { type: "email", name: "email", placeholder: "email" } )
 
-      label.label
-        span.label__text Dropdown
-        +dropdown-list( 
-          { 
-            type: "text", 
-            name: "number-guests", 
-            placeholder: "Сколько гостей", 
-            modifiers: [ "text-field_border-bottom-radius_disabled", "text-field_cursor_pointer" ],
-            readonly: "readonly" 
-          } )
+          label.label
+            span.label__text Dropdown
+          +dropdown-list( 
+            { 
+              type: "text", 
+              name: "number-guests", 
+              placeholder: "Сколько гостей", 
+              modifiers: "text-field_cursor_pointer" ,
+              readonly: "readonly" 
+            } )
+
+
+
+         
+
+          
+
+     
+    
+    
+    script
+      include ../src/blocks/body/body.js
+      include ../src/blocks/dropdown/dropdown.js
+
 
     

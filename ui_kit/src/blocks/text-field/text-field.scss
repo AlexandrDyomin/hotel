@@ -9,22 +9,25 @@
   font-weight: 400;
   line-height: 18px;
   color: #1F2041BF;
+
+  &::placeholder {
+    color: #1F204180;
+  }
+  
+  &:hover, 
+  &:focus {
+    border-color: #1F204180;
+    outline: none;
+  }
 }
 
-.text-field::placeholder {
-  color: #1F204180;
-}
-
-.text-field:hover, .text-field:focus {
-  border-color: #1F204180;
-  outline: none;
-}
-
+// Модификатор границы элемента
 .text-field_border-bottom-radius_disabled {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
+// Модификатор указателя курсора
 .text-field_cursor_pointer {
   cursor: pointer;
 }
