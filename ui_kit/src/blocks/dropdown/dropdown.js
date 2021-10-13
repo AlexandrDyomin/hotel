@@ -12,9 +12,18 @@ const handleTextFieldBlur = ( e ) => {
   elem.style.transform=`translateY( -100% )`;
 
   elem = document.querySelector( ".dropdown-list" ).children[0];
-  elem.classList.remove( "text-field_border-bottom-radius_disabled" );
-  elem.style.borderColor="#1F204140";
+  elem.classList.remove( "text-field_border-bottom-radius_disabled" ); 
+  // elem.style.borderColor="#1F204140";
+  elem.style.removeProperty("border-color");
 }
+
+
+
+
+
+
+
+
 
 const handleContainerMouseDown = ( e ) => {
   let elem = document.querySelector( ".dropdown-list" ).children[0];
