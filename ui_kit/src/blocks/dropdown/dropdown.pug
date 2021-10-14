@@ -1,17 +1,17 @@
 include ../counter/counter.pug
 
-mixin dropdown-list(options)
-  .dropdown-list
+mixin dropdown(options)
+  .dropdown
     +text-field(options)
-    .dropdown-list__container
-      .dropdown-list__bottom
+    .dropdown__container
+      .dropdown__list
         +counter( { category: "Взрослые" } )
         +counter( { category: "Дети" } )
         +counter( { category: "Младенцы" } )
-        .dropdown-list__buttons
-          button.dropdown-list__clear Очистить
-          button.dropdown-list__apply Применить
-    .dropdown-list__hidden-fields
+        .dropdown__buttons
+          button.dropdown__button-clear Очистить
+          button.dropdown__button-apply Применить
+    .dropdown__hidden-fields
       +text-field( { type: "text", name: "number-adults" } )
       br
       +text-field( { type: "text", name: "number-children" } )

@@ -1,51 +1,51 @@
+// ОБРАБОТЧИКИ СОБЫТИЙ
 const handleTextFieldFocus = ( e ) => {
-  let elem = document.querySelector( ".dropdown-list__bottom" );
-  elem.style.transform="translateY( 0% )";
+  let elem = document.querySelector( ".dropdown__list" );
 
-  elem = document.querySelector( ".dropdown-list" ).children[0];
-  elem.classList.add( "text-field_border-bottom-radius_disabled" );
-  elem.style.borderColor="#1F204180";
+  // раскрываем список
+  elem.style.transform = "translateY( 0% )";
+
+  // стилизуем границы элемента
+  elem = document.querySelector( ".dropdown" ).children[0];
+  let modifier = "text-field_border-bottom-radius_disabled";
+  elem.classList.add( modifier );
+  elem.style.borderColor = "#1F204180";
 }
 
 const handleTextFieldBlur = ( e ) => {
-  let elem = document.querySelector( ".dropdown-list__bottom" );
-  elem.style.transform=`translateY( -100% )`;
+  let elem = document.querySelector( ".dropdown__list" );
 
-  elem = document.querySelector( ".dropdown-list" ).children[0];
-  elem.classList.remove( "text-field_border-bottom-radius_disabled" ); 
-  // elem.style.borderColor="#1F204140";
-  elem.style.removeProperty("border-color");
+  // скрываем список
+  elem.style.transform = "translateY( -110% )";
+
+  // стилизуем границы элемента
+  setTimeout(
+    ()=>{
+      elem = document.querySelector( ".dropdown" ).children[0];
+      let modifier = "text-field_border-bottom-radius_disabled";
+      elem.classList.remove( modifier ); 
+      elem.style.removeProperty( "border-color" ); 
+    }, 
+    300
+  );
 }
 
-
-
-
-
-
-
-
-
-const handleContainerMouseDown = ( e ) => {
-  let elem = document.querySelector( ".dropdown-list" ).children[0];
+const handleContainerMouseEnter = ( e ) => {
+  let elem = document.querySelector( ".dropdown" ).children[0];
   elem.removeEventListener( 'blur', handleTextFieldBlur );
 }
 
-const handleContainerMouseUp = ( e ) => {
-  let elem = document.querySelector( ".dropdown-list" ).children[0];
+const handleContainerMouseLeave = ( e ) => {
+  let elem = document.querySelector( ".dropdown" ).children[0];
   elem.addEventListener( 'blur', handleTextFieldBlur );
   elem.focus();
 }
 
-let elem = document.querySelector( ".dropdown-list" ).children[0];
+// ДОБАВЛЯЕМ ОБРАБОТЧИКИ СОБЫТИЙ
+let elem = document.querySelector( ".dropdown" ).children[0];
 elem.addEventListener( "focus", handleTextFieldFocus );
 elem.addEventListener( "blur", handleTextFieldBlur );
 
-elem = document.querySelector( ".dropdown-list__container" );
-elem.addEventListener( "mousedown", handleContainerMouseDown );
-elem.addEventListener( "mouseup", handleContainerMouseUp );
-
-
-
-
-
-
+elem = document.querySelector( ".dropdown__list" )
+elem.addEventListener( "mouseenter", handleContainerMouseEnter );
+elem.addEventListener( "mouseleave", handleContainerMouseLeave );
