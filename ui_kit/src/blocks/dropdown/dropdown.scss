@@ -39,6 +39,10 @@
     cursor: pointer;
   }
 
+  &__button-clear {
+    visibility: hidden;
+  }
+
   &__hidden-fields {
     display:none;
   }

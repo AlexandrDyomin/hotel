@@ -5,6 +5,6 @@ mixin counter( options )
       .counter__container-right 
         span.counter__categoty=options.category
       .counter__container-left   
-        button.counter__button-minus -
+        button.counter__button-minus( "disabled" ) -
         span.counter__display 0
         button.counter__button-plus +
