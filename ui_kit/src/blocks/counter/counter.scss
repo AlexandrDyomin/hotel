@@ -23,9 +23,17 @@
     border-radius: 50%;
     cursor: pointer;
   }
+
+  &__button-minus {
+      border-color: #1F20410A;
+      color: #1F20410A;
+  }
   
   &__display {
-    margin: 0 10px;
+    margin: 0 5px;
+    display:inline-block;
+    width: 15px;
+    text-align: center;
   }
 }
 

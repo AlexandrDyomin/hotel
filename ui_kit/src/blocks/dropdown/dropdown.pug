@@ -10,7 +10,7 @@ mixin dropdown(options)
         +counter( { category: "Младенцы" } )
         .dropdown__buttons
           button.dropdown__button-clear Очистить
-          button.dropdown__button-apply Применить
+          button.dropdown__button-apply( "disabled" ) Применить
     .dropdown__hidden-fields
       +text-field( { type: "text", name: "number-adults" } )
       br
