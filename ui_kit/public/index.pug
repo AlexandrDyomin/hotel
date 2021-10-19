@@ -2,7 +2,7 @@ doctype html
 html(lang="ru")
   head
     meta(charset="UTF-8")
-    meta( http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
     include ../src/blocks/color-card/color-card.pug
@@ -11,10 +11,10 @@ html(lang="ru")
     include ../src/blocks/text-field/text-field.pug
     include ../src/blocks/dropdown/dropdown.pug
 
-    link(rel="stylesheet" href="./index.scss")
+    script(defer src="../src/index.js") 
 
     title UI Kit
-  body.body(onload="loadPage()")
+  body.body
     header.header
       .header__container
         +logo
@@ -71,19 +71,13 @@ html(lang="ru")
               readonly: "readonly" 
             } )
 
-
-
-         
-
-          
-
-     
-    
-    
-    script
-      include ../src/blocks/body/body.js
-      include ../src/blocks/dropdown/dropdown.js
-      include ../src/blocks/counter/counter.js
-
-
-    
+  label.label
+    span.label__text Dropdown
+  +dropdown( 
+    { 
+      type: "text", 
+      name: "number-guests", 
+      placeholder: "Сколько госте", 
+      modifiers: "text-field_cursor_pointer" ,
+      readonly: "readonly" 
+    } )

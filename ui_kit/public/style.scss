@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.body {
+  margin:0;
+}
+
 @font-face {
   font-family: Montserrat;
   font-weight: 400;
@@ -41,7 +45,6 @@
 }
 
 @import 
-  "../src/blocks//body/body.scss",
   "../src/blocks/color-card/color-card.scss",
   "../src/blocks/font/font.scss",
   "../src/blocks/header/header.scss",

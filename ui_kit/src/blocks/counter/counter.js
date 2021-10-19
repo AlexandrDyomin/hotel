@@ -24,6 +24,7 @@ const findChild = ( initialElem, className ) => {
   }
   return null;
 }
+export default findChild;
 
 // возвращает слово "гость" в нужном склонении
 const getLastWord = ( number ) => {

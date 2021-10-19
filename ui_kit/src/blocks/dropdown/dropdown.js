@@ -1,30 +1,26 @@
+import findChild from "../counter/counter";
 // ОБРАБОТЧИКИ СОБЫТИЙ
 const handleTextFieldFocus = ( e ) => {
-  let elem = document.querySelector( ".dropdown__list" );
-
   // раскрываем список
-  elem.style.transform = "translateY( 0% )";
+  let dropdownList = findChild(e.currentTarget.nextElementSibling, "dropdown__list");  
+  dropdownList.style.transform = "translateY( 0% )";
 
-  // стилизуем границы элемента
-  elem = document.querySelector( ".dropdown" ).children[0];
+  // стилизуем границы текстового поля
   let modifier = "text-field_border-bottom-radius_disabled";
-  elem.classList.add( modifier );
-  elem.style.borderColor = "#1F204180";
+  e.currentTarget.classList.add( modifier );
 }
 
 const handleTextFieldBlur = ( e ) => {
-  let elem = document.querySelector( ".dropdown__list" );
-
   // скрываем список
-  elem.style.transform = "translateY( -110% )";
-
+  let dropdownList = findChild(e.currentTarget.nextElementSibling, "dropdown__list");  
+  dropdownList.style.transform = "translateY( -110% )";
+  
+  let textField = e.currentTarget;
   // стилизуем границы элемента
   setTimeout(
-    ()=>{
-      elem = document.querySelector( ".dropdown" ).children[0];
+    () => {
       let modifier = "text-field_border-bottom-radius_disabled";
-      elem.classList.remove( modifier ); 
-      elem.style.removeProperty( "border-color" ); 
+      textField.classList.remove( modifier ); 
     }, 
     300
   );
