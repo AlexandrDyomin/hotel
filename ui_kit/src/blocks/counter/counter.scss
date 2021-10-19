@@ -27,6 +27,13 @@
   &__button-minus {
       border-color: #1F20410A;
       color: #1F20410A;
+      &_border_dark-shade-25 {
+        border-color: #1F204140;
+      }
+      &_text_dark-shade-50 {
+        color: #1F204180;
+      }
+
   }
   
   &__display {
@@ -35,5 +42,6 @@
     width: 15px;
     text-align: center;
   }
+
 }
 

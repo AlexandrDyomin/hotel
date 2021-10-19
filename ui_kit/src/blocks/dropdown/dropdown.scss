@@ -41,10 +41,14 @@
 
   &__button-clear {
     visibility: hidden;
+
+    &_visibility_visible {
+      visibility: visible;
+    }
   }
 
   &__hidden-fields {
-    // display:none;
+    display:none;
   }
 }
 

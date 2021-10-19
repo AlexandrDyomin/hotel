@@ -31,21 +31,31 @@ const handleTextFieldBlur = ( e ) => {
 }
 
 const handleContainerMouseEnter = ( e ) => {
+  // удаляем обработчик
   let elem = document.querySelector( ".dropdown" ).children[0];
   elem.removeEventListener( 'blur', handleTextFieldBlur );
 }
 
 const handleContainerMouseLeave = ( e ) => {
+  // добавляем обработчик
   let elem = document.querySelector( ".dropdown" ).children[0];
   elem.addEventListener( 'blur', handleTextFieldBlur );
   elem.focus();
 }
 
 // ДОБАВЛЯЕМ ОБРАБОТЧИКИ СОБЫТИЙ
-let elem = document.querySelector( ".dropdown" ).children[0];
-elem.addEventListener( "focus", handleTextFieldFocus );
-elem.addEventListener( "blur", handleTextFieldBlur );
+let elem = document.querySelectorAll( ".dropdown" );
+elem.forEach(
+  elem => {
+    elem.firstElementChild.addEventListener( "focus", handleTextFieldFocus );
+    elem.firstElementChild.addEventListener( "blur", handleTextFieldBlur );   
+  }
+);
 
-elem = document.querySelector( ".dropdown__list" )
-elem.addEventListener( "mouseenter", handleContainerMouseEnter );
-elem.addEventListener( "mouseleave", handleContainerMouseLeave );
+elem = document.querySelectorAll( ".dropdown__list" )
+elem.forEach(
+  elem => {
+    elem.addEventListener( "mouseenter", handleContainerMouseEnter );
+    elem.addEventListener( "mouseleave", handleContainerMouseLeave );
+  }
+);
