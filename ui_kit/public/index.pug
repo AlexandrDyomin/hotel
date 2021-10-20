@@ -14,7 +14,7 @@ html(lang="ru")
     script(defer src="../src/index.js") 
 
     title UI Kit
-  body.body
+  body().body
     header.header
       .header__container
         +logo
@@ -67,17 +67,6 @@ html(lang="ru")
               type: "text", 
               name: "number-guests", 
               placeholder: "Сколько гостей", 
-              modifiers: "text-field_cursor_pointer" ,
+              modifiers: "text-field_cursor_pointer",
               readonly: "readonly" 
             } )
-
-  label.label
-    span.label__text Dropdown
-  +dropdown( 
-    { 
-      type: "text", 
-      name: "number-guests", 
-      placeholder: "Сколько госте", 
-      modifiers: "text-field_cursor_pointer" ,
-      readonly: "readonly" 
-    } )

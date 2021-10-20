@@ -4,7 +4,7 @@ mixin dropdown(options)
   .dropdown
     +text-field(options)
     .dropdown__container
-      .dropdown__list
+      .dropdown__list.dropdown__list_closed
         +counter( { category: "Взрослые" } )
         +counter( { category: "Дети" } )
         +counter( { category: "Младенцы" } )
