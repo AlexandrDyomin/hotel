@@ -2,16 +2,14 @@ include ../counter/counter.pug
 
 mixin dropdown(options)
   .dropdown
-    +text-field(options)
+    +text-field(options.textField)
     .dropdown__container
-      .dropdown__list.dropdown__list_closed       
-        +counter( { category: options.category.one } )
-        +counter( { category: options.category.two } )
-        +counter( { category: options.category.three } )     
+      .dropdown__list.dropdown__list_closed  
+        each obj in options.counters
+          +counter( obj )        
         .dropdown__buttons(class=options.buttonsModifiers)
           button.dropdown__button-clear Очистить
           button.dropdown__button-apply( "disabled") Применить
     .dropdown__hidden-fields
-      +text-field( { type: "text", name: "number-adults" } )
-      +text-field( { type: "text", name: "number-children" } )
-      +text-field( { type: "text", name: "number-babies" } )
+      each obj in options.hiddenTextFilds
+        +text-field( obj )

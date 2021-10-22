@@ -62,25 +62,53 @@ html(lang="ru")
 
           label.label
             span.label__text Dropdown
-          +dropdown( 
-            { 
-              type: "text", 
-              name: "number-guests", 
-              placeholder: "Сколько гостей", 
-              modifiers: "text-field_cursor_pointer",
-              readonly: true,
-              category: { one: "Взрослые", two: "Дети", three: "Младенцы" }
-            } )
+            +dropdown( 
+              { 
+                textField: {
+                  type: "text", 
+                  name: "number-guests", 
+                  placeholder: "Сколько гостей", 
+                  modifiers: "text-field_cursor_pointer",
+                  readonly: true,
+              },
+
+                counters: [
+                  { category: "Взрослые" },
+                  { category: "Дети" },
+                  { category: "Младенцы" }
+                ],
+
+                hiddenTextFilds: [ 
+                  { type: "text", name: "number-adults" }, 
+                  { type: "text", name: "number-children" }, 
+                  { type: "text", name: "number-babies" } 
+                ]
+              } 
+            )
 
           label.label
             span.label__text Dropdown
-          +dropdown( 
-            { 
-              type: "text", 
-              name: "number-guests", 
-              placeholder: "Сколько гостей", 
-              modifiers: "text-field_cursor_pointer",
-              buttonsModifiers: "dropdown__buttons_hidden",
-              readonly: true,
-              category: { one: "Спальни", two: "Кровати", three: "Ванные" }
-            } )
+            +dropdown( 
+              { 
+                textField: {
+                  type: "text", 
+                  name: "number-bedrooms", 
+                  placeholder: "Сколько спален", 
+                  modifiers: "text-field_cursor_pointer",
+                  buttonsModifiers: "dropdown__buttons_hidden",
+                  readonly: true
+                },
+                
+                counters: [
+                  { category: "Спальни" },
+                  { category: "Кровати" },
+                  { category: "Ванные" }
+                ],
+
+                hiddenTextFilds: [ 
+                  { type: "text", name: "number-bedrooms" }, 
+                  { type: "text", name: "number-beds" }, 
+                  { type: "text", name: "number-bathrooms" } 
+                ]
+              } 
+            )
