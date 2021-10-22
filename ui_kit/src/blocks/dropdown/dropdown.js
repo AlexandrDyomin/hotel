@@ -163,23 +163,23 @@ addHandler(
   "blur"
 );
 
-addHandler(
-  textFields,
-  handleTextFieldClick,
-  "click"
-);
+// addHandler(
+//   textFields,
+//   handleTextFieldClick,
+//   "click"
+// );
 
-addHandler(
-  [ document.body ],
-  handleBodyClick,
-  "click"
-);
+// addHandler(
+//   [ document.body ],
+//   handleBodyClick,
+//   "click"
+// );
 
-addHandler(
-  document.querySelectorAll(".dropdown"),
-  handleDropdownClick,
-  "click"
-);
+// addHandler(
+//   document.querySelectorAll(".dropdown"),
+//   handleDropdownClick,
+//   "click"
+// );
 
 addHandler(
   document.querySelectorAll( ".dropdown__list" ),

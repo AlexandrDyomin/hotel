@@ -71,7 +71,7 @@ const handleButtonPlusClick = ( e ) => {
 
     // отображаем кнопку "Очистить"
     let btnClear = btnApply.previousElementSibling;
-    btnClear.classList.toggle( "dropdown__button-clear_visibility_visible" );
+    btnClear.classList.toggle( "dropdown__button-clear_visible" );
   }
 
   // устанавливаем лимит для счетчика
@@ -82,31 +82,76 @@ const handleButtonPlusClick = ( e ) => {
   }
 }
 
+// уменьшает значение счетчика
+const updateCounterValue = ( e, counterValue ) => {
+  let display = e.currentTarget.nextElementSibling;
+  display.innerText = counterValue;
+  return counterValue;
+}
+
+// возвращает значение счетчика
+const getCounterValue = ( e ) => {
+  let display = e.currentTarget.nextElementSibling;
+  return Number( display.innerText );
+}
+
+// добавляет к элементу модификаторы
+// удаляет модификаторы, если они уже заданы
+const changeAppearance = ( element, ...modificators ) => {
+  modificators.forEach( mod => element.classList.toggle( mod ) );
+}
+// возвращает число, содержащееся в свойстве value элемента
+const getNumber1 = ( element ) => {
+  // получаем список всех цифр 
+  let value = element.value;
+  let digits = value.match( /[0-9]/g );
+
+  // склеиваем эти цифры в одно число
+  let number = "";
+  digits.forEach( digit => number += digit );
+  return Number( number );
+}
+
 const handleButtonMinusClick = ( e ) => {
-   // получаем значение счетчика
-  let btnMinus = e.currentTarget;
-  let display = btnMinus.nextElementSibling;
-  let counterValue = Number( display.innerText );
+  //  // получаем значение счетчика
+  // let btnMinus = e.currentTarget;
+  // let display = btnMinus.nextElementSibling;
+  // let counterValue = Number( display.innerText );
+  // if ( counterValue > 0 ) {
+  //   // уменьшаем значение счетчика на 1
+  //   counterValue--;
+  //   display.innerText = counterValue;
+  // }
+
+  let counterValue = getCounterValue( e );
   if ( counterValue > 0 ) {
-    // уменьшаем значение счетчика на 1
-    counterValue--;
-    display.innerText = counterValue;
+      // уменьшаем значение счетчика на 1
+      updateCounterValue( e, --counterValue );
   }
 
-   
-
+  let btnMinus = e.currentTarget;
+  counterValue = getCounterValue( e ); 
   if ( counterValue === 0 ) {
     // меняем цвет границы и текста у кнопки "-". 
-    btnMinus.classList.toggle( "counter__button-minus_border_dark-shade-25" );
-    btnMinus.classList.toggle( "counter__button-minus_text_dark-shade-50" );
+    // btnMinus.classList.toggle( "counter__button-minus_border_dark-shade-25" );
+    // btnMinus.classList.toggle( "counter__button-minus_text_dark-shade-50" );
+
+    changeAppearance(
+      btnMinus, 
+      "counter__button-minus_border_dark-shade-25", 
+      "counter__button-minus_text_dark-shade-50" 
+    );
     // Деактивируем кнопку
     btnMinus.disabled = true;
   }
 
   // получаем предыдущее количество гостей
+  // let textField = scan.findParent( btnMinus, "dropdown" ).firstElementChild; 
+  // let match = findDigits( textField.value );
+  // let numberGuests = getNumber( match );
+
   let textField = scan.findParent( btnMinus, "dropdown" ).firstElementChild; 
-  let match = findDigits( textField.value );
-  let numberGuests = getNumber( match );
+  let numberGuests = getNumber1( textField );
   if ( numberGuests === 1 ) {
     // очищаем текстовое поле
     textField.value = "";
