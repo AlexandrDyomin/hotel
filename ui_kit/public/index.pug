@@ -68,5 +68,19 @@ html(lang="ru")
               name: "number-guests", 
               placeholder: "Сколько гостей", 
               modifiers: "text-field_cursor_pointer",
-              readonly: "readonly" 
+              readonly: true,
+              category: { one: "Взрослые", two: "Дети", three: "Младенцы" }
+            } )
+
+          label.label
+            span.label__text Dropdown
+          +dropdown( 
+            { 
+              type: "text", 
+              name: "number-guests", 
+              placeholder: "Сколько гостей", 
+              modifiers: "text-field_cursor_pointer",
+              buttonsModifiers: "dropdown__buttons_hidden",
+              readonly: true,
+              category: { one: "Спальни", two: "Кровати", three: "Ванные" }
             } )

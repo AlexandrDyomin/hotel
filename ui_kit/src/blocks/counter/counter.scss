@@ -22,6 +22,7 @@
     border: 1px solid #1F204140;
     border-radius: 50%;
     cursor: pointer;
+    outline: none;
   }
 
   &__button-minus {
@@ -33,9 +34,8 @@
       &_text_dark-shade-50 {
         color: #1F204180;
       }
-
   }
-  
+
   &__display {
     margin: 0 5px;
     display:inline-block;
@@ -44,4 +44,6 @@
   }
 
 }
+
+
 

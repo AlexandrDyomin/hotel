@@ -6,9 +6,15 @@ import addHandler from "../../common-modules/addHandler.js";
 const handleTextFieldFocus = ( e ) => {
   // раскрываем список
   let textField = e.currentTarget;
-  let dropdownList = scan.findChild(textField.nextElementSibling, "dropdown__list");
-  dropdownList.classList.remove( "dropdown__list_closed" );
-
+  let dropdownContainer = textField.nextElementSibling;
+  dropdownContainer.classList.add( "dropdown__container_visible" ); 
+  setTimeout(
+    () => {
+      let dropdownList = scan.findChild(dropdownContainer, "dropdown__list");
+      dropdownList.classList.remove( "dropdown__list_closed" );
+    }
+  );
+ 
   // стилизуем границы текстового поля
   let modifier = "text-field_border-bottom-radius_disabled";
   textField.classList.add( modifier );
@@ -24,20 +30,22 @@ const handleTextFieldBlur = ( e ) => {
   setTimeout(
     () => {
       let modifier = "text-field_border-bottom-radius_disabled";
-      textField.classList.remove( modifier ); 
+      textField.classList.remove( modifier );
+      let dropdownContainer = textField.nextElementSibling;
+      dropdownContainer.classList.remove( "dropdown__container_visible" );  
     }, 
     300
   );
 }
 
-const handleContainerMouseEnter = ( e ) => {
+const handleDropdownListMouseEnter = ( e ) => {
   // удаляем обработчик
   let dropdownList = e.currentTarget;
   let textField = scan.findElement( dropdownList, "dropdown", "text-field" );
   textField.removeEventListener( 'blur', handleTextFieldBlur );
 }
 
-const handleContainerMouseLeave = ( e ) => {
+const handleDropdownListMouseLeave = ( e ) => {
   // добавляем обработчик
   let dropdownList = e.currentTarget;
   let textField = scan.findElement( dropdownList, "dropdown", "text-field" );
@@ -90,7 +98,7 @@ const handleButtonClearClick = ( e ) => {
   );
 
   // скрываем кнопку "Очистить"
-  btnClear.classList.remove( "dropdown__button-clear_visibility_visible" );
+  btnClear.classList.remove( "dropdown__button-clear_visible" );
 
   // очищаем текстовое поле списка
   let textField = scan.findElement( btnClear, "dropdown", "text-field" );
@@ -111,22 +119,29 @@ const handleButtonClearClick = ( e ) => {
 
 const handleTextFieldClick = ( e ) => {
   // раскрываем список
-  e.currentTarget.removeEventListener("click", handleTextFieldClick)
-  e.currentTarget.addEventListener("click", handleTextFieldClick2);
+  let textField =e.currentTarget
+  textField.removeEventListener("click", handleTextFieldClick)
+  textField.addEventListener("click", handleTextFieldClick2);
   handleTextFieldFocus(e);
 }
 
 const handleTextFieldClick2 = ( e ) => {
   // скрываем список
   handleTextFieldBlur(e);
-  e.currentTarget.removeEventListener("click", handleTextFieldClick2)
-  e.currentTarget.addEventListener("click", handleTextFieldClick);
+  let textField =e.currentTarget
+  textField.removeEventListener("click", handleTextFieldClick2)
+  textField.addEventListener("click", handleTextFieldClick);
 }
 
 const handleBodyClick = ( e ) => {
-  const textField = document.querySelector( ".dropdown" ).firstElementChild;//
-  textField.removeEventListener( "click",  handleTextFieldClick2);
-  textField.addEventListener( "click",  handleTextFieldClick);
+  let dropdowns = [ ...document.querySelectorAll( ".dropdown" ) ];
+  let textFields = dropdowns.map( ( elem ) => elem.firstElementChild );
+  textFields.forEach(
+    ( elem ) => {
+      elem.removeEventListener( "click",  handleTextFieldClick2);
+      elem.addEventListener( "click",  handleTextFieldClick);
+    }
+  );
 }
 
 const handleDropdownClick = ( e ) => {
@@ -166,20 +181,18 @@ addHandler(
   "click"
 );
 
-
 addHandler(
   document.querySelectorAll( ".dropdown__list" ),
-  handleContainerMouseEnter,
+  handleDropdownListMouseEnter,
   "mouseenter"
 );
 
 addHandler(
   document.querySelectorAll( ".dropdown__list" ),
-  handleContainerMouseLeave,
+  handleDropdownListMouseLeave,
   "mouseleave"
 );
-
-    
+ 
 addHandler(
   document.querySelectorAll( ".dropdown__button-apply" ), 
   handleButtonApplayClick

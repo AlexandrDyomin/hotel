@@ -34,17 +34,9 @@ const handleButtonPlusClick = ( e ) => {
   let display = btnPlus.previousElementSibling;
   let counterValue = Number( display.innerText );
 
-  // устанавливаем лимит для счетчика
-  let limit = 10;
-  if ( counterValue === limit ) {
-    // отключаем кнопку "+"
-    btnPlus.disabled = "true";
-    return;   
-  } else {
-    // увеличиваем значение счетчика на 1
-    counterValue += 1;
-    display.innerText = counterValue;
-  }
+  // увеличиваем значение счетчика на 1
+  counterValue += 1;
+  display.innerText = counterValue;
 
   let textField = scan.findParent( btnPlus, "dropdown" ).firstElementChild; 
   if ( textField.value ) {
@@ -81,10 +73,17 @@ const handleButtonPlusClick = ( e ) => {
     let btnClear = btnApply.previousElementSibling;
     btnClear.classList.toggle( "dropdown__button-clear_visibility_visible" );
   }
+
+  // устанавливаем лимит для счетчика
+  let limit = 10;
+  if ( counterValue === limit ) {
+    // отключаем кнопку "+"
+    btnPlus.disabled = "true";
+  }
 }
 
 const handleButtonMinusClick = ( e ) => {
-  // получаем значение счетчика
+   // получаем значение счетчика
   let btnMinus = e.currentTarget;
   let display = btnMinus.nextElementSibling;
   let counterValue = Number( display.innerText );
@@ -93,6 +92,8 @@ const handleButtonMinusClick = ( e ) => {
     counterValue--;
     display.innerText = counterValue;
   }
+
+   
 
   if ( counterValue === 0 ) {
     // меняем цвет границы и текста у кнопки "-". 
@@ -122,6 +123,12 @@ const handleButtonMinusClick = ( e ) => {
     numberGuests--;
     let lastWord = getLastWord(numberGuests);   
     textField.value = `${ numberGuests } ${ lastWord }`;     
+  }
+
+  // разблокируем кнопку "+", если заблокирована
+  let btnPlus = scan.findElement(e.currentTarget, "counter__container-left", "counter__button-plus");
+  if (btnPlus.disabled) {
+    btnPlus.disabled = false;
   }
 }
 
