@@ -1,5 +1,6 @@
 import scan from "../../common-modules/scan.js";
 import addHandler from "../../common-modules/addHandler.js";
+import handleButtonApplayClick from "../dropdown/dropdown.js";
 
 // возвращает слово  в нужном склонении
 const getLastWord = ( number, word  ) => {
@@ -36,76 +37,6 @@ const getLastWord = ( number, word  ) => {
       } else {
         return "гостей";
       }   
-  }
-}
-
-// ОБРАБОТЧИКИ СОБЫТИЙ
-const handleButtonPlusClick = ( e ) => {
-  let btnPlus = e.currentTarget;
-  let display = btnPlus.previousElementSibling;
-  // получаем значение счетчика
-  let counterValue = getCounterValue( display );
-
-  // увеличиваем значение счетчика на 1
-  counterValue++;
-  updateCounterValue( display, counterValue );
-
-  if ( counterValue === 1 ) {
-    // меняем цвет границ и текста у кнопки "-"
-    let btnMinus = scan.findElement( btnPlus, "counter__container-left", "counter__button-minus" );
-    changeAppearance(
-      btnMinus, 
-      "counter__button-minus_border_dark-shade-25", 
-      "counter__button-minus_text_dark-shade-50" 
-    );
-
-    // активируем кнопку
-    toggleState( btnMinus );
-  }
-
-  let dropdown = scan.findParent( btnPlus, "dropdown" );
-  if ( dropdown.dataset.type === "rooms") {
-    let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
-    let counterValues = countersDisplays.map( el => el.innerText );
-    
-    let value = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
-  \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
-
-    let textField = scan.findElement( btnPlus, "dropdown", "text-field" );
-    updateTextFieldValue( textField, value );
-  } else {
-    let textField = scan.findElement( btnPlus, "dropdown", "text-field" ); 
-    if ( textField.value ) {
-      // обновляем количество гостей
-      let numberGuests = getNumber( textField );
-      numberGuests++; 
-      let value = `${ numberGuests } ${ getLastWord( numberGuests, "гость" ) }`;
-      updateTextFieldValue( textField, value );
-    } else {
-      // устанавливаем количество гостей равным 1
-      updateTextFieldValue( textField, "1 гость" );
-    }
-  
-    let numberGuests = getNumber( textField );
-    if ( numberGuests === 1 ) {
-      // активируем кнопку "Применить"
-      let btnApply = scan.findElement( btnPlus, "dropdown__list", "dropdown__button-apply" );
-      toggleState( btnApply );
-  
-      // отображаем кнопку "Очистить"
-      let btnClear = btnApply.previousElementSibling;
-      changeAppearance(
-        btnClear,
-        "dropdown__button-clear_visible"
-      );
-    }
-  }
-
-  // устанавливаем лимит для счетчика
-  let limit = 10;
-  if ( counterValue === limit ) {
-    // отключаем кнопку "+"
-    toggleState( btnPlus );
   }
 }
 
@@ -154,6 +85,88 @@ const updateTextFieldValue = ( element, value ) => {
   element.value = value;
 }
 
+// ОБРАБОТЧИКИ СОБЫТИЙ
+const handleButtonPlusClick = ( e ) => {
+  let btnPlus = e.currentTarget;
+  let display = btnPlus.previousElementSibling;
+  // получаем значение счетчика
+  let counterValue = getCounterValue( display );
+
+  // увеличиваем значение счетчика на 1
+  counterValue++;
+  updateCounterValue( display, counterValue );
+
+  if ( counterValue === 1 ) {
+    // меняем цвет границ и текста у кнопки "-"
+    let btnMinus = scan.findElement( btnPlus, "counter__container-left", "counter__button-minus" );
+    changeAppearance(
+      btnMinus, 
+      "counter__button-minus_border_dark-shade-25", 
+      "counter__button-minus_text_dark-shade-50" 
+    );
+
+    // активируем кнопку
+    toggleState( btnMinus );
+  }
+
+  let dropdown = scan.findParent( btnPlus, "dropdown" );
+  if ( dropdown.dataset.type === "rooms") {
+    let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
+    let counterValues = countersDisplays.map( el => Number( el.innerText ) );
+    
+    let value = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
+  \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
+
+    let textField = scan.findElement( btnPlus, "dropdown", "text-field" );
+    updateTextFieldValue( textField, value );
+ 
+
+    // вставляем значения в скрытые поля
+    let hiddenFields = [ ...dropdown.lastElementChild.children ];
+    hiddenFields.forEach(
+      ( el, i ) => { 
+        el.value = counterValues[i];
+      }
+    );
+
+    
+
+  } else {
+    let textField = scan.findElement( btnPlus, "dropdown", "text-field" ); 
+    if ( textField.value ) {
+      // обновляем количество гостей
+      let numberGuests = getNumber( textField );
+      numberGuests++; 
+      let value = `${ numberGuests } ${ getLastWord( numberGuests, "гость" ) }`;
+      updateTextFieldValue( textField, value );
+    } else {
+      // устанавливаем количество гостей равным 1
+      updateTextFieldValue( textField, "1 гость" );
+    }
+  
+    let numberGuests = getNumber( textField );
+    if ( numberGuests === 1 ) {
+      // активируем кнопку "Применить"
+      let btnApply = scan.findElement( btnPlus, "dropdown__list", "dropdown__button-apply" );
+      toggleState( btnApply );
+  
+      // отображаем кнопку "Очистить"
+      let btnClear = btnApply.previousElementSibling;
+      changeAppearance(
+        btnClear,
+        "dropdown__button-clear_visible"
+      );
+    }
+  }
+
+  // устанавливаем лимит для счетчика
+  let limit = 10;
+  if ( counterValue === limit ) {
+    // отключаем кнопку "+"
+    toggleState( btnPlus );
+  }
+}
+
 const handleButtonMinusClick = ( e ) => {
   let btnMinus = e.currentTarget;
   let display = btnMinus.nextElementSibling;
@@ -165,7 +178,6 @@ const handleButtonMinusClick = ( e ) => {
       updateCounterValue( display, counterValue );
   }
 
-  // counterValue = getCounterValue( display ); 
   if ( counterValue === 0 ) {
     // меняем цвет границы и текста у кнопки "-". 
     changeAppearance(
@@ -179,8 +191,23 @@ const handleButtonMinusClick = ( e ) => {
 
   let dropdown = scan.findParent( btnMinus, "dropdown" );
   if ( dropdown.dataset.type === "rooms") {
+    let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
+    let counterValues = countersDisplays.map( el => Number( el.innerText ) );
+    
+    let textFieldValue = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
+  \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
+
     let textField = scan.findElement( btnMinus, "dropdown", "text-field" );
-    console.log(2)
+    updateTextFieldValue( textField, textFieldValue );
+
+    // вставляем значения в скрытые поля
+    let hiddenFields = [ ...dropdown.lastElementChild.children ];
+    hiddenFields.forEach(
+      ( el, i ) => { 
+        el.value = counterValues[i];
+      }
+    );
+    
   } else {
     let textField = scan.findElement( btnMinus, "dropdown", "text-field" );
     // получаем предыдущее количество гостей
