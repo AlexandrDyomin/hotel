@@ -1,7 +1,7 @@
 include ../counter/counter.pug
 
 mixin dropdown(options)
-  .dropdown
+  .dropdown(data-type=options.dataType)
     +text-field(options.textField)
     .dropdown__container
       .dropdown__list.dropdown__list_closed  

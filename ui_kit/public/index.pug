@@ -89,6 +89,8 @@ html(lang="ru")
           label.label
             span.label__text Dropdown
             +dropdown( { 
+                dataType: "rooms",
+
                 textField: {
                   type: "text", 
                   name: "number-bedrooms", 
@@ -99,15 +101,17 @@ html(lang="ru")
                 },
                 
                 counters: [
-                  { category: "Спальни" },
-                  { category: "Кровати" },
-                  { category: "Ванные" }
+                  { category: "Спальни", dataType: "bedrooms" },
+                  { category: "Кровати", dataType: "beds" },
+                  { category: "Ванные комнаты", dataType: "bathrooms" }
                 ],
 
                 hiddenTextFilds: [ 
                   { type: "text", name: "number-bedrooms" }, 
                   { type: "text", name: "number-beds" }, 
                   { type: "text", name: "number-bathrooms" } 
-                ]
+                ],
+                
+                buttonsModifiers: "dropdown__buttons_hidden"
               } 
             )
