@@ -10,8 +10,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    
   }
 
   &__button-minus, &__button-plus  {
@@ -22,12 +20,16 @@
     border: 1px solid #1F204140;
     border-radius: 50%;
     cursor: pointer;
-    outline: none;
+
+    &:focus {
+      outline: auto;
+    }
   }
 
   &__button-minus {
       border-color: #1F20410A;
       color: #1F20410A;
+      
       &_border_dark-shade-25 {
         border-color: #1F204140;
       }

@@ -61,56 +61,59 @@ html(lang="ru")
             +text-field( { type: "email", name: "email", placeholder: "email" } )
 
           label.label
-            span.label__text Dropdown
-            +dropdown( 
-              { 
-                textField: {
-                  type: "text", 
-                  name: "number-guests", 
-                  placeholder: "Сколько гостей", 
-                  modifiers: "text-field_cursor_pointer",
-                  readonly: true,
-              },
+          span.label__text Dropdown
+          +dropdown( { 
+              dataType: "guests",
+              
+              textField: {
+                type: "text", 
+                name: "number-guests", 
+                placeholder: "Сколько гостей", 
+                modifiers: "text-field_cursor_pointer",
+                readonly: true,
+                tabIndex: "-1"
+            },
 
-                counters: [
-                  { category: "Взрослые" },
-                  { category: "Дети" },
-                  { category: "Младенцы" }
-                ],
+              counters: [
+                { category: "Взрослые" },
+                { category: "Дети" },
+                { category: "Младенцы" }
+              ],
 
-                hiddenTextFilds: [ 
-                  { type: "text", name: "number-adults" }, 
-                  { type: "text", name: "number-children" }, 
-                  { type: "text", name: "number-babies" } 
-                ]
-              } 
-            )
+              hiddenTextFilds: [ 
+                { type: "text", name: "number-adults" }, 
+                { type: "text", name: "number-children" }, 
+                { type: "text", name: "number-babies" } 
+              ],           
+            } 
+          )
 
-          label.label
-            span.label__text Dropdown
-            +dropdown( { 
-                dataType: "rooms",
+    label.label
+    span.label__text Dropdown
+    +dropdown( { 
+        dataType: "rooms",
 
-                textField: {
-                  type: "text", 
-                  name: "number-bedrooms", 
-                  modifiers: "text-field_cursor_pointer",
-                  buttonsModifiers: "dropdown__buttons_hidden",
-                  readonly: true
-                },
-                
-                counters: [
-                  { category: "Спальни", dataType: "bedrooms" },
-                  { category: "Кровати", dataType: "beds" },
-                  { category: "Ванные комнаты", dataType: "bathrooms" }
-                ],
+        textField: {
+          type: "text", 
+          name: "number-bedrooms", 
+          modifiers: "text-field_cursor_pointer",
+          buttonsModifiers: "dropdown__buttons_hidden",
+          readonly: true,
+          tabIndex: "-1"
+        },
+        
+        counters: [
+          { category: "Спальни", dataType: "bedrooms" },
+          { category: "Кровати", dataType: "beds" },
+          { category: "Ванные комнаты", dataType: "bathrooms" }
+        ],
 
-                hiddenTextFilds: [ 
-                  { type: "text", name: "number-bedrooms" }, 
-                  { type: "text", name: "number-beds" }, 
-                  { type: "text", name: "number-bathrooms" } 
-                ],
-                
-                buttonsModifiers: "dropdown__buttons_hidden"
-              } 
-            )
+        hiddenTextFilds: [ 
+          { type: "text", name: "number-bedrooms" }, 
+          { type: "text", name: "number-beds" }, 
+          { type: "text", name: "number-bathrooms" } 
+        ],
+        
+        buttonsModifiers: "dropdown__buttons_hidden"
+      } 
+    )

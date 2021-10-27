@@ -1,15 +1,15 @@
 include ../counter/counter.pug
 
 mixin dropdown(options)
-  .dropdown(data-type=options.dataType)
+  .dropdown(data-type=options.dataType tabindex="0")
     +text-field(options.textField)
     .dropdown__container
       .dropdown__list.dropdown__list_closed  
         each obj in options.counters
           +counter( obj )        
         .dropdown__buttons(class=options.buttonsModifiers)
-          button.dropdown__button-clear Очистить
-          button.dropdown__button-apply( "disabled") Применить
+          button.dropdown__button-clear(data-parent='dropdown') Очистить
+          button.dropdown__button-apply( "disabled" data-parent='dropdown') Применить
     .dropdown__hidden-fields
       each obj in options.hiddenTextFilds
         +text-field( obj )

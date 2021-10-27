@@ -1,198 +1,200 @@
 
 import scan from "../../common-modules/scan.js";
 import addHandler from "../../common-modules/addHandler.js";
+import { findChild, findParent, findElement, findChildren } from "../../common-modules/scan.js";
+import { changeAppearance, 
+  toggleState, 
+  fillFields, 
+  getCounterValue, 
+  updateCounterValue,
+} from "../counter/counter.js";
 
-// ОБРАБОТЧИКИ СОБЫТИЙ
-const handleTextFieldFocus = ( e ) => {
-  // раскрываем список
-  let textField = e.currentTarget;
-  let dropdownContainer = textField.nextElementSibling;
-  dropdownContainer.classList.add( "dropdown__container_visible" ); 
-  setTimeout(
-    () => {
-      let dropdownList = scan.findChild(dropdownContainer, "dropdown__list");
-      dropdownList.classList.remove( "dropdown__list_closed" );
-    }
-  );
- 
-  // стилизуем границы текстового поля
-  let modifier = "text-field_border-bottom-radius_disabled";
-  textField.classList.add( modifier );
-}
-
-const handleTextFieldBlur = ( e ) => {
-  // скрываем список
-  let textField = e.currentTarget;
-  let dropdownList = scan.findChild(textField.nextElementSibling, "dropdown__list");  
-  dropdownList.classList.add( "dropdown__list_closed" );
-  
-  // стилизуем границы элемента
-  setTimeout(
-    () => {
-      let modifier = "text-field_border-bottom-radius_disabled";
-      textField.classList.remove( modifier );
-      let dropdownContainer = textField.nextElementSibling;
-      dropdownContainer.classList.remove( "dropdown__container_visible" );  
-    }, 
-    300
-  );
-}
-
-const handleDropdownListMouseEnter = ( e ) => {
-  // удаляем обработчик
-  let dropdownList = e.currentTarget;
-  let textField = scan.findElement( dropdownList, "dropdown", "text-field" );
-  textField.removeEventListener( 'blur', handleTextFieldBlur );
-}
-
-const handleDropdownListMouseLeave = ( e ) => {
-  // добавляем обработчик
-  let dropdownList = e.currentTarget;
-  let textField = scan.findElement( dropdownList, "dropdown", "text-field" );
-  textField.addEventListener( 'blur', handleTextFieldBlur );
-  textField.focus();
-}
-
-
-const handleButtonApplayClick = ( e ) => {
-  // получаем значения из счетчиков
-  let btnApply = e.currentTarget;
-  let dropdownList = scan.findParent( btnApply, "dropdown__list" );
-  let counters = [ ...dropdownList.children ];
-  counters = counters.slice( 0, counters.length - 1 );
-  let counterValues = counters.map(
-    ( el ) => scan.findChild( el, "counter__display" ).innerText
-  );
-
-  // вставляем значения в скрытые поля
-  let dropdown = scan.findParent( btnApply, "dropdown" );
-  let hiddenFields = [ ...dropdown.lastElementChild.children ];
-  hiddenFields.forEach(
-    ( el, i ) => { 
-      el.value = counterValues[i];
-    }
-  );
-}
-
-const handleButtonClearClick = ( e ) => {
-  // получаем список счетчиков
-  let btnClear = e.currentTarget;
-  let dropdownList = scan.findParent( btnClear, "dropdown__list" );
-  let counters = [ ...dropdownList.children ];
-  counters = counters.slice( 0, counters.length - 1 );
-  counters.forEach(
-    ( el ) => {
-      // сбрасываем значения счетчика
-      scan.findChild( el, "counter__display" ).innerText = 0;
-
-      // меняем цвет границы и текста у кнопки "-"
-      let btnMinus = scan.findChild( el, "counter__button-minus" );
-      btnMinus.classList.remove(
-        "counter__button-minus_border_dark-shade-25",
-        "counter__button-minus_text_dark-shade-50"
-      );
-
-      // Деактивируем кнопку
-      btnMinus.disabled = true;
-    }
-  );
-
-  // скрываем кнопку "Очистить"
-  btnClear.classList.remove( "dropdown__button-clear_visible" );
-
-  // очищаем текстовое поле списка
-  let textField = scan.findElement( btnClear, "dropdown", "text-field" );
-  textField.value = "";
-
-  //  деактивируем кнопку "применить"
-  btnClear.nextElementSibling.disabled = true;
-    
-  // сбрасываем значения в скрытых текстовых полях
-  let dropdown = scan.findParent( btnClear, "dropdown" );
-  let hiddenFields = [ ...dropdown.lastElementChild.children ];
-  hiddenFields.forEach(
+// очищает текстовые поля
+const clearFields = ( textFields ) => {
+  textFields.forEach(
     ( el ) => { 
       el.value = "";
     }
   );
 }
 
-const handleTextFieldClick = ( e ) => {
+// раскрывает список
+const openDropdown = (element, ...modifiers) => {
   // раскрываем список
-  let textField =e.currentTarget
-  textField.removeEventListener("click", handleTextFieldClick)
-  textField.addEventListener("click", handleTextFieldClick2);
-  handleTextFieldFocus(e);
-}
-
-const handleTextFieldClick2 = ( e ) => {
-  // скрываем список
-  handleTextFieldBlur(e);
-  let textField =e.currentTarget
-  textField.removeEventListener("click", handleTextFieldClick2)
-  textField.addEventListener("click", handleTextFieldClick);
-}
-
-const handleBodyClick = ( e ) => {
-  let dropdowns = [ ...document.querySelectorAll( ".dropdown" ) ];
-  let textFields = dropdowns.map( ( elem ) => elem.firstElementChild );
-  textFields.forEach(
-    ( elem ) => {
-      elem.removeEventListener( "click",  handleTextFieldClick2);
-      elem.addEventListener( "click",  handleTextFieldClick);
+  changeAppearance( element, modifiers[0] );
+  setTimeout(
+    () => {
+      let dropdownList = findChild(element, "dropdown__list");
+      changeAppearance( dropdownList,  modifiers[1] );
     }
+  );
+
+  // стилизуем границы текстового поля
+  let textField = findElement(element, "dropdown", "text-field" );
+  changeAppearance( textField, modifiers[2] );
+}
+
+// скрываем список
+const closeDropdown = (element, ...modifiers) => {
+  // скрываем список 
+  changeAppearance( element, modifiers[0] );
+  
+  // стилизуем границы элемента
+  setTimeout(
+    () => {
+      let textField = findElement( element, "dropdown", "text-field" )
+      changeAppearance(textField, modifiers[1] );
+      let dropdownContainer = findElement( textField, "dropdown", "dropdown__container" );
+      changeAppearance(dropdownContainer, modifiers[2]) 
+    }, 
+    300
   );
 }
 
-const handleDropdownClick = ( e ) => {
-  e.stopPropagation();
+// ОБРАБОТЧИКИ СОБЫТИЙ
+const handleButtonApplayClick = ( e ) => {
+  // получаем значения из счетчиков
+  let btnApply = e.currentTarget;
+  let dropdownList = findParent( btnApply, "dropdown__list" );
+  let counters = findChildren( dropdownList, "counter" );
+  let counterValues = counters.map( el => {
+    let display = findChild( el, "counter__display" );
+    return getCounterValue( display );
+  });
+
+  // вставляем значения в скрытые поля
+  let hiddenFields = findElement( btnApply, "dropdown", "dropdown__hidden-fields" );
+  hiddenFields = findChildren( hiddenFields, "text-field" );
+  fillFields( hiddenFields, counterValues);
+}
+
+const handleButtonClearClick = ( e ) => {
+  // получаем список счетчиков
+  let btnClear = e.currentTarget;
+  let dropdownList = findParent( btnClear, "dropdown__list" );
+  let counters = findChildren( dropdownList, "counter" );
+  counters.forEach(
+    ( el ) => {
+      // меняем цвет границы и текста у кнопки "-"
+      let display = findChild( el, "counter__display" );
+      let btnMinus = findChild( el, "counter__button-minus" );
+      if ( getCounterValue( display ) !== 0 ) {
+        changeAppearance( 
+          btnMinus,
+          "counter__button-minus_border_dark-shade-25",
+          "counter__button-minus_text_dark-shade-50"
+        );
+
+        // Деактивируем кнопку
+        toggleState(btnMinus);
+      }
+
+      // сбрасываем значение счетчика
+      updateCounterValue( display, "0" ); 
+    }
+  );
+
+  // скрываем кнопку "Очистить"
+  changeAppearance( btnClear, "dropdown__button-clear_visible" );
+
+  // очищаем тестовые поля
+  let dropdown = findParent( btnClear, "dropdown" );
+  let textFields = findChildren( dropdown, "text-field" );
+  clearFields( textFields );
+
+  //  деактивируем кнопку "применить"
+  let btnApply = findElement( btnClear, "dropdown__buttons", "dropdown__button-apply" );
+  toggleState(btnApply);
+    
+  // делаем фокус на dropdown
+  dropdown.focus();
+}
+
+const handleDropdownMouseDown = ( e ) => {
+  // выходим если клик произошел не на текстовом поле
+  let textField = findElement( e.currentTarget, "dropdown", "text-field" );
+  if ( e.target !== textField ) {
+    return;
+  }
+
+  // если список раскрыт, закрываем его, иначе открываем
+  let dropdownContainer = findElement( e.currentTarget, "dropdown",  "dropdown__container" );
+  let isVisible = dropdownContainer.classList.contains( "dropdown__container_visible" );
+  let dropdownList = findChild( dropdownContainer, "dropdown__list" ); 
+  if ( isVisible ) {
+    closeDropdown( 
+      dropdownList, 
+      "dropdown__list_closed", 
+      "text-field_border-bottom-radius_disabled", 
+      "dropdown__container_visible"
+    );
+  } else {
+    openDropdown( 
+      dropdownContainer, 
+      "dropdown__container_visible", 
+      "dropdown__list_closed", 
+      "text-field_border-bottom-radius_disabled" 
+    );
+  }
+}
+  
+const handleDropdownFocus = ( e ) => {
+  // если при получении фокуса список не раскрыт, раскрываем его
+  let dropdownContainer = findElement( e.currentTarget, "dropdown",  "dropdown__container" );
+  let isVisible = dropdownContainer.classList.contains( "dropdown__container_visible" );
+  if ( !isVisible ) {
+    openDropdown( 
+      dropdownContainer, 
+      "dropdown__container_visible", 
+      "dropdown__list_closed", 
+      "text-field_border-bottom-radius_disabled" 
+    );    
+  }
+}
+
+const handleDropdownFocusOut = ( e ) => {
+  // ничего не делаем если фокус перешел на текстове поле
+  let dropdown = e.currentTarget; 
+  let dropdownList = findChild( dropdown, "dropdown__list" );
+  let textField = findChild( dropdown, "text-field" );
+  setTimeout(() => {
+    if ( document.activeElement === textField ) {
+      return
+    }
+
+    // если елемент, на который перешел фокус не является
+    // частью выпадающего списка, то сворачиваем его
+    if ( document.activeElement.dataset.parent !== "dropdown" &&
+    document.activeElement !== dropdown) {
+      closeDropdown( 
+        dropdownList, 
+        "dropdown__list_closed", 
+        "text-field_border-bottom-radius_disabled", 
+        "dropdown__container_visible"
+      );
+    } 
+  });
 }
 
 // ДОБАВЛЯЕМ ОБРАБОТЧИКИ СОБЫТИЙ
-let dropdowns = [ ...document.querySelectorAll( ".dropdown" ) ];
-let textFields = dropdowns.map( elem => elem.firstElementChild);
 addHandler(
-  textFields,
-  handleTextFieldFocus,
+  document.querySelectorAll( ".dropdown" ),
+  handleDropdownMouseDown,
+  "mousedown"
+);
+
+addHandler(
+  document.querySelectorAll( ".dropdown" ),
+  handleDropdownFocus,
   "focus"
 );
 
 addHandler(
-  textFields,
-  handleTextFieldBlur,
-  "blur"
+  document.querySelectorAll( ".dropdown" ),
+  handleDropdownFocusOut,
+  "focusout"
 );
 
-// addHandler(
-//   textFields,
-//   handleTextFieldClick,
-//   "click"
-// );
-
-// addHandler(
-//   [ document.body ],
-//   handleBodyClick,
-//   "click"
-// );
-
-// addHandler(
-//   document.querySelectorAll(".dropdown"),
-//   handleDropdownClick,
-//   "click"
-// );
-
-addHandler(
-  document.querySelectorAll( ".dropdown__list" ),
-  handleDropdownListMouseEnter,
-  "mouseenter"
-);
-
-addHandler(
-  document.querySelectorAll( ".dropdown__list" ),
-  handleDropdownListMouseLeave,
-  "mouseleave"
-);
- 
 addHandler(
   document.querySelectorAll( ".dropdown__button-apply" ), 
   handleButtonApplayClick

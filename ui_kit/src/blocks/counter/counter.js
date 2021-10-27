@@ -1,6 +1,9 @@
 import scan from "../../common-modules/scan.js";
 import addHandler from "../../common-modules/addHandler.js";
-import handleButtonApplayClick from "../dropdown/dropdown.js";
+
+ const fillFields = ( textFields, values ) => {
+  textFields.forEach( ( el, i ) =>  el.value = values[i] );
+}
 
 // возвращает слово  в нужном склонении
 const getLastWord = ( number, word  ) => {
@@ -81,7 +84,7 @@ const toggleState = ( element ) => {
 }
 
 // обновляем текст в текстовом поле
-const updateTextFieldValue = ( element, value ) => {
+const updateValue = ( element, value ) => {
   element.value = value;
 }
 
@@ -118,16 +121,12 @@ const handleButtonPlusClick = ( e ) => {
   \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
 
     let textField = scan.findElement( btnPlus, "dropdown", "text-field" );
-    updateTextFieldValue( textField, value );
+    updateValue( textField, value );
  
 
     // вставляем значения в скрытые поля
     let hiddenFields = [ ...dropdown.lastElementChild.children ];
-    hiddenFields.forEach(
-      ( el, i ) => { 
-        el.value = counterValues[i];
-      }
-    );
+    fillFields(hiddenFields, counterValues);
 
     
 
@@ -138,10 +137,10 @@ const handleButtonPlusClick = ( e ) => {
       let numberGuests = getNumber( textField );
       numberGuests++; 
       let value = `${ numberGuests } ${ getLastWord( numberGuests, "гость" ) }`;
-      updateTextFieldValue( textField, value );
+      updateValue( textField, value );
     } else {
       // устанавливаем количество гостей равным 1
-      updateTextFieldValue( textField, "1 гость" );
+      updateValue( textField, "1 гость" );
     }
   
     let numberGuests = getNumber( textField );
@@ -187,6 +186,10 @@ const handleButtonMinusClick = ( e ) => {
     );
     // Деактивируем кнопку
     toggleState( btnMinus );
+
+    // делаем фокус на кнопке "+"
+    let btnPlus = scan.findElement(btnMinus, "counter__container-left", "counter__button-plus");
+    btnPlus.focus();
   }
 
   let dropdown = scan.findParent( btnMinus, "dropdown" );
@@ -198,7 +201,7 @@ const handleButtonMinusClick = ( e ) => {
   \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
 
     let textField = scan.findElement( btnMinus, "dropdown", "text-field" );
-    updateTextFieldValue( textField, textFieldValue );
+    updateValue( textField, textFieldValue );
 
     // вставляем значения в скрытые поля
     let hiddenFields = [ ...dropdown.lastElementChild.children ];
@@ -226,7 +229,7 @@ const handleButtonMinusClick = ( e ) => {
     } else {
       numberGuests--; 
       let value = `${ numberGuests } ${ getLastWord( numberGuests, "гость" ) }`;
-      updateTextFieldValue( textField, value );
+      updateValue( textField, value );
     }
   }
  
@@ -267,3 +270,11 @@ buttonsPlus.forEach(
     ) ;
   }
 );
+
+export { 
+  changeAppearance, 
+  toggleState, 
+  fillFields, 
+  getCounterValue, 
+  updateCounterValue
+};

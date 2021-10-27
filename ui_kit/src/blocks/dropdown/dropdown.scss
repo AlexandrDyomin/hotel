@@ -2,16 +2,16 @@
   width: 100%;
   height: 44px;
   position: relative;
+  outline: none;
 
-  &__container{
+  &__container {
     overflow: hidden;
     position:absolute;
     width: 100%;
     display: none;
     z-index: 1000;
     
-
-    &_visible{
+    &_visible {
       display:block;
     }
    }
@@ -54,7 +54,6 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    outline: none;
   }
 
   &__button-clear {
@@ -74,7 +73,7 @@
     width: 44px;
     height: 44px;
     display: block;
-    z-index: -100;
+    z-index: -1;
     background-image: url("../src/blocks/dropdown/arrow.svg");
     background-repeat: no-repeat;
     background-position: center center;
