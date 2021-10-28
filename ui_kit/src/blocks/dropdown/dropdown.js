@@ -153,15 +153,19 @@ const handleDropdownFocusOut = ( e ) => {
   let dropdown = e.currentTarget; 
   let dropdownList = findChild( dropdown, "dropdown__list" );
   let textField = findChild( dropdown, "text-field" );
+  let dropdownContainer = findElement( e.currentTarget, "dropdown",  "dropdown__container" );
+  let isVisible = dropdownContainer.classList.contains( "dropdown__container_visible" );
+  
   setTimeout(() => {
     if ( document.activeElement === textField ) {
       return
     }
 
     // если елемент, на который перешел фокус не является
-    // частью выпадающего списка, то сворачиваем его
+    // частью выпадающего списка и список раскрыт, то сворачиваем его
+
     if ( document.activeElement.dataset.parent !== "dropdown" &&
-    document.activeElement !== dropdown) {
+    document.activeElement !== dropdown && isVisible) {
       closeDropdown( 
         dropdownList, 
         "dropdown__list_closed", 

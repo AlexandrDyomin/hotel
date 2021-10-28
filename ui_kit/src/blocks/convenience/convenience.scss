@@ -1,0 +1,27 @@
+.convenience {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1F2041BF;
+  display: flex;
+  align-items: center;
+
+  &__img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+  }
+
+  &__description {
+    min-width: 233px;
+    padding: 10px;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__text {
+    font-weight: 400;
+  }
+}
