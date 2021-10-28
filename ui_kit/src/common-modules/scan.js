@@ -29,6 +29,9 @@ const findChild = ( initialElem, targetClassName ) => {
   return null;
 }
 
+// возвращает список элементов с заданным классом
+// в качестве аргументов принимает initialElem - элемент,
+// с которого начнется поиск, targetClassName - класс искомых элементов
 const findChildren = ( initialElem, targetClassName ) => {
   return [ ...initialElem.querySelectorAll( `.${ targetClassName }` ) ];
 }
@@ -43,6 +46,4 @@ const findElement = ( initialElem, commonParentClassName, targetClassName ) => {
   return trgt;
 } 
 
-const scan = { findParent, findChild, findElement };
-export { findParent, findChild, findElement, findChildren }
-export default scan; 
+export { findParent, findChild, findElement, findChildren };

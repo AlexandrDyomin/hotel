@@ -1,7 +1,8 @@
-import scan from "../../common-modules/scan.js";
 import addHandler from "../../common-modules/addHandler.js";
+import { findParent, findElement } from "../../common-modules/scan.js";
 
- const fillFields = ( textFields, values ) => {
+// заполняет текстовые поля
+const fillFields = ( textFields, values ) => {
   textFields.forEach( ( el, i ) =>  el.value = values[i] );
 }
 
@@ -23,14 +24,6 @@ const getLastWord = ( number, word  ) => {
         return "кровати";
       } else {
         return "кроватей";
-      }
-    case "ванная комната":
-      if ( number === 1 ) {
-        return "ванная комната";
-      } else if ( number > 1 && number < 5 ){
-        return "ванных комнаты";
-      } else {
-        return "ванных комнат";
       }
     case "гость":
       if ( number === 1 ) {
@@ -72,9 +65,13 @@ const getNumber = ( element ) => {
   return Number( number );
 }
 
-// очищает текстовое поле
-const clearTextField = ( element ) => {
-  element.value = "";
+// очищает текстовые поля
+const clearTextFields = ( textFields ) => {
+  textFields.forEach(
+    ( el ) => { 
+      el.value = "";
+    }
+  );
 }
 
 // активирует/деактивирует елемент
@@ -101,7 +98,7 @@ const handleButtonPlusClick = ( e ) => {
 
   if ( counterValue === 1 ) {
     // меняем цвет границ и текста у кнопки "-"
-    let btnMinus = scan.findElement( btnPlus, "counter__container-left", "counter__button-minus" );
+    let btnMinus = findElement( btnPlus, "counter__container-left", "counter__button-minus" );
     changeAppearance(
       btnMinus, 
       "counter__button-minus_border_dark-shade-25", 
@@ -112,7 +109,7 @@ const handleButtonPlusClick = ( e ) => {
     toggleState( btnMinus );
   }
 
-  let dropdown = scan.findParent( btnPlus, "dropdown" );
+  let dropdown = findParent( btnPlus, "dropdown" );
   if ( dropdown.dataset.type === "rooms") {
     let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
     let counterValues = countersDisplays.map( el => Number( el.innerText ) );
@@ -120,18 +117,14 @@ const handleButtonPlusClick = ( e ) => {
     let value = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
   \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
 
-    let textField = scan.findElement( btnPlus, "dropdown", "text-field" );
+    let textField = findElement( btnPlus, "dropdown", "text-field" );
     updateValue( textField, value );
  
-
     // вставляем значения в скрытые поля
     let hiddenFields = [ ...dropdown.lastElementChild.children ];
     fillFields(hiddenFields, counterValues);
-
-    
-
   } else {
-    let textField = scan.findElement( btnPlus, "dropdown", "text-field" ); 
+    let textField = findElement( btnPlus, "dropdown", "text-field" ); 
     if ( textField.value ) {
       // обновляем количество гостей
       let numberGuests = getNumber( textField );
@@ -146,7 +139,7 @@ const handleButtonPlusClick = ( e ) => {
     let numberGuests = getNumber( textField );
     if ( numberGuests === 1 ) {
       // активируем кнопку "Применить"
-      let btnApply = scan.findElement( btnPlus, "dropdown__list", "dropdown__button-apply" );
+      let btnApply = findElement( btnPlus, "dropdown__list", "dropdown__button-apply" );
       toggleState( btnApply );
   
       // отображаем кнопку "Очистить"
@@ -161,8 +154,10 @@ const handleButtonPlusClick = ( e ) => {
   // устанавливаем лимит для счетчика
   let limit = 10;
   if ( counterValue === limit ) {
-    // отключаем кнопку "+"
+    // отключаем кнопку "+" и переводим фокус на кнопку "-"
     toggleState( btnPlus );
+    let btnMinus = findElement( btnPlus, "counter__container-left", "counter__button-minus" );
+    btnMinus.focus();
   }
 }
 
@@ -188,11 +183,11 @@ const handleButtonMinusClick = ( e ) => {
     toggleState( btnMinus );
 
     // делаем фокус на кнопке "+"
-    let btnPlus = scan.findElement(btnMinus, "counter__container-left", "counter__button-plus");
+    let btnPlus = findElement(btnMinus, "counter__container-left", "counter__button-plus");
     btnPlus.focus();
   }
 
-  let dropdown = scan.findParent( btnMinus, "dropdown" );
+  let dropdown = findParent( btnMinus, "dropdown" );
   if ( dropdown.dataset.type === "rooms") {
     let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
     let counterValues = countersDisplays.map( el => Number( el.innerText ) );
@@ -200,7 +195,7 @@ const handleButtonMinusClick = ( e ) => {
     let textFieldValue = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
   \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
 
-    let textField = scan.findElement( btnMinus, "dropdown", "text-field" );
+    let textField = findElement( btnMinus, "dropdown", "text-field" );
     updateValue( textField, textFieldValue );
 
     // вставляем значения в скрытые поля
@@ -212,19 +207,19 @@ const handleButtonMinusClick = ( e ) => {
     );
     
   } else {
-    let textField = scan.findElement( btnMinus, "dropdown", "text-field" );
+    let textField = findElement( btnMinus, "dropdown", "text-field" );
     // получаем предыдущее количество гостей
     let numberGuests = getNumber( textField );
     if ( numberGuests === 1 ) {
       // очищаем текстовое поле
-      clearTextField( textField );
+      clearTextFields( [ textField ] );
   
       // Отключаем кнопку "Применить"
-      let btnApply = scan.findElement( btnMinus, "dropdown__list", "dropdown__button-apply" );
+      let btnApply = findElement( btnMinus, "dropdown__list", "dropdown__button-apply" );
       toggleState( btnApply );
   
       // Скрываем кнопку "Очистить"
-      let btnClear = scan.findElement( btnMinus, "dropdown__list", "dropdown__button-clear" );
+      let btnClear = findElement( btnMinus, "dropdown__list", "dropdown__button-clear" );
       changeAppearance( btnClear, "dropdown__button-clear_visible" );
     } else {
       numberGuests--; 
@@ -234,7 +229,7 @@ const handleButtonMinusClick = ( e ) => {
   }
  
   // разблокируем кнопку "+", если заблокирована
-  let btnPlus = scan.findElement(btnMinus, "counter__container-left", "counter__button-plus");
+  let btnPlus = findElement(btnMinus, "counter__container-left", "counter__button-plus");
   if (btnPlus.disabled) {
     toggleState( btnPlus );
   }
@@ -276,5 +271,6 @@ export {
   toggleState, 
   fillFields, 
   getCounterValue, 
-  updateCounterValue
+  updateCounterValue,
+  clearTextFields
 };

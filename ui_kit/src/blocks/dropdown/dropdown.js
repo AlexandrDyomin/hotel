@@ -1,22 +1,18 @@
-
-import scan from "../../common-modules/scan.js";
-import addHandler from "../../common-modules/addHandler.js";
-import { findChild, findParent, findElement, findChildren } from "../../common-modules/scan.js";
-import { changeAppearance, 
+import { 
+  changeAppearance, 
   toggleState, 
   fillFields, 
   getCounterValue, 
   updateCounterValue,
+  clearTextFields
 } from "../counter/counter.js";
-
-// очищает текстовые поля
-const clearFields = ( textFields ) => {
-  textFields.forEach(
-    ( el ) => { 
-      el.value = "";
-    }
-  );
-}
+import addHandler from "../../common-modules/addHandler.js";
+import { 
+  findChild, 
+  findParent, 
+  findElement, 
+  findChildren 
+} from "../../common-modules/scan.js";
 
 // раскрывает список
 const openDropdown = (element, ...modifiers) => {
@@ -100,7 +96,7 @@ const handleButtonClearClick = ( e ) => {
   // очищаем тестовые поля
   let dropdown = findParent( btnClear, "dropdown" );
   let textFields = findChildren( dropdown, "text-field" );
-  clearFields( textFields );
+  clearTextFields( textFields );
 
   //  деактивируем кнопку "применить"
   let btnApply = findElement( btnClear, "dropdown__buttons", "dropdown__button-apply" );
@@ -120,7 +116,7 @@ const handleDropdownMouseDown = ( e ) => {
   // если список раскрыт, закрываем его, иначе открываем
   let dropdownContainer = findElement( e.currentTarget, "dropdown",  "dropdown__container" );
   let isVisible = dropdownContainer.classList.contains( "dropdown__container_visible" );
-  let dropdownList = findChild( dropdownContainer, "dropdown__list" ); 
+  let dropdownList = findChild( dropdownContainer, "dropdown__list" );
   if ( isVisible ) {
     closeDropdown( 
       dropdownList, 
