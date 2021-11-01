@@ -12,6 +12,7 @@ html(lang="ru")
     include ../src/blocks/checkbox-button/checkbox-button.pug
     include ../src/blocks/convenience/convenience.pug
     include ../src/blocks/comment/comment.pug
+    include ../src/blocks/bullet-list/bullet-list.pug
 
     script(defer src="../src/index.js") 
 
@@ -166,6 +167,16 @@ html(lang="ru")
         title: "Помощник для инвалидов",
         text: "На 1 этаже вас встретит специалист  и проводит до номера."
       })
+
+      label.label
+        span.label__text Bullet List 
+        +bullet-list({
+          items: [
+            "Нельзя с питомцами",
+            "Без вечеринок и мероприятий",
+            "Время прибытия — после 13:00, а выезд до 12:00"
+          ]
+        })
 
           
 
