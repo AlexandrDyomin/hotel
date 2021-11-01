@@ -29,7 +29,7 @@
       border-image-slice: 1;
     }
 
-    &:checked +.check-box__style {
+    &:checked + .check-box__style {
       border: 1px solid #BC9CFF;
     }
   }

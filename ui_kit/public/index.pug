@@ -13,6 +13,8 @@ html(lang="ru")
     include ../src/blocks/convenience/convenience.pug
     include ../src/blocks/comment/comment.pug
     include ../src/blocks/bullet-list/bullet-list.pug
+    include ../src/blocks/radio-buttons/radio-buttons.pug
+
 
     script(defer src="../src/index.js") 
 
@@ -177,6 +179,23 @@ html(lang="ru")
             "Время прибытия — после 13:00, а выезд до 12:00"
           ]
         })
+
+      label.label
+        span.label__text Radio Buttons 
+        +radio-buttons({
+          items: [
+            {
+              name: "sex",
+              value: "male",
+              label: "Мужчина"
+            },
+            {
+              name: "sex",
+              value: "female",
+              label: "Женщина"
+            }
+          ]
+        }) 
 
           
 
