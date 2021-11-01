@@ -1,0 +1,13 @@
+.comment{
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;    
+  }
+
+  &__text {
+    text-align: justify;
+    padding: 0 15px
+  }
+}

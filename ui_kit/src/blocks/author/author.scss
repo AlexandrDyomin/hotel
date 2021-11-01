@@ -1,28 +1,25 @@
-.convenience {
+.author {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 24px;
+  font-weight: 400;
   color: #1F2041BF;
   display: flex;
-  align-items: center;
 
-  &__img {
-    width: 48px;
+  &__photo {
     height: 48px;
+    width: 48px;
     object-fit: cover;
     object-position: center;
+    border-radius: 50%;
   }
 
-  &__description {
-    min-width: 233px;
-    padding: 10px;
+  &__info {
+    min-width: 220px;
+    padding-left: 10px;
   }
 
-  &__title {
+  &__name {
     font-weight: 700;
-  }
-
-  &__text {
-    font-weight: 400;
   }
 }

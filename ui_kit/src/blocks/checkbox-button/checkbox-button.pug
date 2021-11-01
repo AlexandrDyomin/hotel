@@ -1,8 +1,11 @@
 mixin checkbox-button(options)
   label.check-box
-    input(type="checkbox").check-box__item
+    input.check-box__item(type="checkbox")
     span.check-box__style
-    =options.text
-    
+    if options.title
+      .check-box__title=options.title
+      span.check-box__text.check-box__text_small=options.text
+    else
+       span.check-box__text=options.text
 
     

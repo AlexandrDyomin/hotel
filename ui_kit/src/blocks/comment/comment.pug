@@ -1,0 +1,17 @@
+include ../author/author.pug
+include ../likes/likes.pug
+
+mixin comment(options)
+  .comment
+    +author({
+      url: options.author.url,
+      name: options.author.name,
+      additionalInfo: options.author.additionalInfo
+    })
+    .comment__bottom
+      .comment__likes
+        +likes({
+          url: options.likes.url,
+          number: options.likes.number
+        })
+      .comment__text=options.text

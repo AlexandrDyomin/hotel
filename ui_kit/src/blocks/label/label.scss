@@ -1,6 +1,8 @@
 .label {
   display: flex;
   flex-direction: column;
+  min-width: 270px;
+  padding: 10px;
 }
 
 .label__text   {

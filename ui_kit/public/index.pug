@@ -11,6 +11,7 @@ html(lang="ru")
     include ../src/blocks/dropdown/dropdown.pug
     include ../src/blocks/checkbox-button/checkbox-button.pug
     include ../src/blocks/convenience/convenience.pug
+    include ../src/blocks/comment/comment.pug
 
     script(defer src="../src/index.js") 
 
@@ -57,85 +58,118 @@ html(lang="ru")
             font__example_modifiers: "font__example_container-size_md"
             })
 
-          label.label
-            span.label__text text field
-            +text-field( { type: "email", name: "email", placeholder: "email" } )
+    label.label
+      span.label__text text field
+      +text-field( { type: "email", name: "email", placeholder: "email" } )
 
-          label.label
-            span.label__text Dropdown
-            +dropdown( { 
-                dataType: "guests",
-                
-                textField: {
-                  type: "text", 
-                  name: "number-guests", 
-                  placeholder: "Сколько гостей", 
-                  modifiers: "text-field_cursor_pointer",
-                  readonly: true,
-                  tabIndex: "-1"
-              },
+    label.label
+      span.label__text Dropdown
+      +dropdown( { 
+          dataType: "guests",                
+          textField: {
+            type: "text", 
+            name: "number-guests", 
+            placeholder: "Сколько гостей", 
+            modifiers: "text-field_cursor_pointer",
+            readonly: true,
+            tabIndex: "-1"
+          },
+          counters: [
+            { category: "Взрослые" },
+            { category: "Дети" },
+            { category: "Младенцы" }
+          ],
+          hiddenTextFilds: [ 
+            { type: "text", name: "number-adults" }, 
+            { type: "text", name: "number-children" }, 
+            { type: "text", name: "number-babies" } 
+          ],           
+        } 
+      )
+    
+    label.label
+      span.label__text Dropdown
+      +dropdown( { 
+          dataType: "rooms",
+          textField: {
+            type: "text", 
+            name: "number-bedrooms", 
+            modifiers: "text-field_cursor_pointer",
+            buttonsModifiers: "dropdown__buttons_hidden",
+            readonly: true,
+            tabIndex: "-1"
+          },
+          counters: [
+            { category: "Спальни", dataType: "bedrooms" },
+            { category: "Кровати", dataType: "beds" },
+            { category: "Ванные комнаты", dataType: "bathrooms" }
+          ],
+          hiddenTextFilds: [ 
+            { type: "text", name: "number-bedrooms" }, 
+            { type: "text", name: "number-beds" }, 
+            { type: "text", name: "number-bathrooms" } 
+          ],
+          buttonsModifiers: "dropdown__buttons_hidden"
+        } 
+      )
 
-                counters: [
-                  { category: "Взрослые" },
-                  { category: "Дети" },
-                  { category: "Младенцы" }
-                ],
+    label.label
+      span.label__text Checkbox-Buttons
+      +checkbox-button({
+          text: "Можно курить"
+      })
+      +checkbox-button({
+        text: "Можно с питомцами"
+      })
+      +checkbox-button({
+          text: "Можно пригласить гостей (до 10 человек)"
+      })
+    
+    label.label
+      span.label__text convenience
+      +convenience({
+        url: "../src/blocks/convenience/insert_emoticon-min.svg",
+        title: "Комфорт",
+        text: "Шумопоглощающие стены"          
+      })
 
-                hiddenTextFilds: [ 
-                  { type: "text", name: "number-adults" }, 
-                  { type: "text", name: "number-children" }, 
-                  { type: "text", name: "number-babies" } 
-                ],           
-              } 
-            )
+      +convenience({
+        url: "../src/blocks/convenience/location_city-min.svg",
+        title: "Удобство",
+        text: "Окно в каждой из спален"          
+      })
+
+    label.label
+      span.label__text comment
+      +comment({
+        author: {
+          url: "../src/blocks/author/ava.jpg",
+          name: "Мурад Сарафанов",
+          additionalInfo: "5 дней назад"
+        },
+        likes: {
+          url: "../src/blocks/likes/favorite_border-min.svg",
+          number: 12
+        },
+        text: "Великолепный матрас на кровати в основной спальне!\
+          А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. \
+          Выкрикивал комплименты повару — никто не жаловался из соседей."
+      })
+
+    label.label
+      span.label__text Rich Checkbox Buttons
+      +checkbox-button({
+        title: "Широкий коридор",
+        text: "Ширина коридоров в номере не менее 91 см."
+      })
+      +checkbox-button({
+        title: "Помощник для инвалидов",
+        text: "На 1 этаже вас встретит специалист  и проводит до номера."
+      })
+
           
-          label.label
-            span.label__text Dropdown
-            +dropdown( { 
-                dataType: "rooms",
 
-                textField: {
-                  type: "text", 
-                  name: "number-bedrooms", 
-                  modifiers: "text-field_cursor_pointer",
-                  buttonsModifiers: "dropdown__buttons_hidden",
-                  readonly: true,
-                  tabIndex: "-1"
-                },
-                
-                counters: [
-                  { category: "Спальни", dataType: "bedrooms" },
-                  { category: "Кровати", dataType: "beds" },
-                  { category: "Ванные комнаты", dataType: "bathrooms" }
-                ],
-
-                hiddenTextFilds: [ 
-                  { type: "text", name: "number-bedrooms" }, 
-                  { type: "text", name: "number-beds" }, 
-                  { type: "text", name: "number-bathrooms" } 
-                ],
-                
-                buttonsModifiers: "dropdown__buttons_hidden"
-              } 
-            )
-
-          label.label
-            span.label__text Checkbox-Buttons
-            +checkbox-button({
-                text: "Можно пригласить гостей (до 10 человек)"
-              })
-
-          +convenience({
-            url: "../src/blocks/convenience/insert_emoticon.svg",
-            title: "Комфорт",
-            text: "Шумопоглощающие стены"          
-          })
-
-          +convenience({
-            url: "../src/blocks/convenience/location_city.svg",
-            title: "Удобство",
-            text: "Окно в каждой из спален"          
-          })
+          
 
 
 
