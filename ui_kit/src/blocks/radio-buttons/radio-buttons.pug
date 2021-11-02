@@ -3,5 +3,6 @@ mixin radio-buttons(options)
     each item in options.items
       label.radio-buttons__label
         input.radio-buttons__btn(type="radio" name=item.name value=item.value)
+        span.radio-buttons__style
         span.radio-buttons__text=item.label
 
