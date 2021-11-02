@@ -1,0 +1,8 @@
+mixin toggle-button(options)
+  .toggle-button
+    label.toggle-button__item
+      input.toggle-button__radio(type="radio" name=options.name value="off")
+      span.toggle-button__style.toggle-button__style_off
+    label.toggle-button__item
+      input.toggle-button__radio(type="radio" name=options.name value="on" checked) 
+      span.toggle-button__style.toggle-button__style_on

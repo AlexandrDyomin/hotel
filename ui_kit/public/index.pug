@@ -14,7 +14,7 @@ html(lang="ru")
     include ../src/blocks/comment/comment.pug
     include ../src/blocks/bullet-list/bullet-list.pug
     include ../src/blocks/radio-buttons/radio-buttons.pug
-
+    include ../src/blocks/toggle/toggle.pug
 
     script(defer src="../src/index.js") 
 
@@ -196,6 +196,13 @@ html(lang="ru")
             }
           ]
         }) 
+
+      label.label
+        span.label__text Toggle
+        +toggle({
+          toggleButton: { name: "offer" },
+          text: "Получать спецпредложения"
+        })
 
           
 
