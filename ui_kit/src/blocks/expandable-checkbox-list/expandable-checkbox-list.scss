@@ -17,6 +17,15 @@
     text-transform: uppercase;
   }
 
+  &__arrow {
+    position: relative;
+    transition: transform .3s ease-in-out;
+    
+    &_open {
+      transform: rotate(-180deg);
+    }
+  }
+
   &__bottom {
     overflow: hidden;
     position:absolute;

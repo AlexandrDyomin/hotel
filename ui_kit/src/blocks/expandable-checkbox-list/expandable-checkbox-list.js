@@ -10,6 +10,14 @@ const openList = (element, ...modifiers) => {
     () => {
       let checkboxListItems = findChild(element, "expandable-checkbox-list__items");
       changeAppearance( checkboxListItems,  modifiers[1] );
+
+      // поворачиваем стрелку на 180 градусов
+      let arrow = findElement(
+        element,
+        "expandable-checkbox-list",
+        "expandable-checkbox-list__arrow"
+      );
+      changeAppearance( arrow, modifiers[2] )
     }
   );
 }
@@ -26,10 +34,18 @@ const closeList = (element, ...modifiers) => {
         element, "expandable-checkbox-list", 
         "expandable-checkbox-list__bottom" 
       );
-      changeAppearance(checkboxListBottom, modifiers[1]) 
+      changeAppearance( checkboxListBottom, modifiers[1] );
     }, 
     300
   );
+
+  // поворачиваем стрелку на 180 градусов
+  let arrow = findElement(
+    element,
+    "expandable-checkbox-list",
+    "expandable-checkbox-list__arrow"
+  );
+  changeAppearance( arrow, modifiers[2] ) 
 }
 
 const handleCheckboxListMouseDown = ( e ) => {
@@ -46,13 +62,15 @@ const handleCheckboxListMouseDown = ( e ) => {
     closeList( 
       checkboxListItems, 
       "expandable-checkbox-list__items_closed",  
-      "expandable-checkbox-list__bottom_visible"
+      "expandable-checkbox-list__bottom_visible",
+      "expandable-checkbox-list__arrow_open"
     );
   } else {
     openList( 
       checkboxListBottom, 
       "expandable-checkbox-list__bottom_visible", 
-      "expandable-checkbox-list__items_closed" 
+      "expandable-checkbox-list__items_closed",
+      "expandable-checkbox-list__arrow_open" 
     );
   }
 }
