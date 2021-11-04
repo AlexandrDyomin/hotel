@@ -30,7 +30,7 @@ const openDropdown = (element, ...modifiers) => {
   changeAppearance( textField, modifiers[2] );
 }
 
-// скрываем список
+// скрывает список
 const closeDropdown = (element, ...modifiers) => {
   // скрываем список 
   changeAppearance( element, modifiers[0] );

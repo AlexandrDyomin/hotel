@@ -1,6 +1,12 @@
 mixin checkbox-button(options)
   label.check-box
-    input.check-box__item(type="checkbox" value=options.value)
+    input.check-box__item(
+      type="checkbox" 
+      name=options.name 
+      value=options.value, 
+      checked=options.checked
+      data-parent=options.dataParent
+    )
     span.check-box__style
     if options.title
       .check-box__title=options.title

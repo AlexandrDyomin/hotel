@@ -1,0 +1,15 @@
+include ../checkbox-button/checkbox-button.pug
+
+mixin expandable-checkbox-list(options)
+  .expandable-checkbox-list(tabindex="0")
+    .expandable-checkbox-list__top(data-location="top")
+      .expandable-checkbox-list__title(data-location="top")=options.title
+      img.expandable-checkbox-list__arrow(
+        src="../src/blocks/expandable-checkbox-list/arrow.svg" 
+        alt=""
+        data-location="top"
+      )
+    .expandable-checkbox-list__bottom
+      .expandable-checkbox-list__items.expandable-checkbox-list__items_closed  
+        each obj in options.checkboxButtons
+          +checkbox-button(obj)

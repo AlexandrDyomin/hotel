@@ -1,0 +1,44 @@
+.expandable-checkbox-list {
+  width: 100%;
+  position: relative;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  &__title {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    color: #1F2041;
+    text-transform: uppercase;
+  }
+
+  &__bottom {
+    overflow: hidden;
+    position:absolute;
+    width: 100%;
+    display: none;
+    z-index: 1000;
+    
+    &_visible {
+      display:block;
+    }
+   }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 7px 7px 13px 15px;
+    transition: transform .3s ease-in-out;
+    background-color: white;    
+
+    &_closed {
+      transform: translateY( -110% );
+    }
+  }
+}

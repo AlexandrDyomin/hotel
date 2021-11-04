@@ -15,6 +15,7 @@ html(lang="ru")
     include ../src/blocks/bullet-list/bullet-list.pug
     include ../src/blocks/radio-buttons/radio-buttons.pug
     include ../src/blocks/toggle/toggle.pug
+    include ../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
 
     script(defer src="../src/index.js") 
 
@@ -86,7 +87,7 @@ html(lang="ru")
             { type: "text", name: "number-adults" }, 
             { type: "text", name: "number-children" }, 
             { type: "text", name: "number-babies" } 
-          ],           
+          ]           
         } 
       )
     
@@ -111,8 +112,7 @@ html(lang="ru")
             { type: "text", name: "number-bedrooms" }, 
             { type: "text", name: "number-beds" }, 
             { type: "text", name: "number-bathrooms" } 
-          ],
-          buttonsModifiers: "dropdown__buttons_hidden"
+          ]
         } 
       )
 
@@ -170,43 +170,67 @@ html(lang="ru")
         text: "На 1 этаже вас встретит специалист  и проводит до номера."
       })
 
-      label.label
-        span.label__text Bullet List 
-        +bullet-list({
-          items: [
-            "Нельзя с питомцами",
-            "Без вечеринок и мероприятий",
-            "Время прибытия — после 13:00, а выезд до 12:00"
-          ]
-        })
+    label.label
+      span.label__text Bullet List 
+      +bullet-list({
+        items: [
+          "Нельзя с питомцами",
+          "Без вечеринок и мероприятий",
+          "Время прибытия — после 13:00, а выезд до 12:00"
+        ]
+      })
 
-      label.label
-        span.label__text Radio Buttons 
-        +radio-buttons({
-          items: [
-            {
-              name: "sex",
-              value: "male",
-              label: "Мужчина"
-            },
-            {
-              name: "sex",
-              value: "female",
-              label: "Женщина"
-            }
-          ]
-        }) 
+    label.label
+      span.label__text Radio Buttons 
+      +radio-buttons({
+        items: [
+          {
+            name: "sex",
+            value: "male",
+            label: "Мужчина"
+          },
+          {
+            name: "sex",
+            value: "female",
+            label: "Женщина"
+          }
+        ]
+      }) 
 
-      label.label
-        span.label__text Toggle
-        +toggle({
-          toggleButton: { name: "offer" },
-          text: "Получать спецпредложения"
-        })
+    label.label
+      span.label__text Toggle
+      +toggle({
+        toggleButton: { name: "offer" },
+        text: "Получать спецпредложения"
+      })
 
-          
-
-          
-
-
-
+    +expandable-checkbox-list({
+      title: "expandable checkbox list",
+      checkboxButtons: [ {
+          name: "breakfast",
+          value: 1,
+          text: "Завтрак",
+          dataParent: "checkboxList"
+        }, {
+          name: "desk",
+          value: 1,
+          text: "Письменный стол",
+          dataParent: "checkboxList"
+        }, {
+          name: "feeding chair",
+          value: 1,
+          text: "Стул для кормления",
+          dataParent: "checkboxList"
+        }, {
+          name: "television",
+          value: 1,
+          text: "Телевизор",
+          dataParent: "checkboxList"
+        }, {
+          name: "shampoo",
+          value: 1,
+          text: "Шампунь",
+          dataParent: "checkboxList"
+        }
+      ]
+    })
