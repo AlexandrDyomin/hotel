@@ -17,6 +17,7 @@ html(lang="ru")
     include ../src/blocks/toggle/toggle.pug
     include ../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
 
+
     script(defer src="../src/index.js") 
 
     title UI Kit
@@ -27,13 +28,38 @@ html(lang="ru")
     main.main
       .container
         section.colors
-          +color-card( { code: "#1F2041", name: "Dark Shade 100%" } )
-          +color-card( { code: "#1F2041", name: "Dark Shade 75%", modifiers: "color-card__square_dark-shade_75" } )
-          +color-card( { code: "#1F2041", name: "Dark Shade 50%", modifiers: "color-card__square_dark-shade_50" } )
-          +color-card( { code: "#1F2041", name: "Dark Shade 25%", modifiers: "color-card__square_dark-shade_25" } )
-          +color-card( { code: "#1F2041", name: "Dark Shade 5%", modifiers: "color-card__square_dark-shade_5" } )
-          +color-card( { code: "#1F2041", name: "Purple", modifiers: "color-card__square_purple" } )
-          +color-card( { code: "#1F2041", name: "Green", modifiers: "color-card__square_green" } )
+          - var data = [{
+          -   code: "#1F2041", 
+          -   name: "Dark Shade 100%" 
+          - }, {
+          -   code: "#1F2041", 
+          -   name: "Dark Shade 75%", 
+          -   modifiers: "color-card__square_dark-shade_75" 
+          - }, {
+          -   code: "#1F2041", 
+          -   name: "Dark Shade 50%",
+          -   modifiers: "color-card__square_dark-shade_50"
+          - }, {
+          -   code: "#1F2041", 
+          -   name: "Dark Shade 25%", 
+          -   modifiers: "color-card__square_dark-shade_25"
+          - }, {
+          -   code: "#1F2041", 
+          -   name: "Dark Shade 5%", 
+          -   modifiers: "color-card__square_dark-shade_5" 
+          - }, { 
+          -   code: "#1F2041", 
+          -   name: "Purple", 
+          -   modifiers: "color-card__square_purple" 
+          - }, { 
+          -   code: "#1F2041", 
+          -   name: "Green", 
+          -   modifiers: "color-card__square_green" 
+          - }]
+               
+          each item in data
+            +color-card(item) 
+
         section.fonts
           +font( 
             { allocation: "h1", 
@@ -234,3 +260,13 @@ html(lang="ru")
         }
       ]
     })
+
+    label.label
+      span.label__text filter date dropdown
+      +text-field({
+        type: "text", 
+        id: "filter-date-dropdown",
+        readonly: true,
+        name: "dates"
+      })
+
