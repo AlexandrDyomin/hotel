@@ -1,0 +1,99 @@
+.air-datepicker-body--day-name {
+  color: #BC9CFF;
+}
+
+.air-datepicker-nav--title {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 23px;
+  color: #1F2041
+}
+
+.air-datepicker-nav{
+  padding: 20px 20px 30px;
+}
+
+.air-datepicker-cell{ 
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #1F204180;
+}
+
+.air-datepicker-button {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #BC9CFF;
+}
+
+.air-datepicker-cell.-range-from- {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  border-radius: 50%;
+}
+
+.air-datepicker-cell.-range-to- {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  border-radius: 50%;
+}
+
+.air-datepicker-cell.-selected-.-focus- {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.air-datepicker-cell.-current- {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border-radius: 50%;
+  color: white;
+}
+
+.air-datepicker-cell.-focus-.-current- {
+  color: white;
+}
+
+.air-datepicker-cell.-selected-.-current- {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.air-datepicker-cell.-disabled- {
+  color: #1F204140;
+}
+
+
+.air-datepicker-nav--action[data-action=prev] {
+  background-image: url("../filter-date-dropdown/arrow_back-min.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.air-datepicker-nav--action.-disabled- {
+  visibility: visible;
+}
+
+.air-datepicker-nav--action[data-action=next] {
+  background-image: url("../filter-date-dropdown/arrow_forward-min.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.air-datepicker-body--day-names {
+  grid-template-columns: repeat(7, 40px);
+  justify-content: center;
+}
+
+.air-datepicker-body--cells.-days- {
+  grid-template-columns: repeat(7, 40px);
+  grid-auto-rows: 40px;
+  justify-content: center;
+}
+
+.air-datepicker {
+  width: 318px;
+}

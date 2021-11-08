@@ -1,8 +1,8 @@
 import AirDatepicker from 'air-datepicker';
 import 'air-datepicker/air-datepicker.css';
-import addHandler from '../../common-modules/addHandler';
 import { findChildren } from '../../common-modules/scan';
 import { toggleState } from '../counter/counter';
+import "./filter-date-dropdown.scss";
 
 new AirDatepicker('#filter-date-dropdown', {
   range: true,
@@ -46,4 +46,6 @@ new AirDatepicker('#filter-date-dropdown', {
 });
 
 
+let nav = document.querySelectorAll(".air-datepicker-nav--action");
+nav.forEach( el => el.innerHTML="" )
 

@@ -63,18 +63,4 @@
   &__hidden-fields {
     display:none;
   }
-
-  &::after {
-    content: "";
-    width: 44px;
-    height: 44px;
-    display: block;
-    z-index: -1;
-    background-image: url("../src/blocks/dropdown/arrow.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative;  
-    bottom: 44px;
-    margin-left: auto; 
-  }
 }

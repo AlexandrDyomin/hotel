@@ -100,7 +100,7 @@ html(lang="ru")
             type: "text", 
             name: "number-guests", 
             placeholder: "Сколько гостей", 
-            modifiers: "text-field_cursor_pointer",
+            modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
             readonly: true,
             tabIndex: "-1"
           },
@@ -124,7 +124,7 @@ html(lang="ru")
           textField: {
             type: "text", 
             name: "number-bedrooms", 
-            modifiers: "text-field_cursor_pointer",
+            modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
             buttonsModifiers: "dropdown__buttons_hidden",
             readonly: true,
             tabIndex: "-1"
@@ -267,6 +267,7 @@ html(lang="ru")
         type: "text", 
         id: "filter-date-dropdown",
         readonly: true,
-        name: "dates"
+        name: "dates",
+        modifiers: "text-field_with-bg"
       })
 
