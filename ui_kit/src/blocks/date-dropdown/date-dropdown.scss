@@ -1,0 +1,16 @@
+.date-dropdown {
+  max-width: 320px;
+  display: flex;
+
+  & > .text-field[name=date-from] {
+    margin-right: 20px;
+  }
+
+  & > .text-field:focus, .text-field:hover {
+    border-color: #1F204140;
+    caret-color: transparent;
+  }
+}
+
+
+

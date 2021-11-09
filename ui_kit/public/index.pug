@@ -16,6 +16,9 @@ html(lang="ru")
     include ../src/blocks/radio-buttons/radio-buttons.pug
     include ../src/blocks/toggle/toggle.pug
     include ../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
+    include ../src/blocks/date-dropdown/date-dropdown.pug
+    include ../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
+
 
 
     script(defer src="../src/index.js") 
@@ -177,7 +180,6 @@ html(lang="ru")
           additionalInfo: "5 дней назад"
         },
         likes: {
-          url: "../src/blocks/likes/favorite_border-min.svg",
           number: 12
         },
         text: "Великолепный матрас на кровати в основной спальне!\
@@ -263,11 +265,33 @@ html(lang="ru")
 
     label.label
       span.label__text filter date dropdown
-      +text-field({
-        type: "text", 
-        id: "filter-date-dropdown",
-        readonly: true,
-        name: "dates",
-        modifiers: "text-field_with-bg"
+      +filter-date-dropdown({
+        textField: {
+          type: "text", 
+          id: "filter-date-dropdown",
+          readonly: true,
+          name: "dates",
+          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ]
+        }
+      })
+
+    label.label
+      span.label__text date dropdown
+      +date-dropdown({
+        textFields: [{
+          type: "text", 
+          readonly: true,
+          name: "date-from",
+          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
+          id: "date-dropdown",
+          placeholder: "ДД.MM.ГГ"
+        }, {
+          type: "text", 
+          readonly: true,
+          name: "date-to",
+          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
+          tabIndex: "-1",
+          placeholder: "ДД.MM.ГГ"  
+        }]
       })
 
