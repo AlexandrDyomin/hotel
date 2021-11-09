@@ -5,6 +5,8 @@ import "./blocks/likes/likes.js";
 import "./blocks/toggle-button/toggle-button.js";
 import "./blocks/expandable-checkbox-list/expandable-checkbox-list.js";
 import "./blocks/filter-date-dropdown/filter-date-dropdown.js";
+import "./blocks/date-dropdown/date-dropdown.js";
+
 
 
 

@@ -1,54 +1,49 @@
-import { basename } from "path";
-import urlActive from "./favorite-min.svg";
-import urlDefault from "./favorite_border-min.svg";
-import { getCounterValue, updateCounterValue } from "../counter/counter.js";
 import addHandler from "../../common-modules/addHandler.js";
-import { findElement } from "../../common-modules/scan.js";
+import { findElement, findParent } from "../../common-modules/scan.js";
+import { 
+  changeAppearance, 
+  updateCounterValue, 
+  getCounterValue 
+} from "../counter/counter.js";
 
-// возвращает url картинки
-const getUrl = ( img ) => {
-  return img.src;
+// меняет внешний вид блока
+const changeAppearanceLikes = ( el ) => {
+  let likes = findParent( el, "likes" );
+    changeAppearance(
+      likes,
+      "likes_active"
+    );
+  
+    let counter = findElement( el, "likes", "likes__counter" );
+    changeAppearance(
+      counter,
+      "likes__counter_active"
+    );
 }
 
-// устанавливает url картинки
-const setUrl = ( img, url ) => {
-  img.src = url;
-}
-
-// возвращает, элемент на котором выполняется обработчик
-const getCurrentElement = ( e ) => {
-  return e.currentTarget;
-}
-
-// сравнивает два значения
-// если они равны возвращает true, иначе false
-const compareForEquality = ( operandLeft, operandRight ) => {
-  if ( operandLeft === operandRight ) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-const handleHeartClick = ( e ) => {
-  let img = getCurrentElement( e );
-  let url = getUrl( img );
-  let baseNameUrl = basename( url );
-  let baseNameUrlActive = basename( urlActive );
-  let isEquality = compareForEquality( baseNameUrl, baseNameUrlActive );
-  let counter = findElement( img, "likes", "likes__counter" )
+const handleBtnChange = ( e ) => {
+  let likes = findParent( e.currentTarget, "likes" );
+  changeAppearanceLikes( likes );
+  
+  let counter = findElement( e.currentTarget, "likes", "likes__counter" );
   let counterValue = getCounterValue( counter );
 
-  if ( isEquality ) {
-    setUrl( img, urlDefault );
-    updateCounterValue( counter, counterValue - 1 );
+  if ( e.currentTarget.checked ) {
+    updateCounterValue( counter, counterValue + 1);
   } else {
-    setUrl( img, urlActive );
-    updateCounterValue( counter, counterValue + 1 );
+    updateCounterValue( counter, counterValue - 1);
   }
 }
 
 addHandler(
-  document.querySelectorAll( ".likes__img" ),
-  handleHeartClick
+  document.querySelectorAll( ".likes__btn" ),
+  handleBtnChange,
+  "change"
 );
+
+let buttons = document.querySelectorAll( ".likes__btn" );
+buttons.forEach( el => {
+  if (el.checked) {
+    changeAppearanceLikes( el );
+  }
+});

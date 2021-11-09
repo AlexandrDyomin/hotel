@@ -1,4 +1,11 @@
 mixin likes(options)
   .likes
-    img.likes__img(src=options.url, alt="")
+    label.likes__label
+      input.likes__btn(
+        type="checkbox"
+        name=options.name
+        value="1" 
+        checked=options.checked
+      )
+      span.likes__style
     span.likes__counter=options.number
