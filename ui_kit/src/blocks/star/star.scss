@@ -21,7 +21,12 @@
     background-image: url("../src/blocks/star/star-min.svg");
   }
 
-  &__btn_active {
+  &__style_active {
     background-image: url("../src/blocks/star/star-min.svg");
+  }
+
+  &__btn:focus + &__style {
+    outline: 1px solid #1F204180;
+    border-radius: 50%;
   }
 }

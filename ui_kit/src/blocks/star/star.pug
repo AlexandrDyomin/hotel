@@ -1,9 +1,17 @@
-mixin star(options) 
-  label.star
+mixin star(options)  
+  if options.value === 1 
+    - var lastWord = "балл"
+  else if options.value > 4
+    - var lastWord = "баллов";
+  else
+    - var lastWord = "балла"
+
+  label.star(area-label=`оценить в ${options.value} ${lastWord}`)
     input.star__btn(
       type="radio" 
       name=options.name 
       value=options.value
       checked=options.checked
+      disabled=options.disabled
     )
     span.star__style(class=options.modifiers) 
