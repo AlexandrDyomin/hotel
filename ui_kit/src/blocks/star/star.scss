@@ -1,0 +1,27 @@
+.star {
+  display: flex;
+  align-items: center;
+  
+  &__btn {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  &__style {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../src/blocks/star/star_border-min.svg") no-repeat center;
+  }
+
+  &__btn:checked + &__style {
+    background-image: url("../src/blocks/star/star-min.svg");
+  }
+
+  &__btn_active {
+    background-image: url("../src/blocks/star/star-min.svg");
+  }
+}

@@ -18,6 +18,8 @@ html(lang="ru")
     include ../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
     include ../src/blocks/date-dropdown/date-dropdown.pug
     include ../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
+    include ../src/blocks/rate-button/rate-button.pug
+
 
 
 
@@ -294,4 +296,15 @@ html(lang="ru")
           placeholder: "ДД.MM.ГГ"  
         }]
       })
+
+    +rate-button({
+      name: "rating",
+      scale: 5,
+      rating: 4,
+      modifiers: "star__btn_active"
+    })
+
+
+
+
 

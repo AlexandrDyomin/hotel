@@ -1,0 +1,12 @@
+include ../star/star.pug
+
+mixin rate-button(options)
+  .rate-button
+    - for ( let i = 1; i <= options.scale; i++ ) {
+      +star({
+        name: options.name,
+        value: i,
+        checked: i === options.rating || false,
+        modifiers: ( i < options.rating ) ? options.modifiers : "" 
+      })
+    - }

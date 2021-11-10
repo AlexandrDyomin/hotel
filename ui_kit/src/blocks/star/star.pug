@@ -1,0 +1,9 @@
+mixin star(options) 
+  label.star
+    input.star__btn(
+      type="radio" 
+      name=options.name 
+      value=options.value
+      checked=options.checked
+    )
+    span.star__style(class=options.modifiers) 
