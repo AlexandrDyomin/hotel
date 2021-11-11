@@ -1,0 +1,52 @@
+.button {
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  border: none;
+  border-radius: 22px;
+  width: 99px;
+  height: 44px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;;
+
+  &_large {
+    width: 320px;
+    background: 
+      url("../src/blocks/button/arrow_forward-min.svg") 
+      content-box
+      no-repeat
+      right center, 
+      linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    padding-right: 10px;
+  }
+
+  &_with-border {
+    border: 2px solid transparent;
+    background: 
+      linear-gradient(white, white)
+      content-box,
+      linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+      border-box;
+    color: #BC9CFF;
+    padding: 0;
+  }
+
+  &_minimalistic {
+    color: #BC9CFF;
+    width: min-content;
+    height: min-content;
+    background: none;
+  }
+
+  &:active {
+    transform: scale(0.95, 0.95);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.button.button_minimalistic:disabled {
+  color: #1F204180;
+  opacity: 1;
+}

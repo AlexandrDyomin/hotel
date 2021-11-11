@@ -19,9 +19,7 @@ html(lang="ru")
     include ../src/blocks/date-dropdown/date-dropdown.pug
     include ../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
     include ../src/blocks/rate-button/rate-button.pug
-
-
-
+    include ../src/blocks/button/button.pug
 
     script(defer src="../src/index.js") 
 
@@ -301,7 +299,57 @@ html(lang="ru")
       name: "rating",
       scale: 5,
       rating: 4,
-      modifiers: "star__style_active",
+      modifiers: "star__style_active"
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me"
+    })
+    
+    
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      disabled: true
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      modifiers: ["button_large"]
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      modifiers: ["button_with-border"]
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      modifiers: ["button_with-border"],
+      disabled: true
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      modifiers: ["button_minimalistic"]
+    })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: "Click me",
+      modifiers: ["button_minimalistic"],
       disabled: true
     })
 

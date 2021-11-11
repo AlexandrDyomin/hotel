@@ -1,0 +1,8 @@
+mixin button(options)
+  input.button(
+    type=options.type || "submit"
+    name=options.name 
+    value=options.value
+    disabled=options.disabled
+    class=options.modifiers
+  )
