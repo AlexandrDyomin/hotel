@@ -3,7 +3,7 @@ mixin button(options)
     input.button-item(
       type=options.type || "submit"
       name=options.name 
-      value=options.value
+      value=options.value || " "
       disabled=options.disabled
       class=options.modifiers
     )

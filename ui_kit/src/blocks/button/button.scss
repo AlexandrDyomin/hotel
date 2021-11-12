@@ -37,6 +37,36 @@
     background: none;
   }
 
+  &_round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &_with-arrow-forward {
+    background: 
+      url("../src/blocks/button/arrow_forward-min.svg") 
+      content-box
+      no-repeat
+      center, 
+      linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &_with-arrow-back {
+    background: 
+      url("../src/blocks/button/arrow_back-min.svg") 
+      content-box
+      no-repeat
+      center, 
+      linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
   &:active {
     transform: scale(0.95, 0.95);
   }
@@ -44,9 +74,10 @@
   &:disabled {
     opacity: 0.5;
   }
+
+  .button-item.button-item_minimalistic:disabled {
+    color: #1F204180;
+    opacity: 1;
+  }
 }
 
-.button-item.button-item_minimalistic:disabled {
-  color: #1F204180;
-  opacity: 1;
-}
