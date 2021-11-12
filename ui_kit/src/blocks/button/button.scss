@@ -1,4 +1,4 @@
-.button {
+.button-item {
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   border: none;
   border-radius: 22px;
@@ -6,7 +6,7 @@
   height: 44px;
   color: white;
   text-transform: uppercase;
-  cursor: pointer;;
+  cursor: pointer;
 
   &_large {
     width: 320px;
@@ -46,7 +46,7 @@
   }
 }
 
-.button.button_minimalistic:disabled {
+.button-item.button-item_minimalistic:disabled {
   color: #1F204180;
   opacity: 1;
 }
