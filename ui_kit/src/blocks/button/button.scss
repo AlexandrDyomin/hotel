@@ -1,12 +1,21 @@
+.button {
+  display: inline-block;
+}
+
 .button-item {
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   border: none;
   border-radius: 22px;
   width: 99px;
   height: 44px;
-  color: white;
   text-transform: uppercase;
   cursor: pointer;
+  
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
 
   &_large {
     width: 320px;
@@ -41,6 +50,13 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background: none;
+    color: #1F204180;
+  }
+
+  &_active {
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    color: white;
   }
 
   &_with-arrow-forward {

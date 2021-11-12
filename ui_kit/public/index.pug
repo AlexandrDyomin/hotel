@@ -20,6 +20,8 @@ html(lang="ru")
     include ../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
     include ../src/blocks/rate-button/rate-button.pug
     include ../src/blocks/button/button.pug
+    include ../src/blocks/pagination/pagination.pug
+
 
     script(defer src="../src/index.js") 
 
@@ -358,6 +360,20 @@ html(lang="ru")
       name: "button",
       modifiers: ["button-item_with-arrow-forward"]
     })
+
+    +button({
+      type: "button",
+      name: "button",
+      value: 2,
+      modifiers: ["button-item_round"]
+    })
+
+    +pagination({
+      numberOfPages: 15,
+      currentPage: 7,
+      info: "1 – 12 из 100+ вариантов аренды"
+    })
+
 
 
 

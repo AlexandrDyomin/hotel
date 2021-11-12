@@ -7,6 +7,8 @@ import "./blocks/expandable-checkbox-list/expandable-checkbox-list.js";
 import "./blocks/filter-date-dropdown/filter-date-dropdown.js";
 import "./blocks/date-dropdown/date-dropdown.js";
 import "./blocks/rate-button/rate-button.js";
+import "./blocks/pagination/pagination.js";
+
 
 
 

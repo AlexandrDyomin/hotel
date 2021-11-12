@@ -1,5 +1,8 @@
 mixin button(options)
-  a.button(href="javascript:void(0)")
+  a.button(
+    href="javascript:void(0)"
+    area-label=`страница № ${options.value}`
+  )
     input.button-item(
       type=options.type || "submit"
       name=options.name 
