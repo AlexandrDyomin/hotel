@@ -8,6 +8,7 @@ import "./blocks/filter-date-dropdown/filter-date-dropdown.js";
 import "./blocks/date-dropdown/date-dropdown.js";
 import "./blocks/rate-button/rate-button.js";
 import "./blocks/pagination/pagination.js";
+import "./blocks/range-slider/range-slider.js";
 
 
 
