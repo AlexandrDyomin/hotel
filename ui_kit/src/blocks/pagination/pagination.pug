@@ -1,13 +1,33 @@
 include ../button/button.pug 
 
-mixin pagination( { numberOfPage, currentPage, info } )
-  - let pageNumbers = [ 
-  -  ( currentPage % 2 ) ?  currentPage : currentPage - 1,
-  -  ( currentPage % 2 ) ?  currentPage + 1 : currentPage, 
-  -  ( currentPage % 2 ) ?  currentPage + 2 : currentPage + 1
-  - ]
+mixin pagination( { numberOfPages, currentPage, info } )
   .pagination(area-label="Блок пагинации")
     .pagination__buttons 
+      if currentPage >= 3 
+        each i in [ 1, 2 ]
+          +button({
+            type: "button",
+            name: "page",
+            value: ( i === 1) ? " " : 1,
+            modifiers: ( i === 1 ) ?  "button-item_with-arrow-back" : "button-item_round"
+          })
+        span.pagination__ellipsis ...
+
+      - let pageNumbers
+      if numberOfPages - currentPage > 3
+        - pageNumbers = [ 
+        -  ( currentPage % 2 ) ?  currentPage : currentPage - 1,
+        -  ( currentPage % 2 ) ?  currentPage + 1 : currentPage, 
+        -  ( currentPage % 2 ) ?  currentPage + 2 : currentPage + 1
+        - ]
+      else 
+        - pageNumbers = [ 
+        - numberOfPages - 3,
+        - numberOfPages - 2,
+        - numberOfPages - 1,
+        - numberOfPages,
+        - ]
+
       each i in pageNumbers
         +button({
           type: "button",
@@ -15,12 +35,15 @@ mixin pagination( { numberOfPage, currentPage, info } )
           value: i,
           modifiers: ( i === currentPage) ? [ "button-item_round", "button-item_active" ] : "button-item_round"
         })
-      span.pagination__ellipsis ...
-      each i in [ 1, 2 ]
-        +button({
-              type: "button",
-              name: "page",
-              value: ( i === 1) ? numberOfPages : " ",
-              modifiers: ( i === 1 ) ? "button-item_round" : "button-item_with-arrow-forward"
-            })
+      
+      if numberOfPages - currentPage > 3
+        span.pagination__ellipsis ...
+        each i in [ 1, 2 ]
+          +button({
+            type: "button",
+            name: "page",
+            value: ( i === 1) ? numberOfPages : " ",
+            modifiers: ( i === 1 ) ? "button-item_round" : "button-item_with-arrow-forward"
+          })
+ 
     span.pagination__info=info

@@ -2,6 +2,7 @@ mixin button(options)
   a.button(
     href="javascript:void(0)"
     area-label=`страница № ${options.value}`
+    tabindex="-1"
   )
     input.button-item(
       type=options.type || "submit"
