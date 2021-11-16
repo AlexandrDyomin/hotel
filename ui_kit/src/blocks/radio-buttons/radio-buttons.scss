@@ -36,7 +36,6 @@
     border: 1px solid #BC9CFF;
   }
   
-
   &__btn:checked + &__style::before {
     content:"";
     position: absolute;

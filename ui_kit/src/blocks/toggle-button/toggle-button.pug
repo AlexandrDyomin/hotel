@@ -1,8 +1,20 @@
 mixin toggle-button(options)
-  .toggle-button
+  .toggle-button(
+    class=( options.on ) ? "toggle-button_on" : ""
+  )
     label.toggle-button__item
-      input.toggle-button__radio(type="radio" name=options.name value="off")
+      input.toggle-button__radio(
+        type="radio" 
+        name=options.name 
+        value="off"
+        checked=( options.on ) ? false : true
+      )
       span.toggle-button__style.toggle-button__style_off
     label.toggle-button__item
-      input.toggle-button__radio(type="radio" name=options.name value="on" checked) 
+      input.toggle-button__radio(
+        type="radio" 
+        name=options.name 
+        value="on" 
+        checked=options.on
+      ) 
       span.toggle-button__style.toggle-button__style_on

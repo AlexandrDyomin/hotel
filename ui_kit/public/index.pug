@@ -230,8 +230,8 @@ html(lang="ru")
     label.label
       span.label__text Toggle
       +toggle({
-        toggleButton: { name: "offer" },
-        text: "Получать спецпредложения"
+        toggleButton: { name: "offer", on: true },
+        text: "Получать спецпредложения",
       })
 
     +expandable-checkbox-list({
