@@ -22,6 +22,7 @@ html(lang="ru")
     include ../src/blocks/button/button.pug
     include ../src/blocks/pagination/pagination.pug
     include ../src/blocks/range-slider/range-slider.pug
+    include ../src/blocks/likes/likes.pug
 
     script(defer src="../src/index.js") 
 
@@ -32,353 +33,379 @@ html(lang="ru")
         +logo
     main.main
       .container
-        section.colors
-          - var data = [{
-          -   code: "#1F2041", 
-          -   name: "Dark Shade 100%" 
-          - }, {
-          -   code: "#1F2041", 
-          -   name: "Dark Shade 75%", 
-          -   modifiers: "color-card__square_dark-shade_75" 
-          - }, {
-          -   code: "#1F2041", 
-          -   name: "Dark Shade 50%",
-          -   modifiers: "color-card__square_dark-shade_50"
-          - }, {
-          -   code: "#1F2041", 
-          -   name: "Dark Shade 25%", 
-          -   modifiers: "color-card__square_dark-shade_25"
-          - }, {
-          -   code: "#1F2041", 
-          -   name: "Dark Shade 5%", 
-          -   modifiers: "color-card__square_dark-shade_5" 
-          - }, { 
-          -   code: "#1F2041", 
-          -   name: "Purple", 
-          -   modifiers: "color-card__square_purple" 
-          - }, { 
-          -   code: "#1F2041", 
-          -   name: "Green", 
-          -   modifiers: "color-card__square_green" 
-          - }]
-               
-          each item in data
-            +color-card(item) 
+        .container__colors-types
+          section.container__colors
+            - var data = [{
+            -   code: "#1F2041", 
+            -   name: "Dark Shade 100%" 
+            - }, {
+            -   code: "#1F2041", 
+            -   name: "Dark Shade 75%", 
+            -   modifiers: "color-card__square_dark-shade_75" 
+            - }, {
+            -   code: "#1F2041", 
+            -   name: "Dark Shade 50%",
+            -   modifiers: "color-card__square_dark-shade_50"
+            - }, {
+            -   code: "#1F2041", 
+            -   name: "Dark Shade 25%", 
+            -   modifiers: "color-card__square_dark-shade_25"
+            - }, {
+            -   code: "#1F2041", 
+            -   name: "Dark Shade 5%", 
+            -   modifiers: "color-card__square_dark-shade_5" 
+            - }, { 
+            -   code: "#1F2041", 
+            -   name: "Purple", 
+            -   modifiers: "color-card__square_purple" 
+            - }, { 
+            -   code: "#1F2041", 
+            -   name: "Green", 
+            -   modifiers: "color-card__square_green" 
+            - }]
+                 
+            each item in data
+              +color-card(item) 
 
-        section.fonts
-          +font( 
-            { allocation: "h1", 
-            example: "This one is the sub-section or widget title", 
-            font_modifiers: [ "font_text-size_xl", "font__example_bold" ],
-            font__example_modifiers: "font__example_container-size_xl"
-            })
-          +font( 
-            { allocation: "h2", 
-            example: "Next one is the item title inside widgets", 
-            font_modifiers: [ "font_text-size_lg", "font__example_bold" ],
-            font__example_modifiers: "font__example_container-size_lg"
-            })
-          +font( 
-            { allocation: "h3", 
-            example: "This is a label or CTA text", 
-            font_modifiers: [ "font_text-size_md", "font__example_bold" ],
-            font__example_modifiers: "font__example_container-size_sm"
-            })
-          +font( 
-            { allocation: "body", 
-            example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", 
-            font_modifiers: "font_text-size_sm",
-            font__allocation_modifiers: "font__allocation_uppercase_disabled",
-            font__example_modifiers: "font__example_dark-shade_75" ,
-            font__example_modifiers: "font__example_container-size_md"
-            })
+          section.container__fonts
+            +font( 
+              { allocation: "h1", 
+              example: "This one is the sub-section or widget title", 
+              font_modifiers: [ "font_text-size_xl", "font__example_bold" ],
+              font__example_modifiers: "font__example_container-size_xl"
+              })
+            +font( 
+              { allocation: "h2", 
+              example: "Next one is the item title inside widgets", 
+              font_modifiers: [ "font_text-size_lg", "font__example_bold" ],
+              font__example_modifiers: "font__example_container-size_lg"
+              })
+            +font( 
+              { allocation: "h3", 
+              example: "This is a label or CTA text", 
+              font_modifiers: [ "font_text-size_md", "font__example_bold" ],
+              font__example_modifiers: "font__example_container-size_sm"
+              })
+            +font( 
+              { allocation: "body", 
+              example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.", 
+              font_modifiers: "font_text-size_sm",
+              font__allocation_modifiers: "font__allocation_uppercase_disabled",
+              font__example_modifiers: "font__example_dark-shade_75" ,
+              font__example_modifiers: "font__example_container-size_md"
+              })
 
-    label.label
-      span.label__text text field
-      +text-field( { type: "email", name: "email", placeholder: "email" } )
+        .container__form-elements
+          section.container__main
+            .container__left
+              label.label 
+                span.label__text text field
+                +text-field( { type: "email", name: "email", placeholder: "email" } )
 
-    label.label
-      span.label__text Dropdown
-      +dropdown( { 
-          dataType: "guests",                
-          textField: {
-            type: "text", 
-            name: "number-guests", 
-            placeholder: "Сколько гостей", 
-            modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-            readonly: true,
-            tabIndex: "-1"
-          },
-          counters: [
-            { category: "Взрослые" },
-            { category: "Дети" },
-            { category: "Младенцы" }
-          ],
-          hiddenTextFilds: [ 
-            { type: "text", name: "number-adults" }, 
-            { type: "text", name: "number-children" }, 
-            { type: "text", name: "number-babies" } 
-          ]           
-        } 
-      )
-    
-    label.label
-      span.label__text Dropdown
-      +dropdown( { 
-          dataType: "rooms",
-          textField: {
-            type: "text", 
-            name: "number-bedrooms", 
-            modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-            buttonsModifiers: "dropdown__buttons_hidden",
-            readonly: true,
-            tabIndex: "-1"
-          },
-          counters: [
-            { category: "Спальни", dataType: "bedrooms" },
-            { category: "Кровати", dataType: "beds" },
-            { category: "Ванные комнаты", dataType: "bathrooms" }
-          ],
-          hiddenTextFilds: [ 
-            { type: "text", name: "number-bedrooms" }, 
-            { type: "text", name: "number-beds" }, 
-            { type: "text", name: "number-bathrooms" } 
-          ]
-        } 
-      )
+              label.label 
+                span.label__text Dropdown
+                +dropdown( { 
+                    dataType: "guests",                
+                    textField: {
+                      type: "text", 
+                      name: "number-guests", 
+                      placeholder: "Сколько гостей", 
+                      modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
+                      readonly: true,
+                      tabIndex: "-1"
+                    },
+                    counters: [
+                      { category: "Взрослые" },
+                      { category: "Дети" },
+                      { category: "Младенцы" }
+                    ],
+                    hiddenTextFilds: [ 
+                      { type: "text", name: "number-adults" }, 
+                      { type: "text", name: "number-children" }, 
+                      { type: "text", name: "number-babies" } 
+                    ]           
+                  } 
+                )
 
-    label.label
-      span.label__text Checkbox-Buttons
-      +checkbox-button({
-          text: "Можно курить"
-      })
-      +checkbox-button({
-        text: "Можно с питомцами"
-      })
-      +checkbox-button({
-          text: "Можно пригласить гостей (до 10 человек)"
-      })
-    
-    label.label
-      span.label__text convenience
-      +convenience({
-        url: "../src/blocks/convenience/insert_emoticon-min.svg",
-        title: "Комфорт",
-        text: "Шумопоглощающие стены"          
-      })
+              label.label 
+                span.label__text date dropdown
+                +date-dropdown({
+                  textFields: [{
+                    type: "text", 
+                    readonly: true,
+                    name: "date-from",
+                    modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
+                    id: "date-dropdown",
+                    placeholder: "ДД.MM.ГГ"
+                  }, {
+                    type: "text", 
+                    readonly: true,
+                    name: "date-to",
+                    modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
+                    tabIndex: "-1",
+                    placeholder: "ДД.MM.ГГ"  
+                  }]
+                })
 
-      +convenience({
-        url: "../src/blocks/convenience/location_city-min.svg",
-        title: "Удобство",
-        text: "Окно в каждой из спален"          
-      })
+              label.label
+                span.label__text filter date dropdown
+                +filter-date-dropdown({
+                  textField: {
+                    type: "text", 
+                    id: "filter-date-dropdown",
+                    readonly: true,
+                    name: "dates",
+                    modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ]
+                  }
+                })
 
-    label.label
-      span.label__text comment
-      +comment({
-        author: {
-          url: "../src/blocks/author/ava.jpg",
-          name: "Мурад Сарафанов",
-          additionalInfo: "5 дней назад"
-        },
-        likes: {
-          name: 'like',
-          number: 12,
-          checked: false
-        },
-        text: "Великолепный матрас на кровати в основной спальне!\
-          А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. \
-          Выкрикивал комплименты повару — никто не жаловался из соседей."
-      })
+              label.label
+                span.label__text Dropdown
+                +dropdown( { 
+                    dataType: "rooms",
+                    textField: {
+                      type: "text", 
+                      name: "number-bedrooms", 
+                      modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
+                      buttonsModifiers: "dropdown__buttons_hidden",
+                      readonly: true,
+                      tabIndex: "-1"
+                    },
+                    counters: [
+                      { category: "Спальни", dataType: "bedrooms" },
+                      { category: "Кровати", dataType: "beds" },
+                      { category: "Ванные комнаты", dataType: "bathrooms" }
+                    ],
+                    hiddenTextFilds: [ 
+                      { type: "text", name: "number-bedrooms" }, 
+                      { type: "text", name: "number-beds" }, 
+                      { type: "text", name: "number-bathrooms" } 
+                    ]
+                  } 
+                )
 
-    label.label
-      span.label__text Rich Checkbox Buttons
-      +checkbox-button({
-        title: "Широкий коридор",
-        text: "Ширина коридоров в номере не менее 91 см."
-      })
-      +checkbox-button({
-        title: "Помощник для инвалидов",
-        text: "На 1 этаже вас встретит специалист  и проводит до номера."
-      })
+              +expandable-checkbox-list({
+                title: "expandable checkbox list",
+                checkboxButtons: [ {
+                    name: "breakfast",
+                    value: 1,
+                    text: "Завтрак",
+                    dataParent: "checkboxList"
+                  }, {
+                    name: "desk",
+                    value: 1,
+                    text: "Письменный стол",
+                    dataParent: "checkboxList"
+                  }, {
+                    name: "feeding chair",
+                    value: 1,
+                    text: "Стул для кормления",
+                    dataParent: "checkboxList"
+                  }, {
+                    name: "television",
+                    value: 1,
+                    text: "Телевизор",
+                    dataParent: "checkboxList"
+                  }, {
+                    name: "shampoo",
+                    value: 1,
+                    text: "Шампунь",
+                    dataParent: "checkboxList"
+                  }
+                ]
+              })
 
-    label.label
-      span.label__text Bullet List 
-      +bullet-list({
-        items: [
-          "Нельзя с питомцами",
-          "Без вечеринок и мероприятий",
-          "Время прибытия — после 13:00, а выезд до 12:00"
-        ]
-      })
+            .container__middle
+              label.label
+                span.label__text Checkbox-Buttons
+                +checkbox-button({
+                    text: "Можно курить"
+                })
+                +checkbox-button({
+                  text: "Можно с питомцами"
+                })
+                +checkbox-button({
+                    text: "Можно пригласить гостей (до 10 человек)"
+                })
 
-    label.label
-      span.label__text Radio Buttons 
-      +radio-buttons({
-        items: [
-          {
-            name: "sex",
-            value: "male",
-            label: "Мужчина"
-          },
-          {
-            name: "sex",
-            value: "female",
-            label: "Женщина"
-          }
-        ]
-      }) 
+              label.label
+                span.label__text Radio Buttons 
+                +radio-buttons({
+                  items: [
+                    {
+                      name: "sex",
+                      value: "male",
+                      label: "Мужчина"                      
+                    },{
+                      name: "sex",
+                      value: "female",
+                      label: "Женщина",
+                      checked: true
+                    }
+                  ]
+                })
 
-    label.label
-      span.label__text Toggle
-      +toggle({
-        toggleButton: { name: "offer", on: true },
-        text: "Получать спецпредложения",
-      })
+              label.label
+                span.label__text Toggle
+                +toggle({
+                  toggleButton: { name: "offer", on: true },
+                  text: "Получать спецпредложения",
+                })
 
-    +expandable-checkbox-list({
-      title: "expandable checkbox list",
-      checkboxButtons: [ {
-          name: "breakfast",
-          value: 1,
-          text: "Завтрак",
-          dataParent: "checkboxList"
-        }, {
-          name: "desk",
-          value: 1,
-          text: "Письменный стол",
-          dataParent: "checkboxList"
-        }, {
-          name: "feeding chair",
-          value: 1,
-          text: "Стул для кормления",
-          dataParent: "checkboxList"
-        }, {
-          name: "television",
-          value: 1,
-          text: "Телевизор",
-          dataParent: "checkboxList"
-        }, {
-          name: "shampoo",
-          value: 1,
-          text: "Шампунь",
-          dataParent: "checkboxList"
-        }
-      ]
-    })
+              label.label
+                span.label__text Likes
+                +likes({
+                  name: 'like',
+                  number: 12,
+                  checked: true
+                })
 
-    label.label
-      span.label__text filter date dropdown
-      +filter-date-dropdown({
-        textField: {
-          type: "text", 
-          id: "filter-date-dropdown",
-          readonly: true,
-          name: "dates",
-          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ]
-        }
-      })
+              label.label
+                span.label__text Rate Button
+                +rate-button({
+                  name: "rating",
+                  scale: 5,
+                  rating: 4,
+                  modifiers: "star__style_active"
+                })
 
-    label.label
-      span.label__text date dropdown
-      +date-dropdown({
-        textFields: [{
-          type: "text", 
-          readonly: true,
-          name: "date-from",
-          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
-          id: "date-dropdown",
-          placeholder: "ДД.MM.ГГ"
-        }, {
-          type: "text", 
-          readonly: true,
-          name: "date-to",
-          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
-          tabIndex: "-1",
-          placeholder: "ДД.MM.ГГ"  
-        }]
-      })
+              label.label
+                span.label__text Rich Checkbox Buttons
+                +checkbox-button({
+                  title: "Широкий коридор",
+                  text: "Ширина коридоров в номере не менее 91 см."
+                })
+                +checkbox-button({
+                  title: "Помощник для инвалидов",
+                  text: "На 1 этаже вас встретит специалист  и проводит до номера."
+                })
 
-    +rate-button({
-      name: "rating",
-      scale: 5,
-      rating: 4,
-      modifiers: "star__style_active"
-    })
+            .container__right
+              label.label
+                span.label__text Range slider
+                +range-slider
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me"
-    })
-    
-    
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      disabled: true
-    })
+              div.label
+                span.label__text Buttons
+                .label__group-1
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me"
+                  })
+                  
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    disabled: true
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      modifiers: ["button-item_large"]
-    })
+                .label__group-2
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    modifiers: ["button-item_with-border"]
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      modifiers: ["button-item_with-border"]
-    })
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    modifiers: ["button-item_with-border"],
+                    disabled: true
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      modifiers: ["button-item_with-border"],
-      disabled: true
-    })
+                .label__group-3
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    modifiers: ["button-item_minimalistic"]
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      modifiers: ["button-item_minimalistic"]
-    })
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    modifiers: ["button-item_minimalistic"],
+                    disabled: true
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: "Click me",
-      modifiers: ["button-item_minimalistic"],
-      disabled: true
-    })
+                .label__group-4
+                  +button({
+                    type: "button",
+                    name: "button",
+                    value: "Click me",
+                    modifiers: ["button-item_large"]
+                  })
 
-    +button({
-      type: "button",
-      name: "button",
-      modifiers: ["button-item_with-arrow-forward"]
-    })
+              div.label
+                span.label__text Pagination
+                +pagination({
+                  numberOfPages: 15,
+                  currentPage: 1,
+                  info: "1 – 12 из 100+ вариантов аренды"
+                })
 
-    +button({
-      type: "button",
-      name: "button",
-      value: 2,
-      modifiers: ["button-item_round"]
-    })
-
-    +pagination({
-      numberOfPages: 15,
-      currentPage: 1,
-      info: "1 – 12 из 100+ вариантов аренды"
-    })
+              label.label
+                span.label__text Bullet List 
+                +bullet-list({
+                  items: [
+                    "Нельзя с питомцами",
+                    "Без вечеринок и мероприятий",
+                    "Время прибытия — после 13:00, а выезд до 12:00"
+                  ]
+                })
 
 
 
-    +range-slider({})
+
+
+          
+          
+        section.container__bottom  
+          .container__left     
+            label.label
+              span.label__text convenience
+              +convenience({
+                url: "../src/blocks/convenience/insert_emoticon-min.svg",
+                title: "Комфорт",
+                text: "Шумопоглощающие стены"          
+              })
+
+              +convenience({
+                url: "../src/blocks/convenience/location_city-min.svg",
+                title: "Удобство",
+                text: "Окно в каждой из спален"          
+              })
+              
+          .container__right
+            label.label
+              span.label__text comment
+              +comment({
+                author: {
+                  url: "../src/blocks/author/ava.jpg",
+                  name: "Мурад Сарафанов",
+                  additionalInfo: "5 дней назад"
+                },
+                likes: {
+                  name: 'like',
+                  number: 12,
+                  checked: false
+                },
+                text: "Великолепный матрас на кровати в основной спальне!\
+                  А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. \
+                  Выкрикивал комплименты повару — никто не жаловался из соседей."
+              })
+
+          
+
+          
+
+
+
 
    
 
