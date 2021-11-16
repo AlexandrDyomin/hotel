@@ -10,7 +10,5 @@ mixin comment(options)
     })
     .comment__bottom
       .comment__likes
-        +likes({
-          number: options.likes.number
-        })
+        +likes(options.likes)
       .comment__text=options.text
