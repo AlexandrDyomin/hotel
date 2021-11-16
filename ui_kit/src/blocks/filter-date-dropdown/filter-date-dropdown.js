@@ -54,27 +54,6 @@ let setings = {
   }
 };
 
-
-// удаляет дефолтные стрелки для навигации
-const removeArrows = (dp) => {
-  let nav = dp.$datepicker.querySelectorAll( ".air-datepicker-nav--action" );
-  nav.forEach( el => el.innerHTML = "" )
-}
-
-// удаляет выноску календаря
-const removePointer = ( dp ) => {
-  let pointer = dp.$datepicker.querySelector( ".air-datepicker--pointer" );
-  pointer.remove();
-}
-
 let datePicker =new AirDatepicker('#filter-date-dropdown', setings);
 
-// удаляем дефолтные стрелки для навигации
-removeArrows(datePicker);
-
-// удаляем выноску календаря
-removePointer( datePicker );
-
-
-
-export { setings, toggleButtonStateApply, removeArrows, removePointer };
+export { setings, toggleButtonStateApply};

@@ -109,3 +109,9 @@
 .air-datepicker {
   width: 318px;
 }
+
+.air-datepicker--pointer, 
+.air-datepicker-nav--action > svg {
+  display: none;
+}
+

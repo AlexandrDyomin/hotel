@@ -4,8 +4,6 @@ import addHandler from '../../common-modules/addHandler';
 import { findChildren, findParent } from '../../common-modules/scan';
 import { clearTextFields } from '../counter/counter';
 import { 
-  removeArrows,
-  removePointer,
   setings, 
   toggleButtonStateApply 
 } from '../filter-date-dropdown/filter-date-dropdown';
@@ -48,15 +46,12 @@ setings.onSelect = onSelect
 
 let datePicker = new AirDatepicker('#date-dropdown', setings);
 
-// удаляем дефолтные стрелки для навигации
-removeArrows( datePicker );
-
-// удаляем выноску календаря
-removePointer( datePicker );
-
 // показывает календарь
 const handleDateDropdownFocus = () => {
-  datePicker.show();
+  let inputLeft = document.querySelector( 
+    ".date-dropdown > .text-field[name=date-from]" 
+  );
+  inputLeft.focus();
 }
 
 // ДОБАВЛЯЕМ ОБРАБОТЧИК 
