@@ -20,5 +20,13 @@ let prices = [
 ];
 
 slider.noUiSlider.on( "update", ( values, handle ) => {
-  prices[handle].value = Math.round( values[handle] ).toString() + "₽";
+  let price = Math.round( values[handle] ).toString();
+  if ( price.length > 3 ) {
+    let priceLength = price.length;
+    price = price.slice(0, priceLength - 3 ) + " " + price.slice(-3) + "₽";
+    prices[handle].value = price;
+  } else {
+    prices[handle].value = price + "₽";
+  }
+
 });

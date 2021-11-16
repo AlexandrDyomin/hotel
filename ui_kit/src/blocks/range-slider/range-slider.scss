@@ -43,18 +43,22 @@ div.noUi-horizontal .noUi-handle {
     color: #1F204180;
   }
 
+  &__price:nth-child(3){
+    text-align: left;
+  }
+
   &__price {
     width: 55px;
     height: 15px;
     border: none;
     margin-bottom: 24px;
-    text-align: center;
+    text-align: right;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
     color: inherit;
-    
+
     &:focus {
       outline: none;
     }
