@@ -28,5 +28,4 @@ slider.noUiSlider.on( "update", ( values, handle ) => {
   } else {
     prices[handle].value = price + "₽";
   }
-
 });

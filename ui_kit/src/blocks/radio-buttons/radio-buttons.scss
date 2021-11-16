@@ -20,7 +20,7 @@
     height: 20px;
     margin-right: 10px;
     border-radius: 50px;
-    border: 1px solid #BC9CFF;
+    border: 1px solid #1F204140
   }
 
   &__text {
@@ -31,6 +31,11 @@
     color: #1F204180;
     margin-right: 20px;
   }
+
+  &__btn:checked + &__style {
+    border: 1px solid #BC9CFF;
+  }
+  
 
   &__btn:checked + &__style::before {
     content:"";
