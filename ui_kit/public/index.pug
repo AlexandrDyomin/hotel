@@ -23,6 +23,8 @@ html(lang="ru")
     include ../src/blocks/pagination/pagination.pug
     include ../src/blocks/range-slider/range-slider.pug
     include ../src/blocks/likes/likes.pug
+    include ../src/blocks/subscription-text-field/subscription-text-field.pug
+
 
     script(defer src="../src/index.js") 
 
@@ -100,7 +102,7 @@ html(lang="ru")
             .container__left
               label.label 
                 span.label__text text field
-                +text-field( { type: "email", name: "email", placeholder: "email" } )
+                +text-field( { type: "email", name: "email", placeholder: "Email" } )
 
               label.label 
                 span.label__text Dropdown
@@ -157,6 +159,14 @@ html(lang="ru")
                     name: "dates",
                     modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ]
                   }
+                })
+
+              label.label 
+                span.label__text text field
+                +subscription-text-field({ 
+                  type: "email", 
+                  name: "email", 
+                  placeholder: "Email" 
                 })
 
               label.label
@@ -358,13 +368,7 @@ html(lang="ru")
                     "Время прибытия — после 13:00, а выезд до 12:00"
                   ]
                 })
-
-
-
-
-
-          
-          
+ 
         section.container__bottom  
           .container__left     
             label.label
@@ -398,7 +402,7 @@ html(lang="ru")
                 text: "Великолепный матрас на кровати в основной спальне!\
                   А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. \
                   Выкрикивал комплименты повару — никто не жаловался из соседей."
-              })
+              })   
 
           
 

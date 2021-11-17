@@ -1,0 +1,29 @@
+.subscription-text-field {
+  position: relative;
+
+  & > .text-field {
+    padding-right: 40px;
+  }
+
+  &__button {
+    position: absolute; 
+    top: 11px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    background: 
+      url("./arrow_forward-min.svg")
+      no-repeat
+      center;
+    border: none;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(0.95, 0.95);  
+    }
+
+    &:focus {
+      border-radius: 50%;
+    }
+  }
+}
