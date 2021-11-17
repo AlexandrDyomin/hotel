@@ -1,13 +1,15 @@
+@import "../filter-date-dropdown/filter-date-dropdown.scss";
+
 .date-dropdown {
   width: 320px;
   display: flex;
 
-  & > .text-field[name=date-from] {
+  & > .text-field {
     margin-right: 20px;
+    caret-color: transparent;
   }
 
-  & > .text-field:focus, .text-field:hover {
-    border-color: #1F204140;
-    caret-color: transparent;
+  &:hover .text-field {
+    border-color: #1F204180;
   }
 }

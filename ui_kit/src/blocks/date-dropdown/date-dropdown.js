@@ -1,8 +1,9 @@
-import AirDatepicker from 'air-datepicker';
-import 'air-datepicker/air-datepicker.css';
+import AirDatepicker from "air-datepicker";
+import "air-datepicker/air-datepicker.css";
+import "./date-dropdown.scss";
 import addHandler from '../../common-modules/addHandler';
-import { findChildren, findParent } from '../../common-modules/scan';
-import { clearTextFields } from '../counter/counter';
+import { findChildren, findElement, findParent } from '../../common-modules/scan';
+import { changeAppearance, clearTextFields } from '../counter/counter';
 import { 
   setings, 
   toggleButtonStateApply 
@@ -43,6 +44,24 @@ setings.buttons[0] = {
 
 setings.container = ".date-dropdown"
 setings.onSelect = onSelect
+
+setings.onShow = (isFinished) => {
+  if ( !isFinished ) {
+    let textField = document.activeElement.nextElementSibling;
+    changeAppearance( textField, "text-field_active" );
+  }
+}
+
+setings.onHide = (isFinished) => {
+  if ( !isFinished ) {
+    let textField = findElement(
+      datePicker.$datepicker, 
+      "date-dropdown", 
+      "text-field"
+    ).nextElementSibling;
+    changeAppearance( textField, "text-field_active" ); 
+  }
+}
 
 let datePicker = new AirDatepicker('#date-dropdown', setings);
 
