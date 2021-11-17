@@ -5,8 +5,11 @@
   display: flex;
 
   & > .text-field {
-    margin-right: 20px;
     caret-color: transparent;
+  }
+  
+  & > .text-field[name=date-from] {
+    margin-right: 20px;
   }
 
   &:hover .text-field {

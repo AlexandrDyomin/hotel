@@ -32,6 +32,11 @@
     &:checked + .check-box__style {
       border: 1px solid #BC9CFF;
     }
+
+    &:focus-visible + .check-box__style {
+      outline: 1px solid #1F204180;
+    }
+    
   }
   
   &__style {

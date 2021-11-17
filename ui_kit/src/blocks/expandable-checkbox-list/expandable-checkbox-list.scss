@@ -2,6 +2,10 @@
   width: 100%;
   position: relative;
 
+  &:focus {
+    outline: none;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
