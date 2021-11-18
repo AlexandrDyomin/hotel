@@ -28,6 +28,12 @@
     background-repeat: no-repeat;
   }
 
+  &__btn:focus-visible + &__style {
+    outline: 1px solid #1F204180;
+    outline-offset: 1px;
+    border-radius: 50%;
+  }
+
   &__style {
     display:inline-block;
     position: relative;

@@ -22,8 +22,9 @@
       transform: scale(0.95, 0.95);  
     }
 
-    &:focus {
+    &:focus-visible {
       border-radius: 50%;
+      outline: 1px solid #1F204180;
     }
   }
 }

@@ -25,6 +25,12 @@
   box-shadow: none;
 }
 
+.noUi-origin > .noUi-handle:focus-visible {
+  outline: 1px solid #1F204180;
+}
+
+
+
 div.noUi-horizontal .noUi-handle {
   width: 14px;
   height: 14px;

@@ -35,6 +35,11 @@
   &__btn:checked + &__style {
     border: 1px solid #BC9CFF;
   }
+
+  &__btn:focus-visible + &__style {
+    outline: 1px solid #1F204180;
+    outline-offset: 1px;
+  }
   
   &__btn:checked + &__style::before {
     content:"";

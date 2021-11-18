@@ -23,7 +23,13 @@
     height: 1px;
     position: absolute;
     clip: rect(0 0 0 0);
-    overflow: hidden;   
+    overflow: hidden; 
+    
+  }
+  
+  &__radio:focus-visible + &__style {
+    outline: 1px solid #1F204180;
+    outline-offset: 1px;
   }
 
   &__style {

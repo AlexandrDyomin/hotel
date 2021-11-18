@@ -22,6 +22,12 @@
     cursor: pointer;
   }
 
+  &__button-minus:focus-visible,
+  &__button-plus:focus-visible {
+    border-color: #1F204180;
+    outline: none;
+  }
+
   &__button-minus {
       border-color: #1F20410A;
       color: #1F20410A;
