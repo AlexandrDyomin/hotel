@@ -1,0 +1,46 @@
+.search-card {
+  padding: 40px 30px 30px;
+  max-width: 380px;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  
+  &__title {
+    margin: 0 0 21px;
+    font-size: 24px;
+    line-height: 29px;
+    color: #1F2041;
+  }
+
+  &__description {
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin-bottom: 5px;
+  }
+  
+  &__wrap {
+    display: flex;
+    margin-bottom: 5px;
+  }
+
+  &__description &__item:first-child {
+    margin-right: 20px;
+  }
+
+  &__item {
+    flex-basis: calc(50% - 10px);
+    padding-left: 2px;
+    
+  }
+
+  &__date-dropdown {
+    margin-bottom: 21px;
+  }
+
+  &__dropdown {
+    margin-bottom: 31px;
+  }
+}
