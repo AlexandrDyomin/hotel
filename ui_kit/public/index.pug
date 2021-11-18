@@ -214,6 +214,11 @@ html(lang="ru")
                   }, {
                     name: "television",
                     value: 1,
+                    text: "Кроватка",
+                    dataParent: "checkboxList"
+                  },{
+                    name: "television",
+                    value: 1,
                     text: "Телевизор",
                     dataParent: "checkboxList"
                   }, {
@@ -232,10 +237,12 @@ html(lang="ru")
                     text: "Можно курить"
                 })
                 +checkbox-button({
-                  text: "Можно с питомцами"
+                  text: "Можно с питомцами",
+                  checked: true
                 })
                 +checkbox-button({
-                    text: "Можно пригласить гостей (до 10 человек)"
+                    text: "Можно пригласить гостей (до 10 человек)",
+                    checked: true
                 })
 
               label.label
@@ -347,7 +354,7 @@ html(lang="ru")
                   +button({
                     type: "button",
                     name: "button",
-                    value: "Click me",
+                    value: "Перейти к оплате",
                     modifiers: ["button-item_large"]
                   })
 

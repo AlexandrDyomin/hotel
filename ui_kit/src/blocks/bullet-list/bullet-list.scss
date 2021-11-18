@@ -1,7 +1,7 @@
 .bullet-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style-image: url("../src/blocks/bullet-list/Ellipse-min.svg");
+  padding: 0 10px 10px 18px;
+  margin-top: 7px;
 
   &__item {
     font-family: Montserrat, Arial, Helvetica, sans-serif;
@@ -9,17 +9,6 @@
     line-height: 24px;
     font-weight: 400;
     color: #1F2041BF;
-    padding: 10px;
-    padding-left: 0;
-  }
-
-  &__item::before {
-    content: "";
-    display:inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #1F204140;
-    margin-right: 10px;  
+    padding: 0 10px 10px 3px;
   }
 }
