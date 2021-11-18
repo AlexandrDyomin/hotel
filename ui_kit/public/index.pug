@@ -24,6 +24,8 @@ html(lang="ru")
     include ../src/blocks/range-slider/range-slider.pug
     include ../src/blocks/likes/likes.pug
     include ../src/blocks/subscription-text-field/subscription-text-field.pug
+    include ../src/blocks/search-card/search-card.pug
+
 
 
     script(defer src="../src/index.js") 
@@ -410,3 +412,11 @@ html(lang="ru")
                   А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. \
                   Выкрикивал комплименты повару — никто не жаловался из соседей."
               })
+
+        .container__main
+          .container__left
+            +search-card
+          .container__middle 
+            
+          .container__right
+          
