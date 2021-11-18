@@ -1,5 +1,5 @@
 include ../text-field/text-field.pug
 mixin date-dropdown(options)
-  .date-dropdown
+  .date-dropdown(class=options.class)
     each item in options.textFields 
       +text-field(item)

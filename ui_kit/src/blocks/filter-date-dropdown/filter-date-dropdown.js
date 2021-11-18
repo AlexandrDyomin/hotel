@@ -36,7 +36,9 @@ let setings = {
         let $dp = dp.$datepicker;
         setTimeout(() => {
           let buttonApply = findChildren( $dp, "air-datepicker-button" )[1];
-          toggleState( buttonApply );   
+          toggleState( buttonApply ); 
+          buttonApply.type="button";
+          buttonApply.previousElementSibling.type = "button"; 
         });
 
         return "Применить";
@@ -54,6 +56,6 @@ let setings = {
   }
 };
 
-let datePicker =new AirDatepicker('#filter-date-dropdown', setings);
+new AirDatepicker('#filter-date-dropdown', setings);
 
 export { setings, toggleButtonStateApply};

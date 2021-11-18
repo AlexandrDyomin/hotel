@@ -1,6 +1,7 @@
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import "./date-dropdown.scss";
+import "../filter-date-dropdown/filter-date-dropdown.scss";
 import addHandler from '../../common-modules/addHandler';
 import { findChildren, findElement, findParent } from '../../common-modules/scan';
 import { changeAppearance, clearTextFields } from '../counter/counter';
@@ -66,10 +67,8 @@ setings.onHide = (isFinished) => {
 let datePicker = new AirDatepicker('#date-dropdown', setings);
 
 // показывает календарь
-const handleDateDropdownFocus = () => {
-  let inputLeft = document.querySelector( 
-    ".date-dropdown > .text-field[name=date-from]" 
-  );
+const handleDateDropdownFocus = ( e ) => {
+  let inputLeft = e.currentTarget.previousElementSibling;
   inputLeft.focus();
 }
 
@@ -81,3 +80,5 @@ addHandler(
   handleDateDropdownFocus,
   "focus"
 );
+
+export { setings }
