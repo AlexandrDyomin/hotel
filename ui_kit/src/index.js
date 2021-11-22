@@ -11,15 +11,7 @@ import "./blocks/pagination/pagination.js";
 import "./blocks/range-slider/range-slider.js";
 import "./blocks/subscription-text-field/subscription-text-field.js";
 import "./blocks/search-card/search-card.js";
+import "./blocks/text-field/text-field.js";
 
 
 
-
-
-
-
-// const loadPage = () => {
-//   document.body.style.display = "block"
-// }
-
-// window.addEventListener("load", loadPage);
