@@ -4,55 +4,38 @@ include ../button/button.pug
 
 mixin search-card 
   form.search-card
-    h2.search-card__title Найдём номера под ваши пожелания
-    label.search-card__description
-      .search-card__wrap
-        .search-card__item прибытие 
-        .search-card__item выезд
-      +date-dropdown({
-        class: "search-card__date-dropdown",
-        textFields: [{
-          type: "text", 
-          readonly: true,
-          name: "date-from",
-          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
-          id: "search-card",
-          placeholder: "ДД.MM.ГГ"
-        }, {
-          type: "text", 
-          readonly: true,
-          name: "date-to",
-          modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
-          tabIndex: "-1",
-          placeholder: "ДД.MM.ГГ"  
-        }]
-      })
+    h1.search-card__title Найдём номера под ваши пожелания
+    +date-dropdown( { 
+      class: "search-card__date-dropdown", 
+      id: "search-card", 
+      label1: "прибытие", 
+      label2: "вывезд" 
+    })
 
-    label.search-card__description 
-      .search-card__text гости
-      +dropdown( { 
-        class: "search-card__dropdown",
-        dataType: "guests",                
-        textField: {
-          type: "text", 
-          name: "number-guests", 
-          placeholder: "Сколько гостей", 
-          modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-          readonly: true,
-          tabIndex: "-1"
-        },
-        counters: [
-          { category: "Взрослые" },
-          { category: "Дети" },
-          { category: "Младенцы" }
-        ],
-        hiddenTextFilds: [ 
-          { type: "text", name: "number-adults" }, 
-          { type: "text", name: "number-children" }, 
-          { type: "text", name: "number-babies" } 
-        ]           
-      } 
-    )
+    .search-card__text гости
+    +dropdown( { 
+      class: "search-card__dropdown",
+      dataType: "guests",                
+      textField: {
+        type: "text", 
+        name: "number-guests", 
+        placeholder: "Сколько гостей", 
+        modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
+        readonly: true,
+        tabIndex: "-1"
+      },
+      counters: [
+        { category: "Взрослые" },
+        { category: "Дети" },
+        { category: "Младенцы" }
+      ],
+      hiddenTextFilds: [ 
+        { type: "text", name: "number-adults" }, 
+        { type: "text", name: "number-children" }, 
+        { type: "text", name: "number-babies" } 
+      ]           
+    } 
+  )
 
     +button({
       type: "submit",

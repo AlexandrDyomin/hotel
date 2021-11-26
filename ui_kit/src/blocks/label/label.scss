@@ -1,7 +1,7 @@
 .label {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 0 10px;
 
   &__text  {
     padding-bottom: 5px;
@@ -10,7 +10,7 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
-    color: #1F2041
+    color: #1F2041;
   }
 
   &  .button {

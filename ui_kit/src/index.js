@@ -12,6 +12,11 @@ import "./blocks/range-slider/range-slider.js";
 import "./blocks/subscription-text-field/subscription-text-field.js";
 import "./blocks/search-card/search-card.js";
 import "./blocks/text-field/text-field.js";
+import "./blocks/entry-card/entry-card.js";
+import "./blocks/registration-card/registration-card.js";
+import "./blocks/air-datepicker/air-datepicker.js";
+import "./blocks/booking-card/booking-card.js";
+
 
 
 

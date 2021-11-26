@@ -4,11 +4,11 @@ include ../likes/likes.pug
 mixin comment(options)
   .comment
     +author({
-      url: options.author.url,
-      name: options.author.name,
-      additionalInfo: options.author.additionalInfo
+      url: options.url,
+      name: options.name,
+      additionalInfo: options.additionalInfo
     })
     .comment__bottom
       .comment__likes
-        +likes(options.likes)
+        +likes( { number:options.number } )
       .comment__text=options.text

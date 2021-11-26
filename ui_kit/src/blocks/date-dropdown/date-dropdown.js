@@ -1,14 +1,11 @@
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import "./date-dropdown.scss";
-import "../filter-date-dropdown/filter-date-dropdown.scss";
+import "../air-datepicker/air-datepicker.scss";
 import addHandler from '../../common-modules/addHandler';
 import { findChildren, findElement, findParent } from '../../common-modules/scan';
 import { changeAppearance, clearTextFields } from '../counter/counter';
-import { 
-  setings, 
-  toggleButtonStateApply 
-} from '../filter-date-dropdown/filter-date-dropdown';
+import { setings, toggleButtonStateApply } from '../air-datepicker/air-datepicker.js';
 
 // заполняет текстовые поля выбранными датами
 const writeDate = ( datepicker, formattedDate ) => {  
@@ -27,7 +24,7 @@ const writeDate = ( datepicker, formattedDate ) => {
   }
 } 
 
-// Модифицируем обработчик для кнопки "Применить"
+// Обработчик для кнопки "Применить"
 const onSelect = ( { datepicker, formattedDate } ) => {
   toggleButtonStateApply( datepicker );
   writeDate( datepicker, formattedDate );
@@ -64,7 +61,9 @@ setings.onHide = (isFinished) => {
   }
 }
 
-let datePicker = new AirDatepicker('#date-dropdown', setings);
+setings.dateFormat = "dd.MM.yyyy";
+
+let datePicker = new AirDatepicker( '#date-dropdown', setings );
 
 // показывает календарь
 const handleDateDropdownFocus = ( e ) => {

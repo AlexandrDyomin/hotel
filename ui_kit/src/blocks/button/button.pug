@@ -1,13 +1,23 @@
 mixin button(options)
-  a.button(
-    href="javascript:void(0)"
-    area-label=`страница № ${options.value}`
-    tabindex="-1"
-  )
+  if options.type === "button"
+    a.button(
+      href="javascript:void(0)"
+      area-label=`страница № ${ options.value }`
+      tabindex="-1"
+    )
+      input.button-item(
+        type="button"
+        name=options.name 
+        value=options.value || " "
+        disabled=options.disabled
+        class=options.modifiers
+      )
+  else
     input.button-item(
-      type=options.type || "submit"
+      type="submit"
       name=options.name 
       value=options.value || " "
       disabled=options.disabled
       class=options.modifiers
     )
+    
