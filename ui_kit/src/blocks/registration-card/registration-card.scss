@@ -1,0 +1,47 @@
+.registration-card {
+  padding: 40px 30px 30px;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    margin: 0 0 20px 0;
+  }
+
+  & .text-field {
+    margin-bottom: 10px;
+  }
+
+  & .radio-buttons {
+    margin-bottom: 14px;
+  } 
+
+  & .text-field[data-mask=date] {
+    margin-bottom: 0;
+  }
+
+  & .text-field[type=password] {
+    margin-bottom: 0;
+  }
+
+  & .toggle {
+    margin-bottom: 24px;
+  }
+
+  & .button-item[name=pay] {
+    margin-bottom: 30px;
+  }
+
+  &__bottom {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__question {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  }
+}

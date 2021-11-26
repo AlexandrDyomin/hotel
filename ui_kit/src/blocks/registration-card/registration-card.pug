@@ -1,0 +1,76 @@
+include ../text-field/text-field.pug 
+include ../button/button.pug 
+include ../radio-buttons/radio-buttons
+include ../toggle/toggle.pug
+
+mixin registration-card 
+  form.registration-card
+    h2.registration-card__title Регистрация Аккаунта
+    +text-field({
+      type: "text",
+      name: "name",
+      placeholder: "Имя"
+    })
+
+    +text-field({
+      type: "text",
+      name: "surname",
+      placeholder: "Фамилия"
+    })
+
+    +radio-buttons({
+      items: [{
+        name: "sex",
+        value: "male",
+        label: "Мужчина",
+        checked: true                      
+      }, {
+        name: "sex",
+        value: "female",
+        label: "Женщина"
+      }]
+    })
+
+    label.label 
+      span.label__text дата рождения
+      +text-field({
+        type: "text", 
+        name: "date-of-birth", 
+        placeholder: "ДД.ММ.ГГГГ",
+        mask: "date"
+      })
+
+    label.label 
+      span.label__text данные для входа в сервис
+      +text-field({
+      type: "email",
+      name: "email",
+      placeholder: "Email"
+    })
+
+      +text-field({
+        type: "password",
+        name: "password",
+        placeholder: "Пароль"
+      })
+
+    +toggle({
+      toggleButton: { name: "offer" },
+      text: "Получать спецпредложения",
+    })
+
+    +button({
+      type: "submit",
+      name: "pay",
+      value: "Перейти к оплате",
+      modifiers: ["button-item_large"]
+    })
+
+    .registration-card__bottom
+      span.registration-card__question Уже есть аккаунт на Toxin
+      +button({
+        type: "button",
+        name: "login",
+        value: "войти",
+        modifiers: "button-item_with-border"
+      })

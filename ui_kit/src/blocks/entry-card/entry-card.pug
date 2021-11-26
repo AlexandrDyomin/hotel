@@ -1,0 +1,29 @@
+include ../text-field/text-field.pug
+include ../button/button.pug 
+
+mixin entry-card
+  form.entry-card
+    h2.entry-card__title Войти
+    +text-field({
+      type: "email",
+      name: "email",
+      placeholder: "Email"
+    })
+    +text-field({
+      type: "password",
+      name: "password",
+      placeholder: "Пароль"
+    })
+    +button({
+      name: "login",
+      value: "войти",
+      modifiers: "button-item_large"
+    })
+    .entry-card__bottom
+      span.entry-card__question Нет аккаунта на Toxin?
+      +button({
+        type: "button",
+        name: "login",
+        value: "войти",
+        modifiers: "button-item_with-border"
+      })
