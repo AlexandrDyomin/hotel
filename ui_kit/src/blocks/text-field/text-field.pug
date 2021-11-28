@@ -3,7 +3,7 @@ mixin text-field(options)
     type=options.type 
     name=options.name
     placeholder=options.placeholder
-    class=options.modifiers
+    class=(options.theme) ? "text-field_" + options.theme : ""
     id=options.id
     readonly=options.readonly
     tabindex=options.tabIndex

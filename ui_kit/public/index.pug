@@ -110,8 +110,7 @@ html(lang="ru")
                 +text-field({ 
                   type: "email", 
                   name: "email", 
-                  placeholder: "Email", 
-                  label: "text field" 
+                  placeholder: "Email"
                 })
 
               label.label 
@@ -120,34 +119,12 @@ html(lang="ru")
                   type: "text", 
                   name: "date-of-birth", 
                   placeholder: "ДД.ММ.ГГГГ",
-                  mask: "date",
-                  label: "masked text field"
+                  mask: "date"
                 })
 
               label.label 
                 span.label__text Dropdown
-                +dropdown( { 
-                    dataType: "guests",             
-                    textField: {
-                      type: "text", 
-                      name: "number-guests", 
-                      placeholder: "Сколько гостей", 
-                      modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-                      readonly: true,
-                      tabIndex: "-1"
-                    },
-                    counters: [
-                      { category: "Взрослые" },
-                      { category: "Дети" },
-                      { category: "Младенцы" }
-                    ],
-                    hiddenTextFilds: [ 
-                      { type: "text", name: "number-adults" }, 
-                      { type: "text", name: "number-children" }, 
-                      { type: "text", name: "number-babies" } 
-                    ]           
-                  } 
-                )
+                +dropdown( { dataType: "guests"} )
 
              
               +date-dropdown( { id: "date-dropdown", label1: "date dropdown", label2: "date dropdown" } )
@@ -166,28 +143,7 @@ html(lang="ru")
 
               label.label
                 span.label__text Dropdown
-                +dropdown( { 
-                    dataType: "rooms",
-                    textField: {
-                      type: "text", 
-                      name: "number-bedrooms", 
-                      modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-                      buttonsModifiers: "dropdown__buttons_hidden",
-                      readonly: true,
-                      tabIndex: "-1"
-                    },
-                    counters: [
-                      { category: "Спальни", dataType: "bedrooms" },
-                      { category: "Кровати", dataType: "beds" },
-                      { category: "Ванные комнаты", dataType: "bathrooms" }
-                    ],
-                    hiddenTextFilds: [ 
-                      { type: "text", name: "number-bedrooms" }, 
-                      { type: "text", name: "number-beds" }, 
-                      { type: "text", name: "number-bathrooms" } 
-                    ]
-                  } 
-                )
+                +dropdown( { dataType: "rooms"} )
 
               +expandable-checkbox-list({
                 title: "expandable checkbox list",

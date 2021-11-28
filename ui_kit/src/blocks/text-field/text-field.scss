@@ -10,11 +10,12 @@
   line-height: 18px;
   color: #1F2041BF;
   
-  &_with-bg {
+  &_dropdown {
     background-image: url("./arrow.svg");
     background-position: right center;
     background-origin: content-box;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
 
   &::placeholder {
@@ -37,9 +38,4 @@
 
 .text-field_active {
   border-color: #1F204180;
-}
-
-// Модификатор указателя курсора
-.text-field_cursor_pointer {
-  cursor: pointer;
 }

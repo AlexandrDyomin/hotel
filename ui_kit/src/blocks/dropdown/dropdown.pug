@@ -2,27 +2,64 @@ include ../counter/counter.pug
 include ../text-field/text-field.pug
 
 mixin dropdown(options)
+  - let settingsForCounters
+  - let settingsForHiddenTextFields
   case options.dataType
     when "rooms"
       .dropdown(class=options.class data-type=options.dataType tabindex="0")
-        +text-field(options.textField)
+        +text-field({
+          type: "text", 
+          name: "number-bedrooms", 
+          theme: "dropdown",
+          readonly: true,
+          tabIndex: "-1"
+        })
         .dropdown__container
-          .dropdown__list.dropdown__list_closed  
-            each obj in options.counters
-              +counter( obj )        
+          .dropdown__list.dropdown__list_closed 
+            - settingsForCounters = [
+            -  { category: "Спальни", dataType: "bedrooms" },
+            -  { category: "Кровати", dataType: "beds" },
+            -  { category: "Ванные комнаты", dataType: "bathrooms" }
+            - ] 
+            each item in settingsForCounters
+              +counter( item )        
+        
         .dropdown__hidden-fields
-          each obj in options.hiddenTextFilds
-            +text-field( obj )
-    default
+          - settingsForHiddenTextFields = [ 
+          -  { type: "text", name: "number-bedrooms" }, 
+          -  { type: "text", name: "number-beds" }, 
+          -  { type: "text", name: "number-bathrooms" } 
+          - ]
+          each item in settingsForHiddenTextFields
+            +text-field( item )
+    when "guests"
       .dropdown(class=options.class tabindex="0")
-        +text-field(options.textField)
+        +text-field({
+          type: "text", 
+          name: "number-guests", 
+          placeholder: "Сколько гостей", 
+          theme: "dropdown",
+          readonly: true,
+          tabIndex: "-1"
+        })
         .dropdown__container
-          .dropdown__list.dropdown__list_closed  
-            each obj in options.counters
-              +counter( obj )        
+          .dropdown__list.dropdown__list_closed 
+            - settingsForCounters = [
+            -  { category: "Взрослые" },
+            -  { category: "Дети" },
+            -  { category: "Младенцы" }
+            - ]
+            each item in settingsForCounters
+              +counter( item )        
             .dropdown__buttons
               button.dropdown__button-clear(type="button" data-parent='dropdown') Очистить
               button.dropdown__button-apply(type="button" "disabled" data-parent='dropdown') Применить
+        
         .dropdown__hidden-fields
-          each obj in options.hiddenTextFilds
-            +text-field( obj )
+          - settingsForHiddenTextFields = [ 
+          -  { type: "text", name: "number-adults" }, 
+          -  { type: "text", name: "number-children" }, 
+          -  { type: "text", name: "number-babies" } 
+          - ] 
+          each item in settingsForHiddenTextFields
+            +text-field( item )
