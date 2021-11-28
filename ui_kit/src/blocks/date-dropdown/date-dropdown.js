@@ -3,9 +3,9 @@ import "air-datepicker/air-datepicker.css";
 import "./date-dropdown.scss";
 import "../air-datepicker/air-datepicker.scss";
 import addHandler from '../../common-modules/addHandler';
-import { findChildren, findElement, findParent } from '../../common-modules/scan';
+import { findChildren, findElement, findParent, findChild } from '../../common-modules/scan';
 import { changeAppearance, clearTextFields } from '../counter/counter';
-import { setings, toggleButtonStateApply } from '../air-datepicker/air-datepicker.js';
+import { defaultSettings, toggleButtonStateApply } from '../air-datepicker/air-datepicker.js';
 
 // заполняет текстовые поля выбранными датами
 const writeDate = ( datepicker, formattedDate ) => {  
@@ -30,8 +30,10 @@ const onSelect = ( { datepicker, formattedDate } ) => {
   writeDate( datepicker, formattedDate );
 }
 
+let settings = { ...defaultSettings };
+
 //  Добавляем обработчик для кнопки "Очистить"
-setings.buttons[0] = {
+settings.buttons[0] = {
   content: "Очистить",
   onClick( dp ) {
     let dateDropdown = findParent( dp.$datepicker, "date-dropdown" );
@@ -40,30 +42,34 @@ setings.buttons[0] = {
   }
 }
 
-setings.container = ".date-dropdown"
-setings.onSelect = onSelect
+settings.container = ".date-dropdown"
+settings.onSelect = onSelect
 
-setings.onShow = (isFinished) => {
+settings.onShow = (isFinished) => {
   if ( !isFinished ) {
     let textField = document.activeElement.nextElementSibling;
     changeAppearance( textField, "text-field_active" );
   }
 }
 
-setings.onHide = (isFinished) => {
-  if ( !isFinished ) {
-    let textField = findElement(
-      datePicker.$datepicker, 
-      "date-dropdown", 
-      "text-field"
-    ).nextElementSibling;
-    changeAppearance( textField, "text-field_active" ); 
-  }
+const makeHandlerOnHide = ( container ) => {
+  return ( isFinished ) => {
+    if ( !isFinished ) {
+      let parent = document.querySelector( container );
+      let textField = findChild(
+        parent, 
+        "text-field"
+      ).nextElementSibling;
+      changeAppearance( textField, "text-field_active" ); 
+    }
+  }  
 }
 
-setings.dateFormat = "dd.MM.yyyy";
+settings.onHide = makeHandlerOnHide(settings.container);
 
-let datePicker = new AirDatepicker( '#date-dropdown', setings );
+settings.dateFormat = "dd.MM.yyyy";
+
+let datePicker = new AirDatepicker( '#date-dropdown', settings );
 
 // показывает календарь
 const handleDateDropdownFocus = ( e ) => {
@@ -74,10 +80,10 @@ const handleDateDropdownFocus = ( e ) => {
 // ДОБАВЛЯЕМ ОБРАБОТЧИК 
 addHandler(
   document.querySelectorAll( 
-    ".date-dropdown > .text-field[name=date-to]" 
+    ".date-dropdown__wrap > .text-field[name=date-to]" 
   ),
   handleDateDropdownFocus,
   "focus"
 );
 
-export { setings }
+export { settings, makeHandlerOnHide }

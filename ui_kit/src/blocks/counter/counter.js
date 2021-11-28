@@ -235,11 +235,6 @@ const handleButtonMinusClick = ( e ) => {
   }
 }
 
-
-
-
-
-
 // ДОБАВЛЯЕМ ОБРАБОТЧИКИ СОБЫТИЙ
 addHandler( 
   document.querySelectorAll( ".counter__button-plus" ),  

@@ -18,8 +18,8 @@ const toggleButtonStateApply = ( datepicker ) => {
 }
 
 // настройки для календаря
-let setings = {
-  container: ".air-datepicker",
+let defaultSettings = {
+  container: ".air-dp",
   view: 'days',
   range: true,
   dynamicRange: true,
@@ -56,6 +56,6 @@ let setings = {
   }
 };
 
-new AirDatepicker( '#air-datepicker', setings );
+new AirDatepicker( '#air-dp', defaultSettings );
 
-export { setings, toggleButtonStateApply };
+export { defaultSettings, toggleButtonStateApply };

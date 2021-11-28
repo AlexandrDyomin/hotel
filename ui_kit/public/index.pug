@@ -124,7 +124,7 @@ html(lang="ru")
 
               label.label 
                 span.label__text Dropdown
-                +dropdown( { dataType: "guests"} )
+                +dropdown( { type: "guests"} )
 
              
               +date-dropdown( { id: "date-dropdown", label1: "date dropdown", label2: "date dropdown" } )
@@ -143,7 +143,7 @@ html(lang="ru")
 
               label.label
                 span.label__text Dropdown
-                +dropdown( { dataType: "rooms"} )
+                +dropdown( { type: "rooms"} )
 
               +expandable-checkbox-list({
                 title: "expandable checkbox list",
