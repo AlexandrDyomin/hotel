@@ -6,36 +6,17 @@ mixin search-card
   form.search-card
     h1.search-card__title Найдём номера под ваши пожелания
     +date-dropdown( { 
-      class: "search-card__date-dropdown", 
+      class: "search-card__date-dropdown",
       id: "search-card", 
       label1: "прибытие", 
-      label2: "вывезд" 
+      label2: "выезд" 
     })
 
-    .search-card__text гости
-    +dropdown( { 
-      class: "search-card__dropdown",
-      dataType: "guests",                
-      textField: {
-        type: "text", 
-        name: "number-guests", 
-        placeholder: "Сколько гостей", 
-        modifiers: [ "text-field_cursor_pointer", "text-field_with-bg" ],
-        readonly: true,
-        tabIndex: "-1"
-      },
-      counters: [
-        { category: "Взрослые" },
-        { category: "Дети" },
-        { category: "Младенцы" }
-      ],
-      hiddenTextFilds: [ 
-        { type: "text", name: "number-adults" }, 
-        { type: "text", name: "number-children" }, 
-        { type: "text", name: "number-babies" } 
-      ]           
-    } 
-  )
+    label.label
+      span.label__text гости
+      +dropdown({ 
+        type: "guests"                
+      })
 
     +button({
       type: "submit",

@@ -3,4 +3,67 @@ include ../dropdown/dropdown.pug
 include ../button/button.pug
 
 mixin booking-card(options)
+  - let { room, serviceClass, price, discount, 
+  - additionalServiceCharge, dates, serviceCharge, numberGuests } = options
+
   form.booking-card
+    .booking-card__top
+      .booking-card__wrap
+        span.booking-card__N= "№ "
+        span.booking-card__room-number=room + " "
+        span.booking-card__service-class=serviceClass
+      .booking-card__price-per-day=price + "₽ "
+        span.booking-card__text в сутки 
+    
+    +date-dropdown( { 
+      class: "booking-card__date-dropdown",
+      id: "booking-card", 
+      label1: "прибытие", 
+      label2: "выезд",
+      dates: options.dates 
+    })
+
+    label.label 
+      span.label__text гости
+      +dropdown({ type: "guests", numberGuests: numberGuests })
+ 
+    .booking-card__item
+      .booking-card__price=price +"₽" + " x "
+        span.booking-card__number-of-days 4
+      .bookung-card__left
+        span.booking-card__price 39 960
+        span.booking-card__currency="₽"
+
+    .booking-card__item
+      .booking-card__wrap
+        .booking-card__discount="Сбор за услуги: скидка " + discount + "₽"
+        img(src="../src/blocks/booking-card/info-min.svg", alt="")
+      span.booking-card__price=serviceCharge + "₽"
+      
+    .booking-card__item
+      .booking-card__wrap
+        .booking-card__service-charge="Сбор за дополнительные услуги"
+        img(src="../src/blocks/booking-card/info-min.svg", alt="")
+      span.booking-card__price=additionalServiceCharge + "₽"
+
+    .booking-card__bottom 
+      span.booking-card__total Итого
+      .bookung-card__wrap
+        span.booking-card__price 38 081
+        span.booking-card__currency="₽"
+
+    +button({
+      type: "submit",
+      name: "button",
+      value: "забронировать",
+      modifiers: ["button-item_large"]
+    })
+
+
+
+
+
+     
+      
+
+

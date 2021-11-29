@@ -13,15 +13,12 @@
     color: #1F2041;
   }
 
-  &__text {
-    margin-bottom: 5px;
-  }
-  
-  &__date-dropdown {
-    margin-bottom: 21px;
+  & .date-dropdown {
+    display: inline-block;
+    margin-bottom: 8px;
   }
 
-  &__dropdown {
-    margin-bottom: 31px;
+  & .label {
+    margin-bottom: 21px;
   }
 }

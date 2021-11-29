@@ -1,22 +1,25 @@
 include ../text-field/text-field.pug
 
 mixin date-dropdown(options)
-  - let dateTo = {
-  -    type: "text", 
-  -    readonly: true,
-  -    name: "date-to",
-  -    modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
-  -    placeholder: "ДД.MM.ГГ"
-  -  }
-
-  - let dateFrom = { ... dateTo }
-  - dateFrom.name = "date-from"
-  - dateFrom.id = options.id
+  - let arrivalDate = (options.dates) ? options.dates[0] : ""
+  - let departureDate = (options.dates) ? options.dates[1] : ""
+  - let inputLeft = {
+  -   type: "text", 
+  -   readonly: true,
+  -   name: "date-to",
+  -   modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
+  -   placeholder: "ДД.MM.ГГ",
+  -   value: departureDate
+  - }
+  - let inputRight = { ... inputLeft }
+  - inputRight.name = "date-from"
+  - inputRight.id = options.id
+  - inputRight.value = arrivalDate
 
   label.date-dropdown(class=options.class)
     .date-dropdown__wrap
       .date-dropdown__item=options.label1 
       .date-dropdown__item=options.label2
     .date-dropdown__wrap
-      +text-field(dateFrom)
-      +text-field(dateTo)
+      +text-field(inputRight)
+      +text-field(inputLeft)

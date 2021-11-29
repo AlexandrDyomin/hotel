@@ -4,6 +4,7 @@ include ../text-field/text-field.pug
 mixin dropdown(options)
   - let settingsForCounters
   - let settingsForHiddenTextFields
+  - let { numberGuests } = options
   case options.type
     when "rooms"
       .dropdown(data-type=options.type tabindex="0")
@@ -45,9 +46,9 @@ mixin dropdown(options)
         .dropdown__container
           .dropdown__list.dropdown__list_closed 
             - settingsForCounters = [
-            -  { category: "Взрослые" },
-            -  { category: "Дети" },
-            -  { category: "Младенцы" }
+            -  { category: "Взрослые", number: (numberGuests) ? numberGuests.adults : "0" },
+            -  { category: "Дети", number: (numberGuests) ? numberGuests.children : "0" },
+            -  { category: "Младенцы", number: (numberGuests) ? numberGuests.babies : "0" }
             - ]
             each item in settingsForCounters
               +counter( item )        

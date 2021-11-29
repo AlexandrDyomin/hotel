@@ -38,13 +38,11 @@ const getLastWord = ( number, word  ) => {
 
 // обновляет значение счетчика
 const updateCounterValue = ( element, counterValue ) => {
-  // let display = e.currentTarget.nextElementSibling;
   element.innerText = counterValue;
 }
 
 // возвращает значение счетчика
 const getCounterValue = ( element ) => {
-  // let display = e.currentTarget.nextElementSibling;
   return Number( element.innerText );
 }
 
@@ -261,6 +259,21 @@ buttonsPlus.forEach(
   }
 );
 
+// активируем кнопки минус если значения счетчиков больше 0
+let displays = document.querySelectorAll( ".counter__display" );
+displays.forEach( display => {
+  let counterValue = getCounterValue( display );
+  if ( counterValue > 0 ) {
+    let btnMinus = display.previousElementSibling;
+    btnMinus.disabled = false;
+    changeAppearance(
+      btnMinus,
+      "counter__button-minus_border_dark-shade-25", 
+      "counter__button-minus_text_dark-shade-50" 
+    );
+  }
+});
+
 export { 
   changeAppearance, 
   toggleState, 
@@ -269,3 +282,4 @@ export {
   updateCounterValue,
   clearTextFields
 };
+
