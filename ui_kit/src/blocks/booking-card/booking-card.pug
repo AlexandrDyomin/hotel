@@ -31,8 +31,10 @@ mixin booking-card(options)
       +dropdown({ type: "guests", guests: guests, value: inputValue  })
  
     .booking-card__item
-      .booking-card__price=price +"₽" + " x "
-        span.booking-card__number-of-days 4
+      .booking-card__formula
+        span.booking-card__price=price
+        span="₽" + " x "
+        span.booking-card__number-of-days
       .bookung-card__right
         span.booking-card__price
         span="₽"
@@ -59,7 +61,7 @@ mixin booking-card(options)
     .booking-card__bottom 
       span.booking-card__left Итого
       .booking-card__right
-        span.booking-card__price 38 081
+        span.booking-card__price
         span="₽"
 
     +button({
