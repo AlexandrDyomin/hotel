@@ -61,8 +61,8 @@
   margin-bottom: 12px;
  }
 
- &__item > .booking-card__wrap {
-   width: 75%;
+ .booking-card__left {
+   width: 74%;
    display: flex;
    justify-content: space-between;
    align-items: flex-start;
@@ -78,6 +78,4 @@
    margin-top: 27px;
    margin-bottom: 20px;
  }
- 
- 
 }

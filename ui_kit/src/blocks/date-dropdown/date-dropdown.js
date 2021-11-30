@@ -39,6 +39,7 @@ settings.buttons[0] = {
     let dateDropdown = findParent( dp.$datepicker, "date-dropdown" );
     let textFields = findChildren(dateDropdown, "text-field");
     clearTextFields(textFields);
+    dp.clear();
   }
 }
 
@@ -69,7 +70,7 @@ settings.onHide = makeHandlerOnHide(settings.container);
 
 settings.dateFormat = "dd.MM.yyyy";
 
-let datePicker = new AirDatepicker( '#date-dropdown', settings );
+new AirDatepicker( '#date-dropdown', settings );
 
 // показывает календарь
 const handleDateDropdownFocus = ( e ) => {

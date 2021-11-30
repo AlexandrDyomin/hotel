@@ -5,6 +5,11 @@ mixin counter( options )
       .counter__container-right 
         span.counter__categoty=options.category
       .counter__container-left   
-        button.counter__button-minus(type="button" disabled data-parent='dropdown') -
+        button.counter__button-minus(
+          type="button" 
+          disabled=(options.number > 0) ? false : true
+          data-parent='dropdown'
+          class=(options.number > 0) ? "counter__button-minus_active" : "" 
+          ) -
         span.counter__display=(options.number) ? options.number : "0"
         button.counter__button-plus(type="button" data-parent='dropdown') +

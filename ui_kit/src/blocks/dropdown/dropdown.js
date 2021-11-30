@@ -77,8 +77,7 @@ const handleButtonClearClick = ( e ) => {
       if ( getCounterValue( display ) !== 0 ) {
         changeAppearance( 
           btnMinus,
-          "counter__button-minus_border_dark-shade-25",
-          "counter__button-minus_text_dark-shade-50"
+          "counter__button-minus_active"
         );
 
         // Деактивируем кнопку
@@ -163,7 +162,6 @@ const handleDropdownFocusOut = ( e ) => {
 
     // если елемент, на который перешел фокус не является
     // частью выпадающего списка и список раскрыт, то сворачиваем его
-
     if ( document.activeElement.dataset.parent !== "dropdown" &&
     document.activeElement !== dropdown && isVisible) {
       closeDropdown( 

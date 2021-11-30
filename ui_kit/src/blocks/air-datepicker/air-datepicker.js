@@ -36,7 +36,7 @@ let defaultSettings = {
         let $dp = dp.$datepicker;
         setTimeout(() => {
           let buttonApply = findChildren( $dp, "air-datepicker-button" )[1];
-          toggleState( buttonApply ); 
+          if ( !dp.selectedDates.length ) toggleState( buttonApply ); 
           buttonApply.type="button";
           buttonApply.previousElementSibling.type = "button"; 
         });

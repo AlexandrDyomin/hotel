@@ -4,7 +4,8 @@ include ../text-field/text-field.pug
 mixin dropdown(options)
   - let settingsForCounters
   - let settingsForHiddenTextFields
-  - let { numberGuests } = options
+  - let { guests, amenities} = options
+  
   case options.type
     when "rooms"
       .dropdown(data-type=options.type tabindex="0")
@@ -13,26 +14,30 @@ mixin dropdown(options)
           name: "number-bedrooms", 
           theme: "dropdown",
           readonly: true,
-          tabIndex: "-1"
+          tabIndex: "-1",
+          value: (amenities) ? amenities.inputValue : ""
         })
+
         .dropdown__container
           .dropdown__list.dropdown__list_closed 
             - settingsForCounters = [
-            -  { category: "Спальни" },
-            -  { category: "Кровати" },
-            -  { category: "Ванные комнаты" }
+            -  { category: "Спальни", number: (amenities) ? amenities.bedrooms : "0" },
+            -  { category: "Кровати", number: (amenities) ? amenities.rooms : "0" },
+            -  { category: "Ванные комнаты", number: (amenities) ? amenities.bathroom : "0" }
             - ] 
             each item in settingsForCounters
               +counter( item )        
         
         .dropdown__hidden-fields
           - settingsForHiddenTextFields = [ 
-          -  { type: "text", name: "number-bedrooms" }, 
-          -  { type: "text", name: "number-beds" }, 
-          -  { type: "text", name: "number-bathrooms" } 
+          -  { type: "text", name: "number-bedrooms", value: (amenities) ? amenities.bedrooms : "0" }, 
+          -  { type: "text", name: "number-beds", value: (amenities) ? amenities.rooms : "0" }, 
+          -  { type: "text", name: "number-bathrooms", value: (amenities) ? amenities.bathroom : "0" } 
           - ]
+
           each item in settingsForHiddenTextFields
             +text-field( item )
+
     when "guests"
       .dropdown(tabindex="0")
         +text-field({
@@ -41,26 +46,36 @@ mixin dropdown(options)
           placeholder: "Сколько гостей", 
           theme: "dropdown",
           readonly: true,
-          tabIndex: "-1"
+          tabIndex: "-1",
+          value: (guests) ? guests.inputValue : ""
         })
+
         .dropdown__container
           .dropdown__list.dropdown__list_closed 
             - settingsForCounters = [
-            -  { category: "Взрослые", number: (numberGuests) ? numberGuests.adults : "0" },
-            -  { category: "Дети", number: (numberGuests) ? numberGuests.children : "0" },
-            -  { category: "Младенцы", number: (numberGuests) ? numberGuests.babies : "0" }
+            -  { category: "Взрослые", number: (guests) ? guests.adults : "0" },
+            -  { category: "Дети", number: (guests) ? guests.children : "0" },
+            -  { category: "Младенцы", number: (guests) ? guests.babies : "0" }
             - ]
+
             each item in settingsForCounters
               +counter( item )        
             .dropdown__buttons
-              button.dropdown__button-clear(type="button" data-parent='dropdown') Очистить
-              button.dropdown__button-apply(type="button" "disabled" data-parent='dropdown') Применить
+              button.dropdown__button-clear(
+                type="button" 
+                data-parent='dropdown' 
+                class = ( guests || amenities ) ? "dropdown__button-clear_visible" : "" 
+              ) Очистить
+              button.dropdown__button-apply(
+                type="button" 
+                data-parent='dropdown' 
+                disabled = (guests || amenities)? false : true) Применить
         
         .dropdown__hidden-fields
           - settingsForHiddenTextFields = [ 
-          -  { type: "text", name: "number-adults" }, 
-          -  { type: "text", name: "number-children" }, 
-          -  { type: "text", name: "number-babies" } 
+          -  { type: "text", name: "number-adults", value: (guests) ? guests.adults : "0" }, 
+          -  { type: "text", name: "number-children", value: (guests) ? guests.children : "0" }, 
+          -  { type: "text", name: "number-babies", value: (guests) ? guests.babies : "0" } 
           - ] 
           each item in settingsForHiddenTextFields
             +text-field( item )

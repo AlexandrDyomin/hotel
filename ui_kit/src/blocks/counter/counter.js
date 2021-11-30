@@ -99,8 +99,7 @@ const handleButtonPlusClick = ( e ) => {
     let btnMinus = findElement( btnPlus, "counter__container-left", "counter__button-minus" );
     changeAppearance(
       btnMinus, 
-      "counter__button-minus_border_dark-shade-25", 
-      "counter__button-minus_text_dark-shade-50" 
+      "counter__button-minus_active"
     );
 
     // активируем кнопку
@@ -174,8 +173,7 @@ const handleButtonMinusClick = ( e ) => {
     // меняем цвет границы и текста у кнопки "-". 
     changeAppearance(
       btnMinus, 
-      "counter__button-minus_border_dark-shade-25", 
-      "counter__button-minus_text_dark-shade-50" 
+      "counter__button-minus_active"
     );
     // Деактивируем кнопку
     toggleState( btnMinus );
@@ -244,36 +242,6 @@ addHandler(
   handleButtonMinusClick 
 );
 
-
-let dropdowns = [ ...document.querySelectorAll( ".dropdown[data-type=rooms]" ) ];
-let buttonsPlus = dropdowns.map( el => [ ...el.querySelectorAll( ".counter__button-plus" ) ] );
-buttonsPlus.forEach( 
-  arr => {
-    arr = arr.slice( 0, arr.length -1 );
-    arr.forEach( 
-      el => {
-        el.click();
-        el.click(); 
-      }
-    ) ;
-  }
-);
-
-// активируем кнопки минус если значения счетчиков больше 0
-let displays = document.querySelectorAll( ".counter__display" );
-displays.forEach( display => {
-  let counterValue = getCounterValue( display );
-  if ( counterValue > 0 ) {
-    let btnMinus = display.previousElementSibling;
-    btnMinus.disabled = false;
-    changeAppearance(
-      btnMinus,
-      "counter__button-minus_border_dark-shade-25", 
-      "counter__button-minus_text_dark-shade-50" 
-    );
-  }
-});
-
 export { 
   changeAppearance, 
   toggleState, 
@@ -282,4 +250,3 @@ export {
   updateCounterValue,
   clearTextFields
 };
-

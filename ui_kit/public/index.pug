@@ -143,7 +143,10 @@ html(lang="ru")
 
               label.label
                 span.label__text Dropdown
-                +dropdown( { type: "rooms"} )
+                +dropdown({ 
+                  type: "rooms", 
+                  amenities: { bedrooms: "2", rooms: "2", inputValue: "2 комнаты, 2 кровати" } 
+                })
 
               +expandable-checkbox-list({
                 title: "expandable checkbox list",
@@ -368,7 +371,7 @@ html(lang="ru")
               room: "888",
               serviceClass: "Люкс",
               dates: [ "19.08.2019", "23.08.2019" ],
-              numberGuests: { adults: "2", children: "1", babies: "0" },
+              guests: { adults: "2", children: "1", babies: "0", inputValue: "3 гостя" },
               discount: "2 179",
               serviceCharge: "0",
               additionalServiceCharge: "300"
