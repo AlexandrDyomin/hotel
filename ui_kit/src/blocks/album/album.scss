@@ -1,0 +1,90 @@
+.album {
+  max-width: 270px;
+  padding-bottom: 20px;
+  background-color: white;
+
+  &__img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &__basicInfoAboutRoom {
+    margin: 0 20px 20px;
+  }
+
+  &__rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+  &__text {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #1F204180;
+  }
+
+  &__number {
+    font-weight: 700;
+  }
+}
+
+.js-Carousel > ul li {
+  width: 270px;
+  
+}
+
+.js-Carousel > ul li img {
+  width: 270px;
+  height: 150px;
+}
+
+.js-Carousel {
+  width: 270px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.js-Carousel .js-Carousel-arrowPrev, 
+.js-Carousel .js-Carousel-arrowNext {
+  width: 42px;
+  height: 100%;
+}
+
+.js-Carousel .js-Carousel-arrowPrev {
+  background: 
+    url("./arrow-prev.svg") center no-repeat, 
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 4px;
+}
+
+.js-Carousel .js-Carousel-arrowNext {
+  background: 
+    url("./arrow-next.svg") center no-repeat,
+    linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 4px;
+}
+
+.js-Carousel .js-Carousel-dots li {
+  border-radius: 50%;
+  border: 1px solid white;
+  background: transparent;
+  margin: 0 4px;
+  width: 7px;
+  height: 7px;
+  position: relative;
+  z-index: 1;
+}
+
+.js-Carousel .js-Carousel-dots li.is-active {
+  box-shadow: none;
+}
+
+.js-Carousel .js-Carousel-dots {
+  height: 7px;
+  bottom: 15px;
+  right: 15px;
+}

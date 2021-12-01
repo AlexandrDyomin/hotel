@@ -1,0 +1,32 @@
+include ../basicInfoAboutRoom/basicInfoAboutRoom.pug 
+include ../rate-button/rate-button.pug
+
+mixin album ( { id, urls, numberOfReviews, price, room, serviceClass, rating } )
+  - const getLastWord = numberOfReviews  => {
+  -   if ( numberOfReviews > 4 || numberOfReviews  === 0 ) return "Отзывов"
+  -   if ( numberOfReviews  === 1 ) return "Отзыв"
+  -   return "Отзыва";
+  - }
+
+  .album
+    .js-Carousel(id=id)
+      ul
+        each url in urls  
+          li
+            img.album__img(src=url, alt="")
+
+    .album__basicInfoAboutRoom
+      +basicInfoAboutRoom( { price, room, serviceClass } )
+
+    .album__rating
+      +rate-button({
+        scale: 5,
+        rating: rating,
+        disabled: true
+      })
+      .album__text
+        span.album__number=numberOfReviews + " "
+        span=getLastWord(numberOfReviews)
+        
+
+

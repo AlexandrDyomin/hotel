@@ -2,45 +2,8 @@
  font-family: Montserrat,Arial, Helvetica, sans-serif;
  padding: 40px 30px 30px;
 
- &__top {
-   display: flex;
-   justify-content: space-between;
-   align-items: flex-end;
-   margin-bottom:19px;
- }
-
- &__N {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  color: #1F2041;
- }
-
- &__room-number {
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  color: #1F2041;
- }
-
- &__service-class {
-  color: #BC9CFF;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
- }
-
- &__price-per-day {
-  color: #1F204180;
-  line-height: 18px;
-  font-size: 14px;
-  font-weight: 700;
- }
-
- &__text {
-  font-size: 12px;
-  font-weight: 400;
+ & .basicInfoAboutRoom {
+   margin-bottom: 19px;
  }
 
  &__date-dropdown .date-dropdown__wrap:nth-child(2) {

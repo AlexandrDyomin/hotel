@@ -2,6 +2,7 @@ import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import "./booking-card.scss";
 import "../air-datepicker/air-datepicker.scss";
+import "../basicInfoAboutRoom/basicInfoAboutRoom.js";
 import { 
   settings as defaultSettings, 
   makeHandlerOnHide 
@@ -58,7 +59,7 @@ let $numberDays = $bookingCard.querySelector( ".booking-card__number-of-days" );
 $numberDays.innerText = numberDays + getLastWord( numberDays );
 
 let pricePerDay = $bookingCard.querySelector(
-  ".booking-card__price-per-day > .booking-card__price"
+  ".basicInfoAboutRoom__price"
 ).innerText;
 
 pricePerDay = +pricePerDay.replace(" ", "")
@@ -91,7 +92,7 @@ let $total = $bookingCard.querySelector(
 $total.innerText = getFormattedPrice( total.toString() );
 
 const handleDatePickerBtnApplyClick = () => {
-  numberDays = ( dp.selectedDates[1] - dp.selectedDates[0] ) / ( 24 * 3600 * 1000);
+  numberDays = ( dp.selectedDates[1].getTime() - dp.selectedDates[0].getTime() ) / ( 24 * 3600 * 1000);
   $numberDays.innerText = numberDays + getLastWord( numberDays );
   
   recalculatePrice();
@@ -105,7 +106,7 @@ const handleDropdownBtnApplyClick = () => {
   let numberGuests = getNumberGuests();
   pricePerDay = pricePerPerson * numberGuests;
   let $pricePerDay = $bookingCard.querySelector(
-    ".booking-card__price-per-day > .booking-card__price"
+    ".basicInfoAboutRoom__price"
   );
   $pricePerDay.innerText = pricePerDay;
 

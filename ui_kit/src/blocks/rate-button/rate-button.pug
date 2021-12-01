@@ -9,7 +9,7 @@ mixin rate-button(options)
         name: options.name,
         value: i,
         checked: i === options.rating || false,
-        modifiers: ( i < options.rating ) ? options.modifiers : "",
+        theme: ( i < options.rating ) ? "active" : "",
         disabled: options.disabled 
       })
     - }

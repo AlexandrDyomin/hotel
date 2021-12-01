@@ -1,6 +1,7 @@
 include ../date-dropdown/date-dropdown.pug 
 include ../dropdown/dropdown.pug 
 include ../button/button.pug
+include ../basicInfoAboutRoom/basicInfoAboutRoom.pug
 
 mixin booking-card(options)
   - let { room, serviceClass, price, discount, 
@@ -8,15 +9,11 @@ mixin booking-card(options)
   - guests, inputValue } = options
 
   form.booking-card
-    .booking-card__top
-      .booking-card__room
-        span.booking-card__N= "№ "
-        span.booking-card__room-number=room + " "
-        span.booking-card__service-class=serviceClass
-      .booking-card__price-per-day
-        span.booking-card__price=price
-        span="₽ "
-        span.booking-card__text в сутки 
+    +basicInfoAboutRoom({
+      price,
+      room,
+      serviceClass
+    })
     
     +date-dropdown( { 
       class: "booking-card__date-dropdown",

@@ -29,7 +29,7 @@ html(lang="ru")
     include ../src/blocks/registration-card/registration-card.pug
     include ../src/blocks/air-datepicker/air-datepicker.pug
     include ../src/blocks/booking-card/booking-card.pug
-
+    include ../src/blocks/album/album.pug
 
     script(defer src="../src/index.js") 
 
@@ -236,8 +236,7 @@ html(lang="ru")
                 +rate-button({
                   name: "rating",
                   scale: 5,
-                  rating: 4,
-                  modifiers: "star__style_active"
+                  rating: 4
                 })
 
               label.label
@@ -379,3 +378,31 @@ html(lang="ru")
             
           .container__right
             +registration-card
+            +album({
+              id: "carousel", 
+              urls: [ 
+                "../src/blocks/album/image-min.jpg", 
+                "../src/blocks/album/image-min.jpg", 
+                "../src/blocks/album/image-min.jpg",
+                "../src/blocks/album/image-min.jpg" 
+              ], 
+              numberOfReviews: "145", 
+              price: "9 990", 
+              room: "888", 
+              serviceClass: "Люкс", 
+              rating: 5
+            })
+
+            +album({
+              id: "carousel1", 
+              urls: [ 
+                "../src/blocks/album/image (1)-min.jpg", 
+                "../src/blocks/album/image (1)-min.jpg", 
+                "../src/blocks/album/image (1)-min.jpg",
+                "../src/blocks/album/image (1)-min.jpg" 
+              ], 
+              numberOfReviews: "65", 
+              price: "9 990", 
+              room: "840", 
+              rating: 4
+            })

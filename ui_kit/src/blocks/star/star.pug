@@ -14,4 +14,4 @@ mixin star(options)
       checked=options.checked
       disabled=options.disabled
     )
-    span.star__style(class=options.modifiers) 
+    span.star__style(class=(options.theme) ? "star__style_" + options.theme : "") 
