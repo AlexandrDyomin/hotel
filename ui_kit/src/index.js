@@ -17,6 +17,7 @@ import "./blocks/registration-card/registration-card.js";
 import "./blocks/air-datepicker/air-datepicker.js";
 import "./blocks/booking-card/booking-card.js";
 import "./blocks/album/album.js";
+import "./blocks/header/header.js"
 
 
 

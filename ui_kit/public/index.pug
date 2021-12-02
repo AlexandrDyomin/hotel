@@ -30,14 +30,15 @@ html(lang="ru")
     include ../src/blocks/air-datepicker/air-datepicker.pug
     include ../src/blocks/booking-card/booking-card.pug
     include ../src/blocks/album/album.pug
+    include ../src/blocks/header/header.pug
 
     script(defer src="../src/index.js") 
 
     title UI Kit
   body
-    header.header
-      .header__container
-        +logo
+    header.hd
+      .hd__container
+        +logo("../src/blocks/logo/Vector-min.svg")
     main.main
       .container
         .container__colors-types
@@ -406,3 +407,27 @@ html(lang="ru")
               room: "840", 
               rating: 4
             })
+
+        .container__headers-footers
+          .container__headers 
+            .container__item
+              +header( { 
+                urls: [
+                  "../src/blocks/header/Group-min.svg",
+                  "../src/blocks/header/TOXIN-min.svg"
+                ]
+              })
+            .container__item
+              +header( { 
+                urls: [
+                  "../src/blocks/header/Group-min.svg",
+                  "../src/blocks/header/TOXIN-min.svg"
+                ],
+                user: "Юлий Цезарь",
+                isAuthorizationPassed: true
+              })
+          .container__footers
+            .container__item 
+              //- футер 1
+            .container__item 
+              //- футер 2
