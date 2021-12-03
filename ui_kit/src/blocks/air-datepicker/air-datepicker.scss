@@ -7,10 +7,11 @@
   font-size: 19px;
   font-weight: 700;
   line-height: 23px;
-  color: #1F2041
+  color: #1F2041;
 }
 
 .air-datepicker-nav{
+  border-bottom: none;
   padding: 20px 20px 30px;
 }
 
@@ -86,6 +87,7 @@
 .air-datepicker-body--day-names {
   grid-template-columns: repeat(7, 40px);
   justify-content: center;
+  margin : 11px 0;
 }
 
 .air-datepicker-body--cells.-days- {
@@ -121,4 +123,61 @@
 
 .air-datepicker.-inline- {
   box-shadow: 0px 10px 20px 0px #1F20410D;
+}
+
+.air-datepicker--buttons {
+  border-top: none;
+}
+
+
+.air-datepicker-button{
+  text-transform: uppercase;
+  width: min-content;
+}
+
+.air-datepicker-buttons  {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 11px;
+}
+
+.air-datepicker-cell.-in-range- {
+  background: linear-gradient(180deg, #BC9CFF40 0%, #8BA4F940 100%);
+}
+
+.air-datepicker-cell {
+  border-radius: 50%;
+}
+
+.air-datepicker-cell.-range-from-:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF40 0%, #8BA4F940 100%);
+}
+
+.air-datepicker-cell.-range-to-:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background: linear-gradient(180deg, #BC9CFF40 0%, #8BA4F940 100%);
+}
+
+.air-datepicker-cell.-range-to-.-range-from- {
+  border-radius: 50%;
+}
+
+.air-datepicker-cell.-range-from-.-range-to-:before,
+.air-datepicker-cell.-range-from-.-range-to-:after, {
+  background: transparent;
+}
+
+.air-datepicker-cell.-day-.-focus-.-selected-.-range-from-:after {
+  background: transparent;
 }

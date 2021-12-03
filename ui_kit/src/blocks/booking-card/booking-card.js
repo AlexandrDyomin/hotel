@@ -12,7 +12,7 @@ import addHandler from "../../common-modules/addHandler";
 
 // возвращает дату в формате ISO
 // принимает в качестве аргумента строку в формате дд.мм.гггг
-const getISODate = str => str.slice( 6, 10 ) + "." + str.slice( 3, 6 ) + str.slice( 0, 3 );
+const getISODate = str => str.slice( 6, 10 ) + "-" + str.slice( 3, 5 ) + "-" + str.slice( 0, 2 );
 
 // форматирует строку с ценой 
 const getFormattedPrice = str => ( str.length > 3) ?
@@ -52,7 +52,6 @@ let dateTo = new Date( getISODate( $textFields[1].value ) );
 
 // выбираем даты из текстовых полей 
 dp.selectDate( [ dateFrom, dateTo ] );
-
 let numberDays = ( dateTo.getTime() - dateFrom.getTime() ) / ( 24 * 3600 * 1000);
 let $bookingCard = findParent( $container, "booking-card" )
 let $numberDays = $bookingCard.querySelector( ".booking-card__number-of-days" );
