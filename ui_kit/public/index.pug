@@ -361,52 +361,58 @@ html(lang="ru")
 
         .container__main
           .container__left
-            +search-card
-            +air-datepicker
+            .container__item
+              +search-card
+            .container__item
+              +air-datepicker
             
           .container__middle 
-            +entry-card
-            +booking-card({
-              price: "9 990",
-              room: "888",
-              serviceClass: "Люкс",
-              dates: [ "19.08.2019", "23.08.2019" ],
-              guests: { adults: "2", children: "1", babies: "0", inputValue: "3 гостя" },
-              discount: "2 179",
-              serviceCharge: "0",
-              additionalServiceCharge: "300"
-            })              
+            .container__item
+              +entry-card
+            .container__item
+              +booking-card({
+                price: "9 990",
+                room: "888",
+                serviceClass: "Люкс",
+                dates: [ "19.08.2019", "23.08.2019" ],
+                guests: { adults: "2", children: "1", babies: "0", inputValue: "3 гостя" },
+                discount: "2 179",
+                serviceCharge: "0",
+                additionalServiceCharge: "300"
+              })              
             
           .container__right
-            +registration-card
-            +album({
-              id: "carousel", 
-              urls: [ 
-                "../src/blocks/album/image-min.jpg", 
-                "../src/blocks/album/image-min.jpg", 
-                "../src/blocks/album/image-min.jpg",
-                "../src/blocks/album/image-min.jpg" 
-              ], 
-              numberOfReviews: "145", 
-              price: "9 990", 
-              room: "888", 
-              serviceClass: "Люкс", 
-              rating: 5
-            })
-
-            +album({
-              id: "carousel1", 
-              urls: [ 
-                "../src/blocks/album/image (1)-min.jpg", 
-                "../src/blocks/album/image (1)-min.jpg", 
-                "../src/blocks/album/image (1)-min.jpg",
-                "../src/blocks/album/image (1)-min.jpg" 
-              ], 
-              numberOfReviews: "65", 
-              price: "9 990", 
-              room: "840", 
-              rating: 4
-            })
+            .container__item
+              +registration-card
+            .container__item
+              +album({
+                id: "carousel", 
+                urls: [ 
+                  "../src/blocks/album/image-min.jpg", 
+                  "../src/blocks/album/image-min.jpg", 
+                  "../src/blocks/album/image-min.jpg",
+                  "../src/blocks/album/image-min.jpg" 
+                ], 
+                numberOfReviews: "145", 
+                price: "9 990", 
+                room: "888", 
+                serviceClass: "Люкс", 
+                rating: 5
+              })
+            .container__item
+              +album({
+                id: "carousel1", 
+                urls: [ 
+                  "../src/blocks/album/image (1)-min.jpg", 
+                  "../src/blocks/album/image (1)-min.jpg", 
+                  "../src/blocks/album/image (1)-min.jpg",
+                  "../src/blocks/album/image (1)-min.jpg" 
+                ], 
+                numberOfReviews: "65", 
+                price: "9 990", 
+                room: "840", 
+                rating: 4
+              })
 
         .container__headers-footers
           .container__headers 
