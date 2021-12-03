@@ -14,17 +14,6 @@
   color: #1F204180;
   padding: 15px 0;
 
-
-
-  &__logo {
-    @include display;
-
-  }
-
-  &__logo > &__item {
-    margin-right: 12px;
-  }
-
   &__nav {
     @include display;
   }

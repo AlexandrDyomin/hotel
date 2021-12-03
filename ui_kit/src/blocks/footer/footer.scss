@@ -1,0 +1,62 @@
+.footer {
+  padding: 100px 0 26px;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #1F2041; 
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__column {
+    max-width: 260px;
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #1F2041;
+    margin-bottom: 21px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list-item {
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+  color: #1F2041; 
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__socials img:not(:last-child){
+    margin-right: 20px;
+  }
+
+  &_min {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

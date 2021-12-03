@@ -1,13 +1,9 @@
 include ../button/button.pug 
 include ../logo/logo.pug
 
-mixin header( { user, urls, isAuthorizationPassed } )
+mixin header( { user, isAuthorizationPassed } )
   header.header
-    a.header__logo(href="javascript:void(0)") 
-      .header__item 
-        +logo(urls[0])
-      .header__item
-        +logo(urls[1])
+    +logo
 
     nav.header__nav 
       ul.header__links 

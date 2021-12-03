@@ -18,6 +18,8 @@ import "./blocks/air-datepicker/air-datepicker.js";
 import "./blocks/booking-card/booking-card.js";
 import "./blocks/album/album.js";
 import "./blocks/header/header.js"
+import "./blocks/logo/logo.js";
+import "./blocks/footer/footer.js"
 
 
 
