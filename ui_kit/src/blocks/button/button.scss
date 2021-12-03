@@ -6,7 +6,7 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   border: none;
   border-radius: 22px;
-  width: 99px;
+  min-width: 99px;
   height: 44px;
   text-transform: uppercase;
   cursor: pointer;
@@ -16,9 +16,10 @@
   font-size: 12px;
   font-weight: 700;
   line-height: 15px;
+  padding: 0 20px;
 
   &_large {
-    width: 320px;
+    max-width: 320px;
     background: 
       url("../src/blocks/button/arrow_forward-min.svg") 
       content-box
