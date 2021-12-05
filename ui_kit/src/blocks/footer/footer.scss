@@ -72,7 +72,7 @@
     align-items: center;
   }
 
-  &__socials img:not(:last-child){
+  &__socials &__link:not(:last-child){
     margin-right: 20px;
   }
 
