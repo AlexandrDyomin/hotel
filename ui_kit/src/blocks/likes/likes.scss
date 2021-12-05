@@ -22,7 +22,7 @@
   }
 
   &__btn:checked + &__style  {
-    background: url("../src/blocks/likes/favorite-min.svg");
+    background: url("./favorite-min.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,7 +40,7 @@
     width: 10px;
     height: 8px;
     margin-right: 2px;
-    background: url("../src/blocks/likes/favorite_border-min.svg");
+    background: url("./favorite_border-min.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

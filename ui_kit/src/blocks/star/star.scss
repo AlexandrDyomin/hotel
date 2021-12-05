@@ -14,16 +14,16 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: url("../src/blocks/star/star_border-min.svg") no-repeat center;
+    background: url("./star_border-min.svg") no-repeat center;
     margin-left: 4px;
   }
 
   &__btn:checked + &__style {
-    background-image: url("../src/blocks/star/star-min.svg");
+    background-image: url("./star-min.svg");
   }
 
   &__style_active {
-    background-image: url("../src/blocks/star/star-min.svg");
+    background-image: url("./star-min.svg");
   }
 
   &__btn:focus-visible + &__style {

@@ -1,3 +1,4 @@
+import "./rate-button.scss";
 import { findChildren, findParent } from "../../common-modules/scan.js"
 import addHandler from "../../common-modules/addHandler.js"
 

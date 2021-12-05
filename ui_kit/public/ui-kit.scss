@@ -6,7 +6,6 @@
 
 .body {
   margin:0;
-  // display: none;
 }
 
 @font-face {
@@ -46,30 +45,6 @@
 }
 
 @import 
-  "../src/blocks/color-card/color-card.scss",
-  "../src/blocks/font/font.scss",
   "../src/blocks/hd/hd.scss",
   "../src/blocks/container/container.scss",
-  "../src/blocks/label/label.scss",
-  "../src/blocks/dropdown/dropdown.scss",
-  "../src/blocks/counter/counter.scss",
-  "../src/blocks/checkbox-button/checkbox-button.scss",
-  "../src/blocks/convenience/convenience.scss",
-  "../src/blocks/author/author.scss",
-  "../src/blocks/likes/likes.scss",
-  "../src/blocks/comment/comment.scss",
-  "../src/blocks/bullet-list/bullet-list.scss",
-  "../src/blocks/radio-buttons/radio-buttons.scss",
-  "../src/blocks/toggle-button/toggle-button.scss",
-  "../src/blocks/toggle/toggle.scss",
-  "../src/blocks/expandable-checkbox-list/expandable-checkbox-list.scss",
-  "../src/blocks/star/star.scss",
-  "../src/blocks/rate-button/rate-button.scss",
-  "../src/blocks/button/button.scss"
-
-
-
-
-
-  
-
+  "../src/blocks/label/label.scss"

@@ -1,4 +1,4 @@
-import "../public/style.scss";
+import "../public/ui-kit.scss";
 import "./blocks/dropdown/dropdown.js";
 import "./blocks/counter/counter.js";
 import "./blocks/likes/likes.js";
@@ -20,7 +20,14 @@ import "./blocks/album/album.js";
 import "./blocks/header/header.js"
 import "./blocks/logo/logo.js";
 import "./blocks/footer/footer.js"
-
-
-
-
+import "./blocks/color-card/color-card.js";
+import "./blocks/font/font.js";
+import "./blocks/checkbox-button/checkbox-button.js";
+import "./blocks/convenience/convenience.js";
+import "./blocks/author/author.js";
+import "./blocks/comment/comment.js";
+import "./blocks/bullet-list/bullet-list.js";
+import "./blocks/radio-buttons/radio-buttons.js";
+import "./blocks/toggle/toggle.js";
+import "./blocks/star/star.js";
+import "./blocks/button/button.js";

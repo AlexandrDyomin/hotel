@@ -1,3 +1,4 @@
+import "./expandable-checkbox-list.scss";
 import { changeAppearance } from "../counter/counter.js";
 import addHandler from "../../common-modules/addHandler.js";
 import { findChild, findElement } from "../../common-modules/scan.js";

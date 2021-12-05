@@ -1,3 +1,4 @@
+import "./likes.scss";
 import addHandler from "../../common-modules/addHandler.js";
 import { findElement, findParent } from "../../common-modules/scan.js";
 import { 

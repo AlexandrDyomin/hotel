@@ -1,3 +1,4 @@
+import "./dropdown.scss";
 import { 
   changeAppearance, 
   toggleState, 

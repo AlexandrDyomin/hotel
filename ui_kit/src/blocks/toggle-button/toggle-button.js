@@ -1,3 +1,4 @@
+import "./toggle-button.scss";
 import addHandler from "../../common-modules/addHandler.js";
 import { changeAppearance } from "../counter/counter.js";
 
