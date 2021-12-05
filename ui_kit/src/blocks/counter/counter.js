@@ -6,6 +6,21 @@ const fillFields = ( textFields, values ) => {
   textFields.forEach( ( el, i ) =>  el.value = values[i] );
 }
 
+const getFormattedValue = ( counterValues, getLastWord) =>{
+  let numberBedrooms = (counterValues[0] > 0) ? `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) }` : "";
+  let numberBeds = (counterValues[1] > 0) ? `${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }` : "";
+  let numberBathRooms = (counterValues[2] > 0) ? `${ counterValues[2] } ${ getLastWord( counterValues[2], "ванная комната" ) }` : "";
+  let arrayOfAmenities = [ numberBedrooms, numberBeds, numberBathRooms ];
+  
+  let formattedValue = arrayOfAmenities.reduce( ( acc, item) => {
+    if ( !item ) return acc;
+    acc.push(item);  
+    return acc;
+  }, [] ).join(", ");
+
+  return formattedValue;
+}
+
 // возвращает слово  в нужном склонении
 const getLastWord = ( number, word  ) => {
   switch(word){
@@ -32,7 +47,16 @@ const getLastWord = ( number, word  ) => {
         return "гостя";
       } else {
         return "гостей";
-      }   
+      } 
+      
+    case "ванная комната":
+      if ( number === 1 ) {
+        return "ванная комната";
+      } else if ( number > 1 && number < 5 ){
+        return "вынных комнаты";
+      } else {
+        return "ванных комнат";
+      } 
   }
 }
 
@@ -110,12 +134,10 @@ const handleButtonPlusClick = ( e ) => {
   if ( dropdown.dataset.type === "rooms") {
     let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
     let counterValues = countersDisplays.map( el => Number( el.innerText ) );
-    
-    let value = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
-  \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
+    let textFieldValue = getFormattedValue(counterValues, getLastWord) 
 
     let textField = findElement( btnPlus, "dropdown", "text-field" );
-    updateValue( textField, value );
+    updateValue( textField, textFieldValue );
  
     // вставляем значения в скрытые поля
     let hiddenFields = [ ...dropdown.lastElementChild.children ];
@@ -187,9 +209,7 @@ const handleButtonMinusClick = ( e ) => {
   if ( dropdown.dataset.type === "rooms") {
     let countersDisplays = [ ...dropdown.querySelectorAll( ".counter__display" ) ];
     let counterValues = countersDisplays.map( el => Number( el.innerText ) );
-    
-    let textFieldValue = `${ counterValues[0] } ${ getLastWord( counterValues[0], "спальня" ) },\
-  \ ${ counterValues[1] } ${ getLastWord( counterValues[1], "кровать" ) }...`;
+    let textFieldValue = getFormattedValue(counterValues, getLastWord)
 
     let textField = findElement( btnMinus, "dropdown", "text-field" );
     updateValue( textField, textFieldValue );

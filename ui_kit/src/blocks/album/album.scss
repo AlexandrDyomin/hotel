@@ -96,3 +96,19 @@
   bottom: 15px;
   right: 15px;
 }
+
+.js-Carousel .js-Carousel-arrowPrev {
+  display: none;
+}
+
+.js-Carousel .js-Carousel-arrowNext {
+  display: none;
+}
+
+.js-Carousel:hover .js-Carousel-arrowPrev {
+  display: block;
+}
+
+.js-Carousel:hover .js-Carousel-arrowNext {
+  display: block;
+}

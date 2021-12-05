@@ -9,14 +9,16 @@
   font-weight: 400;
   line-height: 18px;
   color: #1F2041BF;
+  text-overflow: ellipsis;
   
   &_dropdown {
     background-image: url("./arrow.svg");
-    background-position: right center;
-    background-origin: content-box;
+    background-position: 95% center;
+    background-origin: padding-box;
     background-repeat: no-repeat;
     cursor: pointer;
     caret-color: transparent;
+    padding-right: 40px;
   }
 
   &::placeholder {

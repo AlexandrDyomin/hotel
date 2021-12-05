@@ -7,7 +7,6 @@
   color: #1F2041; 
   box-shadow: 0px 10px 20px 0px #1F20410D;
 
-
   &__main {
     display: flex;
     justify-content: space-between;
@@ -37,6 +36,7 @@
 
   &__text {
     margin-bottom: 23px;
+    color: #1F2041BF;
   }
 
   &__list {
@@ -47,11 +47,12 @@
 
   &__list-item {
     margin-bottom: 14px;
+    transition: all .1s ease-in;
   }
 
   &__link {
     text-decoration: none;
-    color: #1F2041; 
+    color: #1F204180;
   }
 
   &__bottom {
@@ -81,5 +82,9 @@
     align-items: center;
     max-width: 768px;
     padding: 122px 0;
+  }
+
+  &__list-item:hover {
+    transform: scale(1.1, 1.1);
   }
 }
