@@ -417,18 +417,9 @@ html(lang="ru")
         .container__headers-footers
           .container__headers 
             .container__item
-              +header( { 
-                urls: [
-                  "../src/blocks/header/Group-min.svg",
-                  "../src/blocks/header/TOXIN-min.svg"
-                ]
-              })
+              +header({})
             .container__item
-              +header( { 
-                urls: [
-                  "../src/blocks/header/Group-min.svg",
-                  "../src/blocks/header/TOXIN-min.svg"
-                ],
+              +header({ 
                 user: "Юлий Цезарь",
                 isAuthorizationPassed: true
               })

@@ -6,7 +6,7 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   border: none;
   border-radius: 22px;
-  min-width: 99px;
+  width: 99px;
   height: 44px;
   text-transform: uppercase;
   cursor: pointer;
@@ -19,7 +19,7 @@
   padding: 0 20px;
 
   &_large {
-    max-width: 320px;
+    width: 320px;
     background: 
       url("../src/blocks/button/arrow_forward-min.svg") 
       content-box
@@ -53,6 +53,7 @@
     border-radius: 50%;
     background: none;
     color: #1F204180;
+    padding: 0;
   }
 
   &_active {
@@ -70,6 +71,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    padding: 0;
   }
 
   &_with-arrow-back {
@@ -82,6 +84,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    padding: 0;
   }
 
   &:active {

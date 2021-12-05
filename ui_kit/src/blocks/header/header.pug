@@ -1,7 +1,7 @@
 include ../button/button.pug 
 include ../logo/logo.pug
 
-mixin header( { user, isAuthorizationPassed } )
+mixin header( { user }={} )
   header.header
     +logo
 
@@ -18,7 +18,7 @@ mixin header( { user, isAuthorizationPassed } )
         li.header__item Соглашения
           img.header__arrow(src="../src/blocks/header/arrow.svg", alt="")
     
-      if ( isAuthorizationPassed )
+      if ( user )
         span.header__user=user
       else 
         .header__buttons

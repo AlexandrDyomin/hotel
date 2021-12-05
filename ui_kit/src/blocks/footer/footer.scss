@@ -1,5 +1,5 @@
 .footer {
-  padding: 100px 0 26px;
+  max-width: 1440px;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -12,6 +12,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 83px;
+    padding: 100px 9.72% 0;
+
   }
 
   &__column {
@@ -19,7 +22,7 @@
   }
 
   &__logo {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
   }
 
   &__title {
@@ -28,7 +31,12 @@
     font-size: 12px;
     line-height: 15px;
     color: #1F2041;
-    margin-bottom: 21px;
+    margin-bottom: 18px;
+    margin-top: 4px
+  }
+
+  &__text {
+    margin-bottom: 23px;
   }
 
   &__list {
@@ -38,17 +46,28 @@
   }
 
   &__list-item {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
 
   &__link {
     text-decoration: none;
-  color: #1F2041; 
+    color: #1F2041; 
   }
 
   &__bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1F20410A;
+    padding: 23px 9.72% 23px;
+  }
+
+  &__bottom &__text {
+    margin: 0;
+  }
+
+  &__socials {
+    display: flex;
     align-items: center;
   }
 
@@ -60,5 +79,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 768px;
+    padding: 122px 0;
   }
 }
