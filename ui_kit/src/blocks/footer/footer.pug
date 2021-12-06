@@ -1,7 +1,7 @@
 include ../logo/logo.pug 
 include ../subscription-text-field/subscription-text-field.pug
 
-mixin footer({theme})
+mixin footer( { theme } = {} )
   if theme === "min"
     footer.footer.footer_min   
       +logo 

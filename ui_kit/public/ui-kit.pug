@@ -40,7 +40,13 @@ html(lang="ru")
     include ../src/blocks/header/header.pug
     include ../src/blocks/footer/footer.pug 
 
-    script(defer src="../src/index.js") 
+    link(rel="stylesheet" type="text/css" href="../src/blocks/hd/hd.scss")
+    link(rel="stylesheet" type="text/css" href="../src/blocks/container/container.scss")
+    link(rel="stylesheet" type="text/css" href="../src/blocks/label/label.scss")
+
+
+
+    script(defer src="../src/ui-kit.js") 
 
     title UI Kit
   body
@@ -425,14 +431,13 @@ html(lang="ru")
         .container__headers-footers
           .container__headers 
             .container__item
-              +header({})
+              +header()
             .container__item
               +header({ 
-                user: "Юлий Цезарь",
-                isAuthorizationPassed: true
+                user: "Юлий Цезарь"
               })
           .container__footers
             .container__item 
-              +footer({})
+              +footer()
             .container__item 
               +footer({theme: "min"})

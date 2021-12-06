@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/ui-kit.pug --open",
-    "build": "parcel build public/index.html",
+    "start": "parcel public/*.pug --open",
+    "build": "parcel build public/*.pug",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
