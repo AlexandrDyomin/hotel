@@ -14,6 +14,8 @@ import {
   findElement, 
   findChildren 
 } from "../../common-modules/scan.js";
+import "../counter/counter.js";
+import "../text-field/text-field.js";
 
 // раскрывает список
 const openDropdown = (element, ...modifiers) => {

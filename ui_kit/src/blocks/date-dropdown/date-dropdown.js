@@ -6,6 +6,7 @@ import addHandler from '../../common-modules/addHandler';
 import { findChildren, findElement, findParent, findChild } from '../../common-modules/scan';
 import { changeAppearance, clearTextFields } from '../counter/counter';
 import { defaultSettings, toggleButtonStateApply } from '../air-datepicker/air-datepicker.js';
+import "../text-field/text-field.js";
 
 // заполняет текстовые поля выбранными датами
 const writeDate = ( datepicker, formattedDate ) => {  

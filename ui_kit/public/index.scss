@@ -1,0 +1,28 @@
+.content {
+  background: url(landing-bg.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 1180px;
+
+  &__inner {
+    min-height: calc(100vh - 71px);
+    padding-top: 70px;
+    padding-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__text {
+    font-family: Montserrat,Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #1F2041BF;
+    align-self: flex-end;
+    max-width: 297px;
+  }
+}

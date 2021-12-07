@@ -3,33 +3,34 @@ include ../logo/logo.pug
 
 mixin header( { user } = {} )
   header.header
-    +logo
+    .header__container
+      +logo
 
-    nav.header__nav 
-      ul.header__links 
-        li.header__item.header__item_active 
-          a.header__link(href="javascript:void(0)") О нас 
-        li.header__item Услуги
-          img.header__arrow(src="../src/blocks/header/arrow.svg", alt="")
-        li.header__item 
-          a.header__link(href="javascript:void(0)") Вакансии
-        li.header__item 
-          a.header__link(href="javascript:void(0)") Новости
-        li.header__item Соглашения
-          img.header__arrow(src="../src/blocks/header/arrow.svg", alt="")
-    
-      if ( user )
-        span.header__user=user
-      else 
-        .header__buttons
-          .header__item
-            +button({
-            type: "button",
-            value: "войти",
-            modifiers: "button-item_with-border"
-          })
-          .header__item
-            +button({
+      nav.header__nav 
+        ul.header__links 
+          li.header__item.header__item_active 
+            a.header__link(href="javascript:void(0)") О нас 
+          li.header__item Услуги
+            img.header__arrow(src="../src/blocks/header/arrow.svg", alt="")
+          li.header__item 
+            a.header__link(href="javascript:void(0)") Вакансии
+          li.header__item 
+            a.header__link(href="javascript:void(0)") Новости
+          li.header__item Соглашения
+            img.header__arrow(src="../src/blocks/header/arrow.svg", alt="")
+      
+        if ( user )
+          span.header__user=user
+        else 
+          .header__buttons
+            .header__item
+              +button({
               type: "button",
-              value: "Зарегистрироваться"
-          })
+              value: "войти",
+              modifiers: "button-item_with-border"
+            })
+            .header__item
+              +button({
+                type: "button",
+                value: "Зарегистрироваться"
+            })

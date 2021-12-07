@@ -1,19 +1,24 @@
 .footer {
-  max-width: 1440px;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
   color: #1F2041; 
   box-shadow: 0px 10px 20px 0px #1F20410D;
+  background-color: white;
 
+  &__container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1180px;
+  }
+  
   &__main {
+    padding: 100px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 83px;
-    padding: 100px 9.72% 0;
-
   }
 
   &__column {
@@ -56,11 +61,14 @@
   }
 
   &__bottom {
+    border-top: 1px solid #1F20410A;
+  }
+
+  &__wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #1F20410A;
-    padding: 23px 9.72% 23px;
+    padding: 23px 0;
   }
 
   &__bottom &__text {
