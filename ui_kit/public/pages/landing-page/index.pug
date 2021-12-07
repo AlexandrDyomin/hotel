@@ -1,8 +1,14 @@
 extends ../../../src/layout/layout.pug
+
 block variables
   -let title = "Landing page"
+
 block append includes
   include ../../../src/blocks/search-card/search-card.pug
+
+block scripts
+  script(defer src="../../../src/index.js") 
+
 block content
   .container
     .container__inner

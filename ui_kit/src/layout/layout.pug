@@ -20,13 +20,12 @@ html(lang="en")
       include ../blocks/footer/footer.pug
 
     block scripts
-      script(defer src="../../../src/index.js") 
 
     title=title
   body
     .page
       block header
-        +header()
+        +header( { urlRegPage: "../registration/index.pug" } )
       main.content
         block content
       block footer
