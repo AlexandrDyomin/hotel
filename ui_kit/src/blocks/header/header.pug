@@ -1,7 +1,7 @@
 include ../button/button.pug 
 include ../logo/logo.pug
 
-mixin header( { user, urlRegPage } = {} )
+mixin header( { user, urlRegPage, urlSignInPage } = {} )
   header.header
     .header__container
       +logo
@@ -25,6 +25,7 @@ mixin header( { user, urlRegPage } = {} )
           .header__buttons
             .header__item
               +button({
+              url: urlSignInPage,
               type: "button",
               value: "войти",
               modifiers: "button-item_with-border"

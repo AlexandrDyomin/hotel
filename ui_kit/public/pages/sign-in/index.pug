@@ -1,0 +1,15 @@
+extends ../../../src/layout/layout.pug 
+
+block variables 
+  - let title = "Sign in"
+
+block append includes 
+  include ../../../src/blocks/entry-card/entry-card.pug 
+
+block scripts 
+  script(defer src="../../../src/sign-in.js")
+
+block content 
+  .container
+    .container__inner
+      +entry-card

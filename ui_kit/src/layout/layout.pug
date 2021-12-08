@@ -25,7 +25,10 @@ html(lang="en")
   body
     .page
       block header
-        +header( { urlRegPage: "../registration/index.pug" } )
+        +header({
+          urlRegPage: "../registration/index.pug",
+          urlSignInPage: "../sign-in/index.pug" 
+        })
       main.content
         block content
       block footer

@@ -17,6 +17,7 @@
   font-weight: 700;
   line-height: 15px;
   padding: 0 20px;
+  transition: box-shadow .2s linear;
 
   &_large {
     width: 320px;
@@ -103,5 +104,9 @@
   &:focus-visible {
     outline: 2px solid #1F204180;
     outline-offset: 1px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 7px 3px rgba(15, 48, 238, 0.2);
   }
 }
