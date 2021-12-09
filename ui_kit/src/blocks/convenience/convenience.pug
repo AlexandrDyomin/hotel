@@ -1,5 +1,5 @@
 mixin convenience(options)
-  .convenience
+  .convenience(class=(options.theme) ? "convenience_" + options.theme : "")
     img.convenience__img(src=options.url, alt="")
     .convenience__description
       .convenience__title=options.title 

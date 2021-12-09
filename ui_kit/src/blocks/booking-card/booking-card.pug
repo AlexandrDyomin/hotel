@@ -42,7 +42,7 @@ mixin booking-card(options)
           span="Сбор за услуги: скидка " 
           span.booking-card__price=discount 
           span="₽"
-        img(src="../src/blocks/booking-card/info-min.svg", alt="")
+        img(src="../../../src/blocks/booking-card/info-min.svg", alt="")
       .booking-card__right.booking-card__serviceCharge
         span.booking-card__price=serviceCharge
         span="₽"
@@ -50,7 +50,7 @@ mixin booking-card(options)
     .booking-card__item
       .booking-card__left
         .booking-card__service-charge="Сбор за дополнительные услуги"
-        img(src="../src/blocks/booking-card/info-min.svg", alt="")
+        img(src="../../../src/blocks/booking-card/info-min.svg", alt="")
       .booking-card__right.booking-card__additionalServiceCharge
         span.booking-card__price=additionalServiceCharge
         span="₽"
@@ -67,12 +67,3 @@ mixin booking-card(options)
       value: "забронировать",
       modifiers: ["button-item_large"]
     })
-
-
-
-
-
-     
-      
-
-

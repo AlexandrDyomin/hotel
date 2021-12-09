@@ -9,8 +9,11 @@
   &__photo {
     height: 48px;
     width: 48px;
+
+    background: grey;
     object-fit: cover;
     object-position: center;
+    
     border-radius: 50%;
   }
 

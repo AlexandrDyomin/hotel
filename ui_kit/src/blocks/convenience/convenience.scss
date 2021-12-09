@@ -7,11 +7,10 @@
   align-items: center;
   border-bottom: 1px solid #1F20411A;
   padding: 10px 10px;
-  ;
 
   &__img {
-    width: 40px;
-    height: 40px;
+    max-width: 50px;
+    max-width: 50px;
     object-fit: cover;
     object-position: center;
   }
@@ -27,5 +26,9 @@
 
   &__text {
     font-weight: 400;
+  }
+
+  &_without-border {
+    border: none;
   }
 }

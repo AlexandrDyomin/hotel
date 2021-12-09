@@ -1,6 +1,8 @@
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import "./booking-card.scss";
+import "../dropdown/dropdown.js";
+import "../label/label.scss";
 import "../air-datepicker/air-datepicker.scss";
 import "../basicInfoAboutRoom/basicInfoAboutRoom.js";
 import { 
@@ -9,6 +11,7 @@ import {
 } from "../date-dropdown/date-dropdown.js";
 import { findParent } from "../../common-modules/scan";
 import addHandler from "../../common-modules/addHandler";
+
 
 // возвращает дату в формате ISO
 // принимает в качестве аргумента строку в формате дд.мм.гггг

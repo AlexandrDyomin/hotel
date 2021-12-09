@@ -3,4 +3,4 @@ mixin author(options)
    img.author__photo(src=options.url, alt="")
    .author__info 
     .author__name=options.name
-    .author__additional-info=options.additionalInfo
+    time.author__additional-info(pubdate datetime="")=options.additionalInfo

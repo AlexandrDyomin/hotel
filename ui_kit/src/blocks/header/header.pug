@@ -10,14 +10,16 @@ mixin header( { user, urlRegPage, urlSignInPage } = {} )
         ul.header__links 
           li.header__item.header__item_active 
             a.header__link(href="javascript:void(0)") О нас 
-          li.header__item Услуги
-            img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
+          li.header__item 
+            a.header__link(href="") Услуги
+              img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
           li.header__item 
             a.header__link(href="javascript:void(0)") Вакансии
           li.header__item 
             a.header__link(href="javascript:void(0)") Новости
-          li.header__item Соглашения
-            img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
+          li.header__item 
+            a.header__link(href="") Соглашения
+              img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
       
         if ( user )
           span.header__user=user
