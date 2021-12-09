@@ -38,7 +38,7 @@
   &__item {
     margin-right: 20px;
     cursor: pointer;
-    transition: all .1s ease-in;
+    transition: all .2s ease-in;
   }
 
   &__links &__item:nth-child(2) {
@@ -91,7 +91,8 @@
   } 
 
   &__links > &__item:hover {
-    transform: scale(1.1, 1.1);
+    transform: scale(1.1);
+    text-decoration: underline;
   }
 
 }

@@ -7,6 +7,9 @@
   line-height: 15px;
   box-shadow: 0px 0px 25px 0px #00000033;
   background-color: white;
+  transition: 
+    transform .3s ease-out,
+    box-shadow .3s ease-out;
   
   &__title {
     margin: 0 0 21px;
@@ -22,5 +25,10 @@
 
   & .label {
     margin-bottom: 21px;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px 0px#00000080;
   }
 }

@@ -3,6 +3,9 @@
   padding-bottom: 20px;
   background-color: white;
   box-shadow: 0px 10px 20px 0px #1F20410D;
+  transition: 
+    transform .3s ease-out,
+    box-shadow .3s ease-out;
 
   &__img {
     border-top-left-radius: 4px;
@@ -37,6 +40,11 @@
 
   &__number {
     font-weight: 700;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px 0px#1F204140;
   }
 }
 
