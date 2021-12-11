@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel public/pages/**/index.pug --open  http://localhost:1234/landing-page/index.html",
-    "build": "parcel build public/*.pug",
+    "build": "parcel build public/pages/**/index.pug",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,7 +14,6 @@
   "dependencies": {
     "air-datepicker": "^3.0.1",
     "nouislider": "^15.5.0",
-    "path": "^0.12.7",
     "vanilla-js-carousel": "^3.1.2"
   },
   "devDependencies": {

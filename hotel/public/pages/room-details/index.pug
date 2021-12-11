@@ -8,6 +8,7 @@ block append includes
   include ../../../src/blocks/convenience/convenience.pug
   include ../../../src/blocks/comment/comment.pug 
   include ../../../src/blocks/bullet-list/bullet-list.pug
+  include ../../../src/blocks/donut/donut.pug
 
 block scripts 
   script(defer src="../../../src/room-details.js")
@@ -22,7 +23,6 @@ block content
         img(src="./room-details-bg1-min.jpg", alt="")
       .preview__right-bottom 
         img(src="./room-details-bg2-min.jpg", alt="")
-
 
   .container 
     .container__left 
@@ -49,7 +49,27 @@ block content
 
         //- круговая диаграмма
         .container__impressions
-          h2.container__title
+          h2.container__title Впечатления от номера    
+          +donut({
+            variables:[{
+              value:25, 
+              color: ["#BC9CFF", "#8BA4F9"]
+            }, {
+              value: 25, 
+              color: ["#6FCF97", "#66D2EA"]
+            }, {
+              value: 50, 
+              color: ["#FFE39C", "#FFBA9C"]
+            }],
+            number: 260,
+            text: "голосов",
+            captions: [
+              "Великолепно",
+              "Хорошо",
+              "Удовлетворительно",
+              "Разочарован"
+            ]
+          })
 
       //- комментарии
       .container__comments 
