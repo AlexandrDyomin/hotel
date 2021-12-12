@@ -1,4 +1,5 @@
 import "./rate-button.scss";
+import "../star/star.js";
 import { findChildren, findParent } from "../../common-modules/scan.js"
 import addHandler from "../../common-modules/addHandler.js"
 
