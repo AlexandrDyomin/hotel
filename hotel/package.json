@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/pages/**/index.pug --open  http://localhost:1234/landing-page/index.html",
+    "start": "parcel public/pages/**/index.pug --open  http://localhost:1234/search-room/index.html",
     "build": "parcel build public/pages/**/index.pug",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -8,9 +8,9 @@
   margin: 0 auto;
   padding: 70px 10px;
   max-width: 1180px;
+  min-height: calc(100vh - 71px);
 
   &__inner {
-    min-height: calc(100vh - 71px);
     padding-bottom: 2px;
     display: flex;
     flex-direction: column;

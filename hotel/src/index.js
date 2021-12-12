@@ -1,4 +1,4 @@
-import "./layout/layout.js"
+import "./layouts/carcas/carcas.js";
 import "./blocks/search-card/search-card.js";
 import { bgChange } from "./common-modules/bgChande.js";
 import "../public/pages/landing-page/index.scss";

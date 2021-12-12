@@ -1,4 +1,4 @@
-import "./layout/layout.js";
+import "./layouts/carcas/carcas.js";
 import "./blocks/registration-card/registration-card.js";
 import "../public/pages/registration/registration.scss";
 import { bgChange } from "./common-modules/bgChande.js";

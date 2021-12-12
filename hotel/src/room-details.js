@@ -1,4 +1,4 @@
-import "./layout/layout.js";
+import "./layouts/carcas/carcas.js"
 import "./blocks/donut/donut.js";
 import "./blocks/comment/comment.js";
 import "./blocks/convenience/convenience.js";
