@@ -1,0 +1,28 @@
+extends ../../../src/layouts/carcas/carcas.pug
+
+block variables 
+  - let title = "Search room"
+
+block append includes
+  include ../../../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
+  include ../../../src/blocks/dropdown/dropdown.pug
+  include ../../../src/blocks/range-slider/range-slider.pug
+  include ../../../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
+  include ../../../src/blocks/checkbox-button/checkbox-button.pug
+
+block scripts 
+  script(defer src="../../../src/search-room.js")
+
+block content
+  .container
+    //- боковая панель
+    include ../../../src/layouts/side-bar/side-bar.pug
+          
+    //- результат поиска
+    .rooms 
+      .rooms__main 
+
+      //- пагинация
+      .rooms__footer
+
+

@@ -1,0 +1,96 @@
+include ../../blocks/filter-date-dropdown/filter-date-dropdown.pug
+include ../../blocks/dropdown/dropdown.pug
+include ../../blocks/range-slider/range-slider.pug
+include ../../blocks/expandable-checkbox-list/expandable-checkbox-list.pug
+include ../../blocks/checkbox-button/checkbox-button.pug
+
+aside.side-bar 
+  form.side-bar__form
+    .side-bar__form-element
+      label.label 
+        span.label__text даты пребывания в отеле
+        +filter-date-dropdown({
+          id: "filter-date-dropdown"
+        })
+
+    .side-bar__form-element
+      label.label 
+        span.label__text гости
+        +dropdown( { type: "guests"} )
+
+    .side-bar__form-element
+      label.label 
+        span.label__text диапазон цены
+        +range-slider
+        small Стоимость за сутки пребывания в номере
+        
+    .side-bar__form-element
+      label.label 
+        span.label__text правила дома
+        +checkbox-button({
+            text: "Можно курить"
+        })
+        +checkbox-button({
+          text: "Можно с питомцами",
+          checked: true
+        })
+        +checkbox-button({
+            text: "Можно пригласить гостей (до 10 человек)",
+            checked: true
+        })
+
+    .side-bar__form-element
+      label.label 
+        span.label__text доступность
+        +checkbox-button({
+          title: "Широкий коридор",
+          text: "Ширина коридоров в номере не менее 91 см."
+        })
+        +checkbox-button({
+          title: "Помощник для инвалидов",
+          text: "На 1 этаже вас встретит специалист  и проводит до номера."
+        })
+
+    .side-bar__form-element
+      label.label 
+        span.label__text удобства номера
+        +dropdown({
+          type: "rooms"
+        })
+
+    .side-bar__form-element
+      +expandable-checkbox-list({
+        title: "expandable checkbox list",
+        checkboxButtons: [{
+            name: "breakfast",
+            value: 1,
+            text: "Завтрак",
+            dataParent: "checkboxList"
+          }, {
+            name: "desk",
+            value: 1,
+            text: "Письменный стол",
+            dataParent: "checkboxList"
+          }, {
+            name: "feeding chair",
+            value: 1,
+            text: "Стул для кормления",
+            dataParent: "checkboxList"
+          }, {
+            name: "television",
+            value: 1,
+            text: "Кроватка",
+            dataParent: "checkboxList"
+          },{
+            name: "television",
+            value: 1,
+            text: "Телевизор",
+            dataParent: "checkboxList"
+          }, {
+            name: "shampoo",
+            value: 1,
+            text: "Шампунь",
+            dataParent: "checkboxList"
+          }
+        ]
+      })
