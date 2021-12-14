@@ -1,12 +1,15 @@
 .search-card {
-  padding: 40px 30px 30px;
   max-width: 380px;
+  padding: 40px 30px 30px;
+
   font-family: Montserrat;
   font-weight: 700;
   font-size: 12px;
   line-height: 15px;
+
   box-shadow: 0px 0px 25px 0px #00000033;
   background-color: white;
+  
   transition: box-shadow .3s ease-out;
   
   &__title {

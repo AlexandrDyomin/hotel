@@ -6,23 +6,26 @@
 
 .container {
   margin: 0 auto;
-  padding: 70px 10px;
   max-width: 1180px;
-  min-height: calc(100vh - 71px);
-
+  min-height: calc(100vh - 70px);
+  
   &__inner {
-    padding-bottom: 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
+    min-height: calc(100vh - 70px);
+    padding: 70px 10px 2px;
   }
 
+ 
   &__text {
+    max-width: 297px;
+    align-self: flex-end;
+    
     font-family: Montserrat,Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 24px;
     color: #1F2041BF;
-    align-self: flex-end;
-    max-width: 297px;
   }
 }

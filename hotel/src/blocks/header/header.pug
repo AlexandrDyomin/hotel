@@ -11,14 +11,14 @@ mixin header( { user, urlRegPage, urlSignInPage } = {} )
           li.header__item.header__item_active 
             a.header__link(href="javascript:void(0)") О нас 
           li.header__item 
-            a.header__link(href="") Услуги
+            a.header__link(href="javascript:void(0)") Услуги
               img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
           li.header__item 
             a.header__link(href="javascript:void(0)") Вакансии
           li.header__item 
             a.header__link(href="javascript:void(0)") Новости
           li.header__item 
-            a.header__link(href="") Соглашения
+            a.header__link(href="javascript:void(0)") Соглашения
               img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
       
         if ( user )
@@ -38,3 +38,8 @@ mixin header( { user, urlRegPage, urlSignInPage } = {} )
                 type: "button",
                 value: "Зарегистрироваться"
             })
+            
+            div.header__burger
+              span.header__burger-item
+              span.header__burger-item
+              span.header__burger-item

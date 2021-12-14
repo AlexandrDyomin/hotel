@@ -8,9 +8,17 @@
 }
 
 .side-bar {
-  max-width: 276px;
+  width: 276px;
   padding: 0 10px 0 0;
   margin-right: 50px;
+
+  @media (max-width: 920px) {
+    display: none;
+  }
+
+  &__form {
+    width: 266px;
+  }
 
     &__form-element + &__form-element {
     margin-bottom: 20px;

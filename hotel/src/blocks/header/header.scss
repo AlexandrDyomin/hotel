@@ -26,9 +26,15 @@
 
   &__links {
     @include display;
-    list-style: none;
+
     padding: 0;
-    margin-right: 26px;
+    margin: 0 26px 0 0;
+
+    list-style: none;
+
+    @media (max-width: 950px) {
+      display: none;
+    }
   }
 
   &__links &__item:last-child {
@@ -60,6 +66,10 @@
 
   & .button-item {
     height: 34px;
+
+    @media (max-width: 520px) {
+      display: none;
+    }
   }
 
   & input.button-item.button-item_with-border {
@@ -74,6 +84,23 @@
     margin-right: 0;
   }
 
+  &__burger-item {
+    display: none;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+ 
+    background: #cdcdcd;
+    border-radius: 3px;
+
+    @media (max-width: 950px) {
+      display: block;
+    }
+  }
+
+  &__burger  &__burger-item:last-child {
+    margin-bottom: 0;
+  }
 
   &__user {
     margin-left: 2px;
