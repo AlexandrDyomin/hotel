@@ -45,6 +45,15 @@ div.noUi-horizontal .noUi-handle {
     font-weight: 400;
     line-height: 15px;
     color: #1F204180;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label {
+    font-weight: 700;
+    color: #1F2041;
+    text-transform: uppercase;
   }
 
   &__price:nth-child(3){

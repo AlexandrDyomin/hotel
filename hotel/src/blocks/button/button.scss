@@ -51,15 +51,19 @@
   &_round {
     width: 40px;
     height: 40px;
+    padding: 0;
+
     border-radius: 50%;
     background: none;
+
     color: #1F204180;
-    padding: 0;
+    font-weight: 400;
   }
 
   &_active {
     background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     color: white;
+    font-weight: 700;
   }
 
   &_with-arrow-forward {

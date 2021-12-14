@@ -1,9 +1,38 @@
 .container {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 30px 10px;
+  padding: 20px 10px;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .side-bar {
-  max-width: 266px;
+  max-width: 276px;
+  padding: 0 10px 0 0;
+  margin-right: 50px;
+
+    &__form-element + &__form-element {
+    margin-bottom: 20px;
+  }
+
+  & &__form-element:nth-child(4),
+  & &__form-element:nth-child(5) {
+    margin-bottom: 0;
+
+    .label__text {
+      margin-bottom: 16px;
+    }
+  }
+
+  .range-slider + small {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #1F204180;
+    
+    display: inline-block;
+    margin-top: 14px;
+  }
 }

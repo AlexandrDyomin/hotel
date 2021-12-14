@@ -4,11 +4,7 @@ block variables
   - let title = "Search room"
 
 block append includes
-  include ../../../src/blocks/filter-date-dropdown/filter-date-dropdown.pug
-  include ../../../src/blocks/dropdown/dropdown.pug
-  include ../../../src/blocks/range-slider/range-slider.pug
-  include ../../../src/blocks/expandable-checkbox-list/expandable-checkbox-list.pug
-  include ../../../src/blocks/checkbox-button/checkbox-button.pug
+  include ../../../src/blocks/pagination/pagination.pug
 
 block scripts 
   script(defer src="../../../src/search-room.js")
@@ -25,3 +21,8 @@ block content
 
       //- пагинация
       .rooms__footer
+        +pagination({
+          numberOfPages: 15,
+          currentPage: 1,
+          info: "1 – 12 из 100+ вариантов аренды"
+        })

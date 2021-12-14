@@ -1,16 +1,18 @@
 mixin range-slider
   .range-slider(area-label="Слайдер диапазона цен")
-    .range-slider__prices 
-      input.range-slider__price#price-start(
-        type="text"
-        readonly
-        tabindex="-1"
-      )
-      span.range-slider__dash -
-      input.range-slider__price#price-end(
-        type="text"
-        readonly
-        tabindex="-1"
-      )
+    label.range-slider__prices 
+      span.range-slider__label Диапазон цены
+      .range-slider__info
+        input.range-slider__price#price-start(
+          type="text"
+          readonly
+          tabindex="-1"
+        )
+        span.range-slider__dash -
+        input.range-slider__price#price-end(
+          type="text"
+          readonly
+          tabindex="-1"
+        )
     .range-slider__slider#slider
 

@@ -19,10 +19,8 @@ aside.side-bar
         +dropdown( { type: "guests"} )
 
     .side-bar__form-element
-      label.label 
-        span.label__text диапазон цены
-        +range-slider
-        small Стоимость за сутки пребывания в номере
+      +range-slider
+      small Стоимость за сутки пребывания в номере
         
     .side-bar__form-element
       label.label 
@@ -60,7 +58,7 @@ aside.side-bar
 
     .side-bar__form-element
       +expandable-checkbox-list({
-        title: "expandable checkbox list",
+        title: "Дополнитеьные удобства",
         checkboxButtons: [{
             name: "breakfast",
             value: 1,
