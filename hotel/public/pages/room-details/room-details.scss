@@ -43,12 +43,19 @@
   padding: 70px 10px 34px;
 
   display: flex;
-  flex-wrap: wrap;
+
+  @media (max-width:710px) {
+    flex-wrap: wrap;
+  }
 
   font-family: Montserrat, Arial, Helvetica, sans-serif;
 
   &__left {
     margin-right: 70px;
+  }
+
+  &__right {
+    flex: 1 0 320px;
   }
 
   &__top {

@@ -7,6 +7,32 @@
     color: #1F2041;
 
     margin: 12px 0 20px;
+
+    position: relative;
+
+    @media (max-width:920px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    cursor:pointer;
+    background: url(./filter-icon-min.svg) no-repeat center;
+    background-size: cover;
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    margin-left: auto;
+    @media (max-width: 920px) {
+      display: block;
+    }
   }
 
   &__list {

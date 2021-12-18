@@ -5,5 +5,9 @@
   bottom: 0;
   right: 0;
   background-color: black;
-  opacity: .4;;
+  opacity: .4;
+
+  &_full {
+    top: 0;
+  }
 }

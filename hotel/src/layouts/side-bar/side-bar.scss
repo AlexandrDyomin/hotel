@@ -12,8 +12,26 @@
   padding: 0 10px 0 0;
   margin-right: 50px;
 
+  background: white;
+
+  transition: transform .2s ease-in-out;
+
+  &_active {
+    transform: translateY(0) !important;
+  }
+
   @media (max-width: 920px) {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 290px;
+    padding: 10px 10px;
+    height: 100vh;
+    overflow: auto;
+
+    transform: translateX(-100%);
   }
 
   &__form {

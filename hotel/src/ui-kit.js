@@ -33,4 +33,4 @@ import "./blocks/button/button.js";
 import "./blocks/hd/hd.scss";
 import "./blocks/container/container.scss";
 import "./blocks/label/label.scss";
-import "../public/common-style.scss";
+import "../public/pages/common-style.scss";
