@@ -7,67 +7,19 @@
 .header {
   background-color: white;
   box-shadow: 0px 10px 20px 0px #1F20410D;
+  
   font-family: Montserrat;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   color: #1F204180;
-  
-  &__container {
-    @include display;
-    margin: 0 auto;
-    padding: 13px 10px;
-    max-width: 1180px;
-  }
 
-  &__nav {
-    @include display;
-  }
-
-  &__links {
-    @include display;
-
-    padding: 0;
-    margin: 0 26px 0 0;
-
-    list-style: none;
-
-    @media (max-width: 950px) {
-      display: none;
-    }
-  }
-
-  &__links &__item:last-child {
-    margin-right: 0;
-  }
-
-  &__item {
-    margin-right: 20px;
-    cursor: pointer;
-    transition: all .2s ease-in;
-  }
-
-  &__links &__item:nth-child(2) {
-    margin-right: 27px
-  }
-
-  &__arrow {
-    margin-left: 5px;
-  }
-
-  &__link {
-    text-decoration: none;
-    color: #1F204180;
-  }
-
-  &__buttons {
-    @include display;
-  }
+  position: relative;
 
   & .button-item {
     height: 34px;
-
-    @media (max-width: 520px) {
+    
+    @media (max-width: 530px) {
       display: none;
     }
   }
@@ -80,46 +32,53 @@
     width: 196px; 
   }
 
-  &__buttons &__item:last-child {
-    margin-right: 0;
-  }
+} 
 
-  &__burger-item {
+
+.header__container {
+  @include display;
+  margin: 0 auto;
+  padding: 15px 10px;
+  max-width: 1180px;
+}
+
+
+.header__buttons {
+  @include display;
+}
+
+
+
+.header__item {
+  margin-right: 20px;
+
+  &_hidden {
     display: none;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
- 
-    background: #cdcdcd;
-    border-radius: 3px;
-
-    @media (max-width: 950px) {
+    width: 34px;
+    height: 34px;
+  
+    @media (max-width: 530px) {
       display: block;
     }
   }
+}
 
-  &__burger  &__burger-item:last-child {
-    margin-bottom: 0;
+
+.header__buttons 
+.header__item:nth-child(2) {
+  margin-right: 0;
+
+  @media (max-width: 950px) {
+    margin-right: 20px;
   }
+}
 
-  &__user {
-    margin-left: 2px;
-    border-left: 1px solid #1F20411A;
-    padding-left: 20px;
-    display: inline-block;
-    height: 30px;
-    padding-top: 6px;
 
-  }
-
-  &__item_active {
-    font-weight: 700;
-    color: #1F2041BF;
-  } 
-
-  &__links > &__item:hover {
-    transform: scale(1.1);
-    text-decoration: underline;
-  }
-
+.header__user{
+  margin-left: 2px;
+  border-left: 1px solid #1F20411A;
+  padding-left: 20px;
+  display: inline-block;
+  height: 30px;
+  padding-top: 6px;
 }

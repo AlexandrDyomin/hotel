@@ -6,12 +6,12 @@
 
 .container {
   margin: 0 auto;
-  padding: 172px 10px;
+  padding: 172px 10px 0;
   max-width: 1180px;
   min-height: calc(100vh - 70px);
 
   &__inner {
     margin: 0 auto;
-    width: min-content;
+    max-width: 380px;
   }
 }

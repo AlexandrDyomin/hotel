@@ -6,40 +6,36 @@ mixin header( { user, urlRegPage, urlSignInPage } = {} )
     .header__container
       +logo
 
-      nav.header__nav 
-        ul.header__links 
-          li.header__item.header__item_active 
-            a.header__link(href="javascript:void(0)") О нас 
-          li.header__item 
-            a.header__link(href="javascript:void(0)") Услуги
-              img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
-          li.header__item 
-            a.header__link(href="javascript:void(0)") Вакансии
-          li.header__item 
-            a.header__link(href="javascript:void(0)") Новости
-          li.header__item 
-            a.header__link(href="javascript:void(0)") Соглашения
-              img.header__arrow(src="../../../src/blocks/header/arrow.svg", alt="")
-      
-        if ( user )
-          span.header__user=user
-        else 
-          .header__buttons
-            .header__item
-              +button({
-              url: urlSignInPage,
+      //- блок навигации
+      include ../navigation/navigation.pug
+        
+      if ( user )
+        span.header__user=user
+      else 
+        //- кнопки регистрации и входа в личный кабинет
+        .header__buttons
+          .header__item
+            +button({
+            url: urlSignInPage,
+            type: "button",
+            value: "войти",
+            modifiers: "button-item_with-border"
+          })
+          .header__item
+            +button({
+              url: urlRegPage,
               type: "button",
-              value: "войти",
-              modifiers: "button-item_with-border"
-            })
-            .header__item
-              +button({
-                url: urlRegPage,
-                type: "button",
-                value: "Зарегистрироваться"
-            })
-            
-            div.header__burger
-              span.header__burger-item
-              span.header__burger-item
-              span.header__burger-item
+              value: "Зарегистрироваться"
+          })
+
+          //- кнопки иконки для мобильной версии
+          .header__item.header__item_hidden
+            a.header__link(href=urlSignInPage)
+              img(src="../../../src/blocks/header/log_in_icon_128822.svg", alt="")
+          
+          .header__item.header__item_hidden
+            a.header__link(href=urlRegPage)
+              img(src="../../../src/blocks/header/checkform-min.svg", alt="")
+          
+          //- бургер
+          include ../burger/burger.pug

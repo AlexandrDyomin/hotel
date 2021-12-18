@@ -1,5 +1,5 @@
 .booking-card {
-max-width: 380px;
+  max-width: 380px;
  font-family: Montserrat,Arial, Helvetica, sans-serif;
  padding: 40px 30px 30px;
  box-shadow: 0px 0px 25px 0px #00000033;
@@ -27,11 +27,27 @@ max-width: 380px;
   margin-bottom: 12px;
  }
 
- .booking-card__left {
-   width: 74%;
+ &__left {
    display: flex;
    justify-content: space-between;
    align-items: flex-start;
+
+   width: 75%;
+ }
+
+ &__discount,
+ &__service-charge {
+   margin-right: 5px;
+ }
+
+ &__discount {
+   @media (max-width: 400px) {
+     margin-right: 40px;
+   }
+
+   @media (max-width: 350px) {
+     margin-right: 5px;
+   }
  }
 
  &__bottom {
