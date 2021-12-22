@@ -13,7 +13,7 @@ mixin album ( { id, urls, numberOfReviews, price, room, serviceClass, rating } )
       ul
         each url in urls  
           li
-            a(href="../room-details/index.pug")
+            a(href="room-details.pug")
               img.album__img(src=url, alt="")
   
     .album__basicInfoAboutRoom

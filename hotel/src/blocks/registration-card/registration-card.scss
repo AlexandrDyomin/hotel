@@ -43,6 +43,10 @@
     align-items: center;
   }
 
+  &__bottom > .button {
+    width: 99px;
+  }
+
   &__question {
   font-size: 14px;
   font-weight: 400;

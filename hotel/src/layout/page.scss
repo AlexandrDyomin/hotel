@@ -1,0 +1,28 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.page__content {
+  flex: 1 0 auto;
+  background-size: cover !important;
+  transition: background-image 1s ease-in-out;
+
+  &_bg-landing {
+    background: url(bg-1-min.jpg) no-repeat center;
+  }
+
+  &_bg-sign-in {
+    background: url(bg-4-min.jpg) no-repeat center;
+  }
+
+  &_bg-registration {
+    background: url(bg-5-min.jpg) no-repeat center;
+  }
+
+  &_with-border {
+    border-bottom: 1px solid #1F204140;
+  }
+}

@@ -1,0 +1,23 @@
+@import "./blocks/container/container.scss";
+
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  min-height: calc(100vh - 70px);
+  padding: 70px 10px 2px;
+}
+
+
+.landing__text {
+  max-width: 297px;
+  align-self: flex-end;
+  text-align: end;
+  
+  font-family: Montserrat,Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1F2041BF;
+}

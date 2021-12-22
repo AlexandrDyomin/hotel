@@ -1,6 +1,5 @@
 import Carousel from "vanilla-js-carousel";
 import "vanilla-js-carousel/vanilla-js-carousel.css";
-
 import "./album.scss";
 import "../rate-button/rate-button.js";
 import "../basicInfoAboutRoom/basicInfoAboutRoom.js";

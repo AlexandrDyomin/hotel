@@ -65,6 +65,14 @@ const handleButtonApplayClick = ( e ) => {
   let hiddenFields = findElement( btnApply, "dropdown", "dropdown__hidden-fields" );
   hiddenFields = findChildren( hiddenFields, "text-field" );
   fillFields( hiddenFields, counterValues);
+
+  // сворачиваем список
+  closeDropdown( 
+    dropdownList, 
+    "dropdown__list_closed", 
+    "text-field_border-bottom-radius_disabled", 
+    "dropdown__container_visible"
+  );
 }
 
 const handleButtonClearClick = ( e ) => {

@@ -1,7 +1,7 @@
 include ../button/button.pug 
 include ../logo/logo.pug
 
-mixin header( { user, urlRegPage, urlSignInPage } = {} )
+mixin header( { user } = {} )
   header.header
     .header__container
       +logo
@@ -16,26 +16,26 @@ mixin header( { user, urlRegPage, urlSignInPage } = {} )
         .header__buttons
           .header__item
             +button({
-            url: urlSignInPage,
+            url: "sign-in.pug",
             type: "button",
             value: "войти",
             modifiers: "button-item_with-border"
           })
           .header__item
             +button({
-              url: urlRegPage,
+              url: "registration.pug",
               type: "button",
               value: "Зарегистрироваться"
           })
 
           //- кнопки иконки для мобильной версии
           .header__item.header__item_hidden
-            a.header__link(href=urlSignInPage)
-              img(src="../../../src/blocks/header/log_in_icon_128822.svg", alt="")
+            a.header__link(href="sign-in.pug")
+              img(src="../src/blocks/header/log_in_icon_128822.svg", alt="")
           
           .header__item.header__item_hidden
-            a.header__link(href=urlRegPage)
-              img(src="../../../src/blocks/header/checkform-min.svg", alt="")
+            a.header__link(href="registration.pug")
+              img(src="../src/blocks/header/checkform-min.svg", alt="")
           
           //- бургер
           include ../burger/burger.pug

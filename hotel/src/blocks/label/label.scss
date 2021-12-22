@@ -6,20 +6,13 @@
   &__text  {
     display:inline-block;
     margin-bottom: 5px;
+
     text-transform: uppercase;
+    
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
     color: #1F2041;
-  }
-
-  &  .button {
-    margin-right: 20px;
-    margin-bottom: 20px;
-  }
-
-  & .pagination .button {
-    margin: 0;
   }
 }

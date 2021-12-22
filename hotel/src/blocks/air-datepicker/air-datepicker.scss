@@ -181,3 +181,16 @@
 .air-datepicker-cell.-day-.-focus-.-selected-.-range-from-:after {
   background: transparent;
 }
+
+.small {
+  width: 264px;
+
+  .air-datepicker-body--day-names,
+  .air-datepicker-body--cells.-days- {
+    grid-template-columns: repeat(7, 1fr); 
+  }
+
+  .air-datepicker-body--cells.-days- {
+    grid-auto-rows: 36.5672px;
+  }
+}

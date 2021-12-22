@@ -1,10 +1,10 @@
-.content {
-  border-bottom: 1px solid #1F204140;
-}
+@import "./blocks/container/container.scss";
+
 
 .rooms__main {
   margin-bottom: 40px;
 }
+
 
 .rooms__footer {
   width: min-content;

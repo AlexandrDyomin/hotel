@@ -1,13 +1,13 @@
-import "./layouts/carcas/carcas.js";
+import "./layout/page.js";
+import "./index.scss";
 import "./blocks/search-card/search-card.js";
 import { bgChange } from "./common-modules/bgChande.js";
-import "../public/pages/landing-page/index.scss";
 
 let bgImages = [ 
-  require( "../public/pages/landing-page/landing-bg2-min.jpg"),
-  require( "../public/pages/landing-page/landing-bg3-min.jpg"), 
-  require( "../public/pages/landing-page/landing-bg1-min.jpg")
+  require( "./layout/bg-2-min.jpg"),
+  require( "./layout/bg-3-min.jpg"), 
+  require( "./layout/bg-1-min.jpg")
 ];
-let bgElement = document.querySelector('.content');
+let bgElement = document.querySelector('.page__content_bg-landing');
 
 bgChange(bgImages, bgElement, 3000);
