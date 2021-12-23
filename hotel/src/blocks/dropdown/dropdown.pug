@@ -54,9 +54,9 @@ mixin dropdown(options)
         .dropdown__container
           .dropdown__list.dropdown__list_closed 
             - settingsForCounters = [
-            -  { category: "Взрослые", number: (guests) ? guests.adults : "0" },
-            -  { category: "Дети", number: (guests) ? guests.children : "0" },
-            -  { category: "Младенцы", number: (guests) ? guests.babies : "0" }
+            -  { category: "Взрослые", number: (guests) ? guests.adults : "" },
+            -  { category: "Дети", number: (guests) ? guests.children : "" },
+            -  { category: "Младенцы", number: (guests) ? guests.babies : "" }
             - ]
 
             each item in settingsForCounters
@@ -74,9 +74,9 @@ mixin dropdown(options)
         
         .dropdown__hidden-fields
           - settingsForHiddenTextFields = [ 
-          -  { type: "text", name: "number-adults", value: (guests) ? guests.adults : "0" }, 
-          -  { type: "text", name: "number-children", value: (guests) ? guests.children : "0" }, 
-          -  { type: "text", name: "number-babies", value: (guests) ? guests.babies : "0" } 
+          -  { type: "text", name: "number-adults", value: (guests) ? guests.adults : "" }, 
+          -  { type: "text", name: "number-children", value: (guests) ? guests.children : "" }, 
+          -  { type: "text", name: "number-babies", value: (guests) ? guests.babies : "" } 
           - ] 
           each item in settingsForHiddenTextFields
             +text-field( item )

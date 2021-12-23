@@ -15,3 +15,29 @@ let settings = { ... defaultSettings };
 settings.container = ".search-card__date-dropdown";
 settings.onHide = makeHandlerOnHide(settings.container);
 new AirDatepicker( '#search-card', settings );
+
+
+let $card = document.querySelector(".search-card");
+$card.addEventListener("submit", handleCardSubmit);
+
+function handleCardSubmit(e) {
+  e.preventDefault();
+  let $card = e.currentTarget;
+  let textFields = $card.querySelectorAll(".text-field");
+  console.log(textFields)
+  let isValid = false;
+
+  for (let i = 0; i < textFields.length; i++) {
+    if (textFields[i].value === "") {
+      isValid = false;
+      return;
+    }
+
+    isValid = true;
+  }
+
+  if (isValid) {
+    let $link = $card.querySelector(".button")
+    $link.click();  
+  };
+}

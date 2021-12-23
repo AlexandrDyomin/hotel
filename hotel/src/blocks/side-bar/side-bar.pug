@@ -10,13 +10,22 @@ aside.side-bar
       label.label 
         span.label__text даты пребывания в отеле
         +filter-date-dropdown({
-          id: "filter-date-dropdown"
+          id: "filter-date-dropdown",
+          value: "19 Авг - 23 Авг"
         })
 
     .side-bar__form-element
       label.label 
         span.label__text гости
-        +dropdown( { type: "guests"} )
+        +dropdown({ 
+          type: "guests",
+          guests: {
+            adults: 3,
+            children: 1,
+            babies: 1,
+            inputValue: "5 гостей"
+          }
+        })
 
     .side-bar__form-element
       +range-slider
@@ -52,8 +61,9 @@ aside.side-bar
     .side-bar__form-element
       label.label 
         span.label__text удобства номера
-        +dropdown({
-          type: "rooms"
+        +dropdown({ 
+          type: "rooms", 
+          amenities: { bedrooms: "2", rooms: "2", inputValue: "2 комнаты, 2 кровати" } 
         })
 
     .side-bar__form-element

@@ -5,7 +5,7 @@ mixin button(options)
     tabindex="-1"
   )
     input.button-item(
-      type="button"
+      type=(options.type) ? options.type : "button"
       name=options.name 
       value=options.value || " "
       disabled=options.disabled
