@@ -1,3 +1,9 @@
+@mixin bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -7,22 +13,58 @@
 
 .page__content {
   flex: 1 0 auto;
-  background-size: cover !important;
-  transition: background-image 1s ease-in-out;
 
-  &_bg-landing {
-    background: url(bg-1-min.jpg) no-repeat center;
+  &_bg-landing {  
+    animation: landing 15s infinite alternate;
   }
 
   &_bg-sign-in {
-    background: url(bg-4-min.jpg) no-repeat center;
+    animation: signIn 10s infinite alternate;
   }
 
   &_bg-registration {
-    background: url(bg-5-min.jpg) no-repeat center;
+    animation: registration 10s infinite alternate;
   }
 
   &_with-border {
     border-bottom: 1px solid #1F204140;
+  }
+}
+
+
+@keyframes landing {
+  0%, 15%{
+    background: url(bg-1-min.jpg);
+    @include bg;
+  }
+  40%, 55% {
+    background: url(bg-2-min.jpg);
+    @include bg;
+  }
+  85%, 100% {
+    background: url(bg-3-min.jpg);
+    @include bg;
+  }
+}
+
+@keyframes signIn {
+  0%, 30%{
+    background: url(bg-4-min.jpg);
+    @include bg;
+  }
+  70%, 100% {
+    background: url(bg-1-min.jpg);
+    @include bg;
+  }
+}
+
+@keyframes registration {
+  0%, 30%{
+    background: url(bg-4-min.jpg);
+    @include bg;
+  }
+  70%, 100% {
+    background: url(bg-5-min.jpg);
+    @include bg;
   }
 }

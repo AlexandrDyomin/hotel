@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/index.pug public/ui-kit.pug --open",
+    "start": "parcel public/index.pug --open",
     "build": "parcel build public/index.pug public/ui-kit.pug --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "air-datepicker": "^3.0.1",
+    "node-gyp": "^8.4.1",
     "nouislider": "^15.5.0",
     "vanilla-js-carousel": "^3.1.2"
   },
