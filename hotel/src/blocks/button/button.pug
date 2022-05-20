@@ -1,7 +1,7 @@
 mixin button(options)
   a.button(
     href=(options.url) ? options.url : "javascript:void(0)"
-    area-label=`страница № ${ options.value }`
+    aria-label=`страница № ${ options.value }`
     tabindex="-1"
   )
     input.button-item(
