@@ -24,7 +24,6 @@ function handleCardSubmit(e) {
   e.preventDefault();
   let $card = e.currentTarget;
   let textFields = $card.querySelectorAll(".text-field");
-  console.log(textFields)
   let isValid = false;
 
   for (let i = 0; i < textFields.length; i++) {
@@ -36,8 +35,8 @@ function handleCardSubmit(e) {
     isValid = true;
   }
 
-  if (isValid) {
-    let $link = $card.querySelector(".button")
-    $link.click();  
+  if (isValid) { 
+    e.currentTarget.submit();
   };
+
 }

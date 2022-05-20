@@ -1,10 +1,12 @@
 .pagination {
   padding: 5px;
   width: max-content;
+  
 
   &__buttons {
     .button {
-      width: min-content;
+      line-height: 40px;
+      margin-right: 10px;
     }
   }
 

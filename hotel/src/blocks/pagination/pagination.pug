@@ -1,7 +1,7 @@
 include ../button/button.pug 
 
 mixin pagination( { numberOfPages, currentPage, info } )
-  .pagination(area-label="Блок пагинации")
+  .pagination
     .pagination__buttons 
       if currentPage >= 3 
         each i in [ 1, 2 ]
@@ -9,7 +9,7 @@ mixin pagination( { numberOfPages, currentPage, info } )
             type: "button",
             name: "page",
             value: ( i === 1) ? " " : 1,
-            modifiers: ( i === 1 ) ?  "button-item_with-arrow-back" : "button-item_round"
+            modifiers: ( i === 1 ) ?  "button_with-arrow-back" : "button_round"
           })
         span.pagination__ellipsis ...
 
@@ -33,7 +33,7 @@ mixin pagination( { numberOfPages, currentPage, info } )
           type: "button",
           name: "page",
           value: i,
-          modifiers: ( i === currentPage) ? [ "button-item_round", "button-item_active" ] : "button-item_round"
+          modifiers: ( i === currentPage) ? [ "button_round", "button_active" ] : "button_round"
         })
       
       if numberOfPages - currentPage > 3
@@ -43,7 +43,7 @@ mixin pagination( { numberOfPages, currentPage, info } )
             type: "button",
             name: "page",
             value: ( i === 1) ? numberOfPages : " ",
-            modifiers: ( i === 1 ) ? "button-item_round" : "button-item_with-arrow-forward"
+            modifiers: ( i === 1 ) ? "button_round" : "button_with-arrow-forward"
           })
  
     span.pagination__info=info

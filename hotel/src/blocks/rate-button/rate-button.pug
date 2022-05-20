@@ -3,7 +3,7 @@ include ../star/star.pug
 mixin rate-button(options)
   .rate-button(
     data-rating=options.rating 
-    area-label="рейтинг номера "+ options.rating)
+  )
     - for ( let i = 1; i <= options.scale; i++ ) {
       +star({
         name: options.name,

@@ -7,7 +7,7 @@ include ../../blocks/checkbox-button/checkbox-button.pug
 aside.side-bar 
   form.side-bar__form
     .side-bar__form-element
-      label.label 
+      div.label 
         span.label__text даты пребывания в отеле
         +filter-date-dropdown({
           id: "filter-date-dropdown",
@@ -15,7 +15,7 @@ aside.side-bar
         })
 
     .side-bar__form-element
-      label.label 
+      div.label 
         span.label__text гости
         +dropdown({ 
           type: "guests",
@@ -32,7 +32,7 @@ aside.side-bar
       small Стоимость за сутки пребывания в номере
         
     .side-bar__form-element
-      label.label 
+      div.label 
         span.label__text правила дома
         +checkbox-button({
             text: "Можно курить"
@@ -47,7 +47,7 @@ aside.side-bar
         })
 
     .side-bar__form-element
-      label.label 
+      div.label 
         span.label__text доступность
         +checkbox-button({
           title: "Широкий коридор",
@@ -59,7 +59,7 @@ aside.side-bar
         })
 
     .side-bar__form-element
-      label.label 
+      div.label 
         span.label__text удобства номера
         +dropdown({ 
           type: "rooms", 

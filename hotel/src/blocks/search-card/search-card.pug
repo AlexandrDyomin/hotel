@@ -3,25 +3,23 @@ include ../dropdown/dropdown.pug
 include ../button/button.pug
 
 mixin search-card 
-  form.search-card
+  form.search-card(action="search-room.html")
     h1.search-card__title Найдём номера под ваши пожелания
     +date-dropdown( { 
-      class: "search-card__date-dropdown",
-      id: "search-card", 
+      class: "search-card__date-dropdown", 
       label1: "прибытие", 
       label2: "выезд" 
     })
 
-    label.label
+    label.label(for="dropdown")
       span.label__text гости
-      +dropdown({ 
-        type: "guests"                
-      })
+    +dropdown({ 
+      type: "guests" ,
+      id: "dropdown"               
+    })
 
     +button({
-      url: "search-room.pug",
       type: "submit",
-      name: "button",
       value: "Подобрать номер",
-      modifiers: ["button-item_large"]
+      modifiers: ["button_large"]
     })

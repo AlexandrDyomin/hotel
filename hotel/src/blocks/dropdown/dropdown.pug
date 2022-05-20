@@ -16,7 +16,8 @@ mixin dropdown(options)
           theme: "dropdown",
           readonly: true,
           tabIndex: "-1",
-          value: (amenities) ? amenities.inputValue : ""
+          value: (amenities) ? amenities.inputValue : "",
+          id: options.id
         })
 
         .dropdown__container
@@ -48,7 +49,8 @@ mixin dropdown(options)
           theme: "dropdown",
           readonly: true,
           tabIndex: "-1",
-          value: (guests) ? guests.inputValue : ""
+          value: (guests) ? guests.inputValue : "",
+          id: options.id
         })
 
         .dropdown__container

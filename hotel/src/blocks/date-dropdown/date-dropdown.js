@@ -71,7 +71,7 @@ settings.onHide = makeHandlerOnHide(settings.container);
 
 settings.dateFormat = "dd.MM.yyyy";
 
-new AirDatepicker( '#date-dropdown', settings );
+new AirDatepicker( '#to', settings );
 
 // показывает календарь
 const handleDateDropdownFocus = ( e ) => {

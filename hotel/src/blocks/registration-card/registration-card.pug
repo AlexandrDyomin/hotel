@@ -40,7 +40,7 @@ mixin registration-card
         mask: "date"
       })
 
-    label.label 
+    div.label 
       span.label__text данные для входа в сервис
       +text-field({
       type: "email",
@@ -63,15 +63,15 @@ mixin registration-card
       type: "submit",
       name: "pay",
       value: "Зарегистрироваться",
-      modifiers: ["button-item_large"]
+      modifiers: ["button_large"]
     })
 
     .registration-card__bottom
       span.registration-card__question Уже есть аккаунт на Toxin
       +button({
         url: "sign-in.pug",
-        type: "button",
+        type: "link",
         name: "login",
         value: "войти",
-        modifiers: "button-item_with-border"
+        modifiers: "button_with-border"
       })

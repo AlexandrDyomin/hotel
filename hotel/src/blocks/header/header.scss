@@ -16,8 +16,9 @@
 
   position: relative;
 
-  & .button-item {
+  & .button{
     height: 34px;
+    line-height: 34px;
     
     @media (max-width: 530px) {
       display: none;

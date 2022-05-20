@@ -8,7 +8,11 @@ import "../text-field/text-field.js";
 let settings = { ...defaultSettings };
 settings.container = ".filter-date-dropdown";
 
-new AirDatepicker( '#filter-date-dropdown', settings );
 
-let $dp = document.querySelector(".air-datepicker");
-$dp.classList.add("small");
+settings.onShow = () => {
+	let $dp = document.querySelector(".air-datepicker");
+	$dp.classList.add("small");
+	
+}
+
+new AirDatepicker( '#filter-date-dropdown', settings );

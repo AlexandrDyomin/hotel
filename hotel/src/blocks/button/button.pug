@@ -1,11 +1,16 @@
 mixin button(options)
-  a.button(
-    href=(options.url) ? options.url : "javascript:void(0)"
-    aria-label=`страница № ${ options.value }`
-    tabindex="-1"
-  )
-    input.button-item(
-      type=(options.type) ? options.type : "button"
+
+  if options.type === "link"
+    a.button(
+      href=(options.url) ? options.url : "javascript:void(0)"
+      aria-label=`страница № ${ options.value }`
+      tabindex="-1"
+      class=options.modifiers
+    )= value=options.value
+
+  else
+    input.button(
+      type=options.type
       name=options.name 
       value=options.value || " "
       disabled=options.disabled

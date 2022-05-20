@@ -17,14 +17,14 @@ mixin header( { user } = {} )
           .header__item
             +button({
             url: "sign-in.pug",
-            type: "button",
+            type: "link",
             value: "войти",
             modifiers: "button-item_with-border"
           })
           .header__item
             +button({
               url: "registration.pug",
-              type: "button",
+              type: "link",
               value: "Зарегистрироваться"
           })
 

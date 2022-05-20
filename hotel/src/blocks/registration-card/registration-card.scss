@@ -33,7 +33,7 @@
     margin-bottom: 20px;
   }
 
-  & .button-item[name=pay] {
+  & .button[name=pay] {
     margin-bottom: 30px;
   }
 
@@ -45,6 +45,7 @@
 
   &__bottom > .button {
     width: 99px;
+    line-height: 42px;
   }
 
   &__question {

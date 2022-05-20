@@ -14,6 +14,8 @@ addHandler(
   handleFilterButtonClick
 );
 
+
+  
 function handleFilterButtonClick( e ) {
   let $sideBar = document.querySelector( ".side-bar" );
   $sideBar.classList.toggle( "side-bar_active" );

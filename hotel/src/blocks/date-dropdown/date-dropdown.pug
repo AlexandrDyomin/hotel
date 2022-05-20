@@ -9,17 +9,18 @@ mixin date-dropdown(options)
   -   name: "date-to",
   -   modifiers: [ "text-field_with-bg", "text-field_cursor_pointer" ],
   -   placeholder: "ДД.MM.ГГ",
-  -   value: departureDate
+  -   value: departureDate,
+  -   id: "from"
   - }
   - let inputRight = { ... inputLeft }
   - inputRight.name = "date-from"
-  - inputRight.id = options.id
+  - inputRight.id = "to"
   - inputRight.value = arrivalDate
 
-  label.date-dropdown(class=options.class)
+  div.date-dropdown(class=options.class)
     .date-dropdown__wrap
-      .date-dropdown__item=options.label1 
-      .date-dropdown__item=options.label2
+      label.date-dropdown__item(for="to")=options.label1 
+      label.date-dropdown__item(for="from")=options.label2
     .date-dropdown__wrap
       +text-field(inputRight)
       +text-field(inputLeft)

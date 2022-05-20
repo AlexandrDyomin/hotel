@@ -23,7 +23,7 @@ mixin booking-card(options)
       dates: options.dates 
     })
 
-    label.label 
+    div.label 
       span.label__text гости
       +dropdown({ type: "guests", guests: guests, value: inputValue  })
  
@@ -65,5 +65,5 @@ mixin booking-card(options)
       type: "submit",
       name: "button",
       value: "забронировать",
-      modifiers: ["button-item_large"]
+      modifiers: ["button_large"]
     })
