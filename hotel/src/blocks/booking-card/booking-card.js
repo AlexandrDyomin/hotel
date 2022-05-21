@@ -4,7 +4,6 @@ import "./booking-card.scss";
 import "../dropdown/dropdown.js";
 import "../label/label.scss";
 import "../air-datepicker/air-datepicker.scss";
-import "../basicInfoAboutRoom/basicInfoAboutRoom.js";
 import { 
   settings as defaultSettings, 
   makeHandlerOnHide 
@@ -46,6 +45,8 @@ const recalculatePrice = () => {
 let settings = { ... defaultSettings };
 settings.container = ".booking-card__date-dropdown";
 settings.onHide = makeHandlerOnHide( settings.container );
+
+
 let dp = new AirDatepicker( '#booking-card', settings );
 
 let $container = document.querySelector( settings.container );
@@ -54,7 +55,7 @@ let dateFrom = new Date( getISODate( $textFields[0].value ) );
 let dateTo = new Date( getISODate( $textFields[1].value ) );
 
 // выбираем даты из текстовых полей 
-dp.selectDate( [ dateFrom, dateTo ] );
+// dp.selectDate( [ dateFrom, dateTo ] );
 let numberDays = ( dateTo.getTime() - dateFrom.getTime() ) / ( 24 * 3600 * 1000);
 let $bookingCard = findParent( $container, "booking-card" )
 let $numberDays = $bookingCard.querySelector( ".booking-card__number-of-days" );
@@ -93,7 +94,9 @@ let $total = $bookingCard.querySelector(
 );
 $total.innerText = getFormattedPrice( total.toString() );
 
-const handleDatePickerBtnApplyClick = () => {
+
+
+function handleDatePickerBtnApplyClick() {
   numberDays = ( dp.selectedDates[1].getTime() - dp.selectedDates[0].getTime() ) / ( 24 * 3600 * 1000);
   $numberDays.innerText = numberDays + getLastWord( numberDays );
   
@@ -102,7 +105,9 @@ const handleDatePickerBtnApplyClick = () => {
 
 let pricePerPerson = pricePerDay / getNumberGuests();
 
-const handleDropdownBtnApplyClick = () => {
+
+
+function handleDropdownBtnApplyClick() {
   if ( dp.selectedDates.length !== 2 ) return;
   
   let numberGuests = getNumberGuests();
@@ -115,14 +120,15 @@ const handleDropdownBtnApplyClick = () => {
   $bookingCard.querySelector( 
     ".booking-card__formula > .booking-card__price"
   ).innerText = pricePerDay;
-
   recalculatePrice();
 }
 
-addHandler(
-  [ $bookingCard.querySelector(".air-datepicker-buttons").lastElementChild ],
-  handleDatePickerBtnApplyClick
-);
+
+
+// addHandler(
+//   [ $bookingCard.querySelector(".air-datepicker-buttons").lastElementChild ],
+//   handleDatePickerBtnApplyClick
+// );
 
 addHandler(
   [ $bookingCard.querySelector(".dropdown__button-apply") ],
