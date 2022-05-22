@@ -4,6 +4,8 @@
   
 
   &__buttons {
+    display: flex;
+    align-items: center;
     .button {
       line-height: 40px;
       margin-right: 10px;
