@@ -1,1 +1,0 @@
-import "./convenience.scss";
