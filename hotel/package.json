@@ -5,7 +5,7 @@
   "browserslist": "> 0.5%, last 4 versions, IE 11",
   "scripts": {
     "start": "parcel public/index.pug public/search-room.pug --open",
-    "build": "parcel build public/index.pug public/search-room.pug --public-url ./ --no-source-maps"
+    "build": "parcel build public/index.pug public/search-room.pug public/ui-kit.pug --public-url ./ --no-source-maps"
   },
   "keywords": [],
   "author": "Alexandr Dyomin",
