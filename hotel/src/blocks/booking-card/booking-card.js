@@ -4,11 +4,10 @@ import "./booking-card.scss";
 import "../dropdown/dropdown.js";
 import "../label/label.scss";
 import "../air-datepicker/air-datepicker.scss";
-import { 
-  settings as defaultSettings, 
-  makeHandlerOnHide 
-} from "../date-dropdown/date-dropdown.js";
-import { findParent } from "../../common-modules/scan";
+import { toggleState, changeAppearance, clearTextFields } from '../counter/counter';
+import { toggleButtonStateApply } from '../air-datepicker/air-datepicker.js';
+import {writeDate} from "../date-dropdown/date-dropdown.js";
+import { findParent, findChildren, findChild } from "../../common-modules/scan";
 import addHandler from "../../common-modules/addHandler";
 
 
@@ -42,20 +41,71 @@ const recalculatePrice = () => {
   $total.innerText = getFormattedPrice( total.toString() );
 }
 
-let settings = { ... defaultSettings };
-settings.container = ".booking-card__date-dropdown";
-settings.onHide = makeHandlerOnHide( settings.container );
+
+let settings = {
+  container: ".booking-card__date-dropdown",
+  dateFormat: "dd.MM.yyyy",
+  view: 'days',
+  range: true,
+  dynamicRange: true,
+  multipleDates: 2,
+  multipleDatesSeparator: ' - ',
+  minDate: new Date(),
+  navTitles: {
+    days: '<strong>MMMM yyyy</strong>', 
+  },
+  buttons: [
+    {
+      content: "Очистить",
+      onClick( dp ) {
+        let dateDropdown = findParent( dp.$datepicker, "date-dropdown" );
+        let textFields = findChildren(dateDropdown, "text-field");
+        clearTextFields(textFields);
+        dp.clear();
+      }
+    }, {
+      content(dp) {
+        let $dp = dp.$datepicker;
+        setTimeout(() => {
+          let buttonApply = findChildren( $dp, "air-datepicker-button" )[1];
+          if ( !dp.selectedDates.length ) toggleState( buttonApply ); 
+          buttonApply.type="button";
+          buttonApply.previousElementSibling.type = "button"; 
+        });
+
+        return "Применить";
+      },
+      onClick(dp) {
+        if (dp.selectedDates.length === 2) {
+          handleDatePickerBtnApplyClick()
+          dp.hide();
+        }
+      }
+    }
+  ],
+  onSelect( { datepicker, formattedDate } ) {
+    toggleButtonStateApply( datepicker );
+    writeDate( datepicker, formattedDate );
+  },
+  onHide( isFinished ) {
+    if ( !isFinished ) {
+      let parent = document.querySelector( settings.container );
+      let textField = findChild(
+        parent, 
+        "text-field"
+      ).nextElementSibling;
+      changeAppearance( textField, "text-field_active" ); 
+    }
+  } 
+};
 
 
-let dp = new AirDatepicker( '#booking-card', settings );
-
+let dp = new AirDatepicker( '#to', settings );
 let $container = document.querySelector( settings.container );
 let $textFields = $container.querySelectorAll( ".text-field" );
 let dateFrom = new Date( getISODate( $textFields[0].value ) );
 let dateTo = new Date( getISODate( $textFields[1].value ) );
 
-// выбираем даты из текстовых полей 
-// dp.selectDate( [ dateFrom, dateTo ] );
 let numberDays = ( dateTo.getTime() - dateFrom.getTime() ) / ( 24 * 3600 * 1000);
 let $bookingCard = findParent( $container, "booking-card" )
 let $numberDays = $bookingCard.querySelector( ".booking-card__number-of-days" );
@@ -122,13 +172,6 @@ function handleDropdownBtnApplyClick() {
   ).innerText = pricePerDay;
   recalculatePrice();
 }
-
-
-
-// addHandler(
-//   [ $bookingCard.querySelector(".air-datepicker-buttons").lastElementChild ],
-//   handleDatePickerBtnApplyClick
-// );
 
 addHandler(
   [ $bookingCard.querySelector(".dropdown__button-apply") ],

@@ -9,7 +9,7 @@ import { defaultSettings, toggleButtonStateApply } from '../air-datepicker/air-d
 import "../text-field/text-field.js";
 
 // заполняет текстовые поля выбранными датами
-const writeDate = ( datepicker, formattedDate ) => {  
+export const writeDate = ( datepicker, formattedDate ) => {  
   let dateDropdown = findParent( datepicker.$datepicker, "date-dropdown" );
   let textFields = findChildren(dateDropdown, "text-field");
 

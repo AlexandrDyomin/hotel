@@ -2,7 +2,7 @@
   "name": "hotel",
   "version": "1.0.0",
   "description": "",
-  "browserslist": "> 0.5%, last 4 versions, not dead",
+  "browserslist": "> 0.5%, last 4 versions, IE 11",
   "scripts": {
     "start": "parcel public/index.pug public/search-room.pug --open",
     "build": "parcel build public/index.pug public/search-room.pug --public-url ./ --no-source-maps"
@@ -16,8 +16,10 @@
     "vanilla-js-carousel": "^3.1.2"
   },
   "devDependencies": {
+    "@parcel/transformer-postcss": "^2.5.0",
     "@parcel/transformer-pug": "^2.5.0",
     "@parcel/transformer-sass": "^2.5.0",
-    "parcel": "^2.5.0"
+    "parcel": "^2.5.0",
+    "sharp": "^0.29.3"
   }
 }
